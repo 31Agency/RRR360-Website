@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html translate="no">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> RRR360 </title>
+    <link rel="icon" type="image/x-icon" href="../Requirements/IMG/ddddddd.png">
+    <meta property="og:title" content="RRR360">
+    <meta property="og:image" content="../Requirements/IMG/WebsiteThumb.jpg">
+    <meta name="description" content="ffffffffffff">
+    <meta name="keywords" content="ffffffffffffff">
+    <meta name="google" content="notranslate">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="../Requirements/CSS/bootstrap.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Requirements/CSS/slick.css">
+    <link rel="stylesheet" href="../Requirements/CSS/animate.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Requirements/CSS/style.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="HeaderInner">
+            <div class="HeaderLogo">
+                <img src="../Requirements/IMG/Logo.png">
+            </div>
+
+            <div class="HeaderTabs">
+                <ul>
+                    <li onclick="$(this).find('a')[0].click()">
+                        Home
+                    </li>
+                    <li onclick="$(this).find('a')[0].click()">
+                        Properties
+                        <i class="fa fa-angle-down"></i>
+                        <ul class="SubTaB animate__animated animate__fadeInDown">
+                            <li> Villas</li>
+                            <li> Apartments</li>
+                            <li> Lands</li>
+                            <li> Offices</li>
+                        </ul>
+                    </li>
+                    <li onclick="$(this).find('a')[0].click()">
+                        About
+                    </li>
+                    <li onclick="$(this).find('a')[0].click()">
+                        Contact
+                    </li>
+                </ul>
+                <div class="HeaderBtns">
+                    <button type="button">
+                        <i class="fab fa-whatsapp"></i>
+                        Let's Chat
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="Banner">
+        <div class="BannerSlider">
+            <div class="BannerSliderItem">
+                <img class="setsrc"
+                     rel="https://blog.milesbrand.com/hubfs/LuxuryRealEstateBranding.jpg">
+                <div class="container">
+                    <div class="BannerSliderItemDiv animate__animated animate__fadeInUp">
+                        <h1 class="animate__animated animate__fadeInDown animate__delay-1s"> Slide Title Here </h1>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been
+                            the industry's standard dummy text ever since.
+                        </p>
+                        <button type="button" onclick="$(this).find('a')[0].click()">
+                            Discover
+                            <div class="setbg" rel="../Requirements/IMG/Discover.png"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="BannerSliderItem">
+                <img class="setsrc"
+                     rel="https://cdn.confident-group.com/wp-content/uploads/2024/12/27103036/types-of-real-estate-overview-scaled.jpg">
+                <div class="container">
+                    <div class="BannerSliderItemDiv animate__animated animate__fadeInUp">
+                        <h1 class="animate__animated animate__fadeInDown animate__delay-1s"> Slide Title Here </h1>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been
+                            the industry's standard dummy text ever since.
+                        </p>
+                        <button type="button" onclick="$(this).find('a')[0].click()">
+                            Discover
+                            <div class="setbg" rel="../Requirements/IMG/Discover.png"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="BannerSliderItem">
+                <img class="setsrc"
+                     rel="https://www.fortunebuilders.com/wp-content/uploads/2015/07/benefits-of-real-estate.jpg">
+                <div class="container">
+                    <div class="BannerSliderItemDiv animate__animated animate__fadeInUp">
+                        <h1 class="animate__animated animate__fadeInDown animate__delay-1s"> Slide Title Here </h1>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been
+                            the industry's standard dummy text ever since.
+                        </p>
+                        <button type="button" onclick="$(this).find('a')[0].click()">
+                            Discover
+                            <div class="setbg" rel="../Requirements/IMG/Discover.png"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="BannerArrows">
+            <button type="button" onclick="$('.BannerSlider .slick-prev')[0].click()">
+                <div class="setbg" rel="../Requirements/IMG/Arrow.png"></div>
+            </button>
+            <button type="button" onclick="$('.BannerSlider .slick-next')[0].click()">
+                <div class="setbg" rel="../Requirements/IMG/Arrow.png"></div>
+            </button>
+        </div>
+    </section>
+
+    <section class="Properties">
+        <div class="container">
+            <div class="PropertiesFilter">
+                <button class="ActivePropertiesFilter" type="button" onclick="ChooseThisFiltration($(this))" rel=".ddd">
+                    Random
+                </button>
+                <button type="button" onclick="ChooseThisFiltration($(this))" rel=".ddd">
+                    Villas
+                </button>
+                <button type="button" onclick="ChooseThisFiltration($(this))" rel=".ddd">
+                    Apartments
+                </button>
+                <button type="button" onclick="ChooseThisFiltration($(this))" rel=".ddd">
+                    Lands
+                </button>
+                <button type="button" onclick="ChooseThisFiltration($(this))" rel=".ddd">
+                    Offices
+                </button>
+            </div>
+
+
+            <div class="PropertiesGH">
+                <!-- Card 1 -->
+                <div class="PropertyItem" onclick="$(this).find('a')[0].click()">
+                    <h6>
+                        <div class="setbg" rel="../Requirements/IMG/IMGs.png"></div>
+                        6
+                    </h6>
+                    <a href="#" class="d-none"></a>
+                    <img class="setsrc PropertyItemThumb"
+                         src="https://blog.milesbrand.com/hubfs/LuxuryRealEstateBranding.jpg">
+                    <div class="PropertyItemDetails">
+                        <h4>Luxury Apartment – Abdoun</h4>
+                        <label><i class="fa fa-map-marker-alt"></i> Jordan - Amman</label>
+                        <h5><u>3 Beds</u> <u>2 Baths</u> <u>180 m²</u></h5>
+                        <button type="button">
+                            Explore
+                            <div class="setbg" rel="../Requirements/IMG/Discover.png"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="PropertyItem" onclick="$(this).find('a')[0].click()">
+                    <h6>
+                        <div class="setbg" rel="../Requirements/IMG/IMGs.png"></div>
+                        12
+                    </h6>
+                    <a href="#" class="d-none"></a>
+                    <img class="setsrc PropertyItemThumb"
+                         src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80">
+                    <div class="PropertyItemDetails">
+                        <h4>Urban Flat – Downtown Amman</h4>
+                        <label><i class="fa fa-map-marker-alt"></i> Jordan - Amman</label>
+                        <h5><u>2 Beds</u> <u>1 Bath</u> <u>120 m²</u></h5>
+                        <button type="button">
+                            Explore
+                            <div class="setbg" rel="../Requirements/IMG/Discover.png"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="PropertyItem" onclick="$(this).find('a')[0].click()">
+                    <h6>
+                        <div class="setbg" rel="../Requirements/IMG/IMGs.png"></div>
+                        5
+                    </h6>
+                    <a href="#" class="d-none"></a>
+                    <img class="setsrc PropertyItemThumb"
+                         src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80">
+                    <div class="PropertyItemDetails">
+                        <h4>Skyline Apartment – Abdali</h4>
+                        <label><i class="fa fa-map-marker-alt"></i> Jordan - Amman</label>
+                        <h5><u>4 Beds</u> <u>3 Baths</u> <u>250 m²</u></h5>
+                        <button type="button">
+                            Explore
+                            <div class="setbg" rel="../Requirements/IMG/Discover.png"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="PropertyItem" onclick="$(this).find('a')[0].click()">
+                    <h6>
+                        <div class="setbg" rel="../Requirements/IMG/IMGs.png"></div>
+                        6
+                    </h6>
+                    <a href="#" class="d-none"></a>
+                    <img class="setsrc PropertyItemThumb"
+                         src="https://cdn.confident-group.com/wp-content/uploads/2024/12/27103036/types-of-real-estate-overview-scaled.jpg">
+                    <div class="PropertyItemDetails">
+                        <h4>Modern Villa – Dabouq</h4>
+                        <label><i class="fa fa-map-marker-alt"></i> Jordan - Amman</label>
+                        <h5><u>5 Beds</u> <u>4 Baths</u> <u>400 m²</u></h5>
+                        <button type="button">
+                            Explore
+                            <div class="setbg" rel="../Requirements/IMG/Discover.png"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="PropertyItem" onclick="$(this).find('a')[0].click()">
+                    <h6>
+                        <div class="setbg" rel="../Requirements/IMG/IMGs.png"></div>
+                        6
+                    </h6>
+                    <a href="#" class="d-none"></a>
+                    <img class="setsrc PropertyItemThumb"
+                         src="https://www.fortunebuilders.com/wp-content/uploads/2015/07/benefits-of-real-estate.jpg">
+                    <div class="PropertyItemDetails">
+                        <h4>Luxury Villa – Jabal Amman</h4>
+                        <label><i class="fa fa-map-marker-alt"></i> Jordan - Amman</label>
+                        <h5><u>6 Beds</u> <u>5 Baths</u> <u>550 m²</u></h5>
+                        <button type="button">
+                            Explore
+                            <div class="setbg" rel="../Requirements/IMG/Discover.png"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="PropertyItem" onclick="$(this).find('a')[0].click()">
+                    <h6>
+                        <div class="setbg" rel="../Requirements/IMG/IMGs.png"></div>
+                        10
+                    </h6>
+                    <a href="#" class="d-none"></a>
+                    <img class="setsrc PropertyItemThumb"
+                         src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/387559298.jpg?hp=1&k=5941a924642d4d551dae353e9dbd92ac58afd376978aacc468d2ab442ed5837e&o=">
+                    <div class="PropertyItemDetails">
+                        <h4>Elegant Apartment – Sweileh</h4>
+                        <label><i class="fa fa-map-marker-alt"></i> Jordan - Amman</label>
+                        <h5><u>3 Beds</u> <u>2 Baths</u> <u>200 m²</u></h5>
+                        <button type="button">
+                            Explore
+                            <div class="setbg" rel="../Requirements/IMG/Discover.png"></div>
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <button type="button" class="MorePropertiesBtn">
+                More Properties
+                <i class="fa fa-angle-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <section class="About">
+        <div class="container">
+            <div class="AboutInner">
+                <div class="AboutDiv">
+                    <h1>
+                        About
+                        <u>
+                            <div class="setbg" rel="../Requirements/IMG/AboutBG.png"></div>
+                            RRR 360
+                        </u>
+                    </h1>
+                    <label>REAL ESTATE</label>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                        but also the leap into electronic typesetting, remaining essentially unchanged.
+                    </p>
+                    <button type="button">
+                        Read More
+                        <div class="setbg" rel="../Requirements/IMG/Discover.png"></div>
+                    </button>
+                </div>
+                <div class="AboutArt" onclick="PlayVid($(this))">
+                    <a href="#" class="d-none VidSrc"></a>
+                    <i class="fa fa-play animate__animated animate__zoomIn"></i>
+                    <img class="setsrc" rel="../Requirements/IMG/AboutCEO.png">
+                </div>
+                <div class="AboutBGParent">
+                    <div class="setbg AboutBG" rel="../Requirements/IMG/AboutBG.png"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="FAQ">
+        <div class="FAQHeader">
+            <h1>Frequently Asked Questions</h1>
+            <p>
+                Here are some of the most common questions our clients ask us.
+            </p>
+        </div>
+
+        <!-- FAQ 1 -->
+        <div class="FAQItem" onclick="ExpandFAQ($(this))">
+            <div class="container">
+                <div class="FAQItemInner">
+                    <h1>What services does RRR 360 Real Estate provide?</h1>
+                    <p class="animate__animated animate__fadeInDown">
+                        We offer property sales, rentals, property management, investment consulting, and real estate
+                        marketing services across Jordan.
+                    </p>
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="FAQItem" onclick="ExpandFAQ($(this))">
+            <div class="container">
+                <div class="FAQItemInner">
+                    <h1>How can I list my property on the website?</h1>
+                    <p class="animate__animated animate__fadeInDown">
+                        Simply contact our team, provide property details, images, and documents. We will create and
+                        publish your listing on the platform.
+                    </p>
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="FAQItem" onclick="ExpandFAQ($(this))">
+            <div class="container">
+                <div class="FAQItemInner">
+                    <h1>Do you handle both sales and rentals?</h1>
+                    <p class="animate__animated animate__fadeInDown">
+                        Yes, we manage properties for both selling and renting, including residential, commercial,
+                        lands, and office spaces.
+                    </p>
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="FAQItem" onclick="ExpandFAQ($(this))">
+            <div class="container">
+                <div class="FAQItemInner">
+                    <h1>Is there a fee for buyers or tenants?</h1>
+                    <p class="animate__animated animate__fadeInDown">
+                        Our commission structure varies depending on the property type. Buyers and tenants usually pay a
+                        small percentage or fixed fee after the deal is confirmed.
+                    </p>
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="FAQItem" onclick="ExpandFAQ($(this))">
+            <div class="container">
+                <div class="FAQItemInner">
+                    <h1>Can I request a property that is not listed?</h1>
+                    <p class="animate__animated animate__fadeInDown">
+                        Absolutely! Share your requirements with us, and our team will find matching properties through
+                        our extended real estate network.
+                    </p>
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="FAQItem" onclick="ExpandFAQ($(this))">
+            <div class="container">
+                <div class="FAQItemInner">
+                    <h1>How do I schedule a property visit?</h1>
+                    <p class="animate__animated animate__fadeInDown">
+                        You can book a visit directly through the property page or by contacting our agents. We will
+                        arrange a suitable time for you to view the property.
+                    </p>
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="Gallery">
+        <div class="GalleryItem" onclick="PreviewThisImage($(this))">
+            <a href="#" class="d-none"></a>
+            <div class="setbg"
+                 rel="https://chiedesign.in/wp-content/uploads/2022/05/Luxury-Interior-Design-Living-Room-1080x675.jpg"></div>
+        </div>
+        <div class="GalleryItem" onclick="PreviewThisImage($(this))">
+            <a href="#" class="d-none"></a>
+            <div class="setbg" rel="https://www.nawy.com/blog/wp-content/uploads/2022/07/interior-design.jpg"></div>
+        </div>
+        <div class="GalleryItem" onclick="PreviewThisImage($(this))">
+            <a href="#" class="d-none"></a>
+            <div class="setbg" rel="https://www.wedezinestudio.com/blogs/wp-content/uploads/2024/06/FOYER-1.webp"></div>
+        </div>
+        <div class="GalleryItem" onclick="PreviewThisImage($(this))">
+            <a href="#" class="d-none"></a>
+            <div class="setbg" rel="https://cdn.home-designing.com/wp-content/uploads/2022/03/modern-sofa.jpg"></div>
+        </div>
+        <div class="GalleryItem" onclick="PreviewThisImage($(this))">
+            <a href="#" class="d-none"></a>
+            <div class="setbg"
+                 rel="https://www.decorilla.com/online-decorating/wp-content/uploads/2023/12/Modern-interior-design-ideas-2025-by-Decorilla-scaled.jpeg"></div>
+        </div>
+        <div class="GalleryItem" onclick="PreviewThisImage($(this))">
+            <a href="#" class="d-none"></a>
+            <div class="setbg"
+                 rel="https://images2.minutemediacdn.com/image/upload/c_fill,w_1440,ar_1440:810,f_auto,q_auto,g_auto/shape/cover/sport/istock-498015683-f73dd7466de875ab56ea505c35da4467.jpg"></div>
+        </div>
+        <div class="GalleryItem" onclick="PreviewThisImage($(this))">
+            <a href="#" class="d-none"></a>
+            <div class="setbg"
+                 rel="https://leisurepoolscanada.ca/wp-content/uploads/2020/06/best-type-of-swimming-pool-for-my-home_2.jpg"></div>
+        </div>
+        <div class="GalleryItem" onclick="PreviewThisImage($(this))">
+            <a href="#" class="d-none"></a>
+            <div class="setbg"
+                 rel="https://hips.hearstapps.com/hmg-prod/images/bcacfded-198f-4492-899c-da0e4457a247.jpg?crop=1xw:1xh;center,top&resize=980:*"></div>
+        </div>
+        <div class="GalleryItem" onclick="PreviewThisImage($(this))">
+            <a href="#" class="d-none"></a>
+            <div class="setbg"
+                 rel="https://images.signaturehardware.com/i/signaturehdwr/summer23-powder-room-hero"></div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <section class="SubFooter">
+        <div class="container">
+            <div class="SubFooterInner">
+                <form action="#" method="POST">
+                    <h2>Subscribe / Contact Us</h2>
+
+                    <input type="text" id="name" name="name" placeholder="Full Name" required>
+
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+
+                    <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" required>
+
+                    <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5691.788863387701!2d35.92379192638206!3d31.97831184062807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151b6074ed35dc87%3A0x60064924649cf76f!2sPrince%20Hamza%20Hospital!5e0!3m2!1sen!2sjo!4v1756119951494!5m2!1sen!2sjo"
+                        style="border:0;pointer-events: none" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-12">
+                <div class="FooterSection">
+                    <h3> Our Mission & Values </h3>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <div class="FooterSection">
+                    <h3> Contact </h3>
+                    <label>
+                        <i class="fa fa-phone"></i>
+                        962789890264
+                    </label>
+                    <label>
+                        <i class="fa fa-envelope"></i>
+                        info@RRR.com
+                    </label>
+                    <label>
+                        <i class="fa fa-map-marked-alt"></i>
+                        Amman - Dabouq Jordan St.
+                    </label>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <div class="FooterSection">
+                    <h3> Quick Links </h3>
+                    <ul>
+                        <li> Home </li>
+                        <li> About </li>
+                        <li> Properties </li>
+                        <li> Contact </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <div class="FooterSection">
+                    <h3> Feeds </h3>
+                    <div class="FeedsGH">
+                        <div class="FeedsItem" onclick="$(this).find('a')[0].click()">
+                            <a href="#" target="_blank" class="d-none"></a>
+                            <div class="setbg" rel="https://tweakyourbiz.com/wp-content/uploads/2022/05/real-estate-sales.jpg"></div>
+                            <i class="fab fa-instagram animate__animated animate__flipInX"></i>
+                        </div>
+                        <div class="FeedsItem" onclick="$(this).find('a')[0].click()">
+                            <a href="#" target="_blank" class="d-none"></a>
+                            <div class="setbg" rel="https://www.colibrirealestate.com/wp-content/uploads/2024/01/What-Is-a-Real-Estate-Salesperson-img.jpg"></div>
+                            <i class="fab fa-instagram animate__animated animate__flipInX"></i>
+                        </div>
+                        <div class="FeedsItem" onclick="$(this).find('a')[0].click()">
+                            <a href="#" target="_blank" class="d-none"></a>
+                            <div class="setbg" rel="https://imageio.forbes.com/specials-images/imageserve/617aa4df903b049f0fa8f207/Estate-agent-giving-house-keys-to-woman-and-sign-agreement-in-office/960x0.jpg?height=473&width=711&fit=bounds"></div>
+                            <i class="fab fa-instagram animate__animated animate__flipInX"></i>
+                        </div>
+                        <div class="FeedsItem" onclick="$(this).find('a')[0].click()">
+                            <a href="#" target="_blank" class="d-none"></a>
+                            <div class="setbg" rel="https://pbs.twimg.com/media/GxH9NK5X0AAY__k.jpg"></div>
+                            <i class="fab fa-instagram animate__animated animate__flipInX"></i>
+                        </div>
+                        <div class="FeedsItem" onclick="$(this).find('a')[0].click()">
+                            <a href="#" target="_blank" class="d-none"></a>
+                            <div class="setbg" rel="https://media.licdn.com/dms/image/v2/D5612AQF-Qea5o7et-Q/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1699371257148?e=2147483647&v=beta&t=QVkndENJA4hYXrg8UBgPHG-8lrHZ6wqEZakayR7MykI"></div>
+                            <i class="fab fa-instagram animate__animated animate__flipInX"></i>
+                        </div>
+                        <div class="FeedsItem" onclick="$(this).find('a')[0].click()">
+                            <a href="#" target="_blank" class="d-none"></a>
+                            <div class="setbg" rel="https://www.bls.gov/ooh/images/2796.jpg"></div>
+                            <i class="fab fa-instagram animate__animated animate__flipInX"></i>
+                        </div>
+                        <div class="FeedsItem" onclick="$(this).find('a')[0].click()">
+                            <a href="#" target="_blank" class="d-none"></a>
+                            <div class="setbg" rel="https://www.crownasia.com.ph/wp-content/uploads/2023/08/Creating-an-Engaging-and-Effective-Real-Estate-Sales-Pitch.jpg"></div>
+                            <i class="fab fa-instagram animate__animated animate__flipInX"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="CopyRights">
+                    <p>
+                        <a href="#" target="_blank" class="d-none"></a>
+                        All copyrights reserved
+                        <img class="setsrc" rel="../Requirements/IMG/TECH.png"
+                        onclick="$(this).parent().find('a')[0].click()">
+                        2025©
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div class="PopUp animate__animated animate__fadeInUp">
+    <u onclick="$('.PopUp').attr('class','PopUp animate__animated animate__fadeOutDown')">
+        <i class="fa fa-times-circle"></i>
+    </u>
+    <div class="PopUpArt setbg" rel="../Requirements/IMG/Support.jpg"></div>
+    <h4 class="animate__animated animate__fadeInDown animate__delay-1s"> Hello 👋</h4>
+    <label> This is Sausan </label>
+    <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s.
+    </p>
+    <button type="button">
+        <i class="fab fa-whatsapp"></i>
+        Chat With Sausan
+    </button>
+</div>
+
+<div class="ScrollerBtn animate__animated animate__flipInX">
+    <button type="button" onclick="ScrollBackUp()">
+        <div class="setbg" rel="../Requirements/IMG/Arrow.png"></div>
+    </button>
+</div>
+
+
+<div class="VideoPlayer">
+    <div class="VideoPlayerInner">
+        <div class="VideoPlayerFade" onclick="$('.VideoPlayer').fadeOut(600)"></div>
+        <div class="VideoPlayerDiv animate__animated animate__zoomIn">
+            <video controls loop playsinline autoplay></video>
+        </div>
+    </div>
+</div>
+
+<div class="ScrollIndicatorAmount"></div>
+
+<div class="Preloader">
+    <div class="PreloaderInner animate__animated">
+        <div class="PreloaderDiv">
+            <div class="PreloaderLoader"></div>
+            <img src="../Requirements/IMG/AboutBG.png">
+        </div>
+    </div>
+</div>
+
+<script src="../Requirements/JS/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="../Requirements/JS/jquery-3.6.0.min.js"></script>
+<script src="../Requirements/JS/slick.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+<script src="../Requirements/JS/javascript.js"></script>
+<script>
+
+</script>
+</body>
+</html>

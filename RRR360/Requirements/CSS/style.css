@@ -1,0 +1,1497 @@
+:root {
+    overflow-x: hidden !important;
+    --theme: #e1b206;
+}
+
+* {
+    font-family: "Public Sans", sans-serif;
+    font-optical-sizing: auto;
+    padding: 0;
+    margin: 0;
+    outline: none !important;
+    color: white;
+}
+
+
+body {
+    background: #181818;
+}
+
+::selection {
+    background: var(--theme);
+    color: white !important;
+}
+
+button {
+    cursor: pointer;
+    user-select: none;
+}
+
+img {
+    user-select: none;
+}
+
+main {
+    overflow: hidden;
+    padding-top: 76px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+img {
+    user-select: none;
+}
+
+header {
+    z-index: 99;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    background: #161616;
+    padding: 10px 0;
+    transition: 300ms;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.HeaderLogo {
+    display: block;
+    margin: 0 0;
+    width: 110px;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.HeaderLogo img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.HeaderLogo:hover {
+    transform: scale(1.1);
+}
+
+.HeaderTabs {
+    display: flex;
+    justify-content: end;
+    margin: 0 0;
+    align-items: center;
+    width: max-content;
+}
+
+.HeaderTabs ul {
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 0;
+    align-items: center;
+    color: white;
+    margin-right: 20px;
+}
+
+.HeaderTabs ul li {
+    display: block;
+    margin: 0 0;
+    width: fit-content;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 300ms;
+    position: relative;
+}
+
+.HeaderTabs ul li:hover {
+    color: var(--theme);
+}
+
+.HeaderBtns {
+    display: block;
+    margin: 0 0;
+    width: max-content;
+}
+
+.HeaderBtns button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    padding: 8px 12px;
+    text-transform: uppercase;
+    color: var(--theme);
+    position: relative;
+    overflow: hidden;
+    border: solid 2px;
+    padding-left: 42px;
+    background: none;
+    font-size: 14px;
+    transition: 350ms;
+}
+
+.HeaderInner {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.HeaderBtns button i {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: unset;
+}
+
+.HeaderBtns button:hover {
+    transform: scale(1.1);
+    background: var(--theme);
+    border-color: var(--theme);
+    color: #161616;
+}
+
+.BannerSlider {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
+
+.BannerSliderItem {
+    position: relative;
+    overflow: hidden;
+}
+
+.BannerSliderItem img {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    z-index: -1;
+    filter: brightness(0.5) contrast(120%) grayscale(30%);
+    opacity: 0.4;
+}
+
+.BannerSliderItemDiv {
+    display: none;
+    margin: 0 0;
+    width: 60%;
+    color: white;
+    padding: 0 0;
+    min-height: 680px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 28px;
+}
+
+.BannerSliderItemDiv h1 {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 60px;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.BannerSliderItemDiv p {
+    display: block;
+    margin: 8px auto;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.BannerSliderItemDiv button {
+    display: flex;
+    margin: 18px 0 0;
+    width: max-content;
+    color: white;
+    background: none;
+    border: solid 2px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    font-size: 16px;
+    padding-right: 40px;
+    position: relative;
+    transition: 300ms;
+    overflow: hidden;
+}
+
+.BannerSliderItemDiv button .setbg {
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    filter: invert(1);
+    transition: 300ms;
+}
+
+.BannerSliderItemDiv button:hover {
+    transform: scale(1.1);
+    color: var(--theme);
+    padding: 10px 20px;
+}
+
+.BannerSliderItemDiv button:hover .setbg {
+    right: -100px;
+}
+
+.HeaderTabs .SubTaB {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 45px;
+    background: #111111;
+    width: 230px;
+    margin: 0 0;
+    padding: 5px 15px;
+    z-index: 99;
+}
+
+.HeaderTabs ul li:hover .SubTaB {
+    display: block;
+}
+
+.HeaderTabs .SubTaB li {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 9px 0;
+    border-bottom: solid 1px #ffffff14;
+    font-size: 14px;
+}
+
+.HeaderTabs .SubTaB li:last-child {
+    border-bottom: 0
+}
+
+.HeaderTabs ul li .fa-angle-down {
+    font-size: 12px;
+    margin: 0 4px;
+}
+
+.slick-active .BannerSliderItemDiv {
+    display: flex;
+}
+
+.BannerSlider .slick-dots {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: max-content;
+    padding: 0;
+    margin: 0;
+    margin: 20px;
+}
+
+.BannerSlider .slick-dots li {
+    display: block;
+    margin: 0 0;
+}
+
+.BannerSlider .slick-dots li div {
+    display: block;
+    width: 18px;
+    aspect-ratio: 1/1;
+    background: #ffffff;
+    margin: 0 4px;
+    border-radius: 1000px;
+    opacity: 0.3;
+    transition: 350ms;
+    cursor: pointer;
+}
+
+.BannerSlider .slick-dots .slick-active div {
+    opacity: 1;
+    transform: scale(1.1);
+    pointer-events: none;
+}
+
+.Banner {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    direction: ltr;
+    background-color: #161616;
+}
+
+.BannerArrows {
+    position: absolute;
+    right: 0;
+    top: 45%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    height: 0;
+    padding: 0 2%;
+}
+
+.BannerArrows button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: #ffffff;
+    opacity: 0.3;
+    transition: 300ms;
+}
+
+.BannerArrows button:first-child {
+    transform: rotateY(180deg);
+}
+
+.BannerArrows button .setbg {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.BannerArrows button:hover {
+    opacity: 1;
+}
+
+.BannerSlider .slick-arrow {
+    display: none !important;
+}
+
+.slick-active img {
+    display: block;
+}
+
+.Properties {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 60px 0;
+}
+
+.PropertiesFilter {
+    display: flex;
+    justify-content: start;
+}
+
+.PropertiesFilter button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    margin: 0 0;
+    margin-right: 10px;
+    color: white;
+    border: solid 2px;
+    background: none;
+    padding: 5px 25px;
+    opacity: 0.8;
+    transition: 350ms;
+}
+
+.PropertiesFilter button:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.PropertiesFilter .ActivePropertiesFilter {
+    opacity: 1 !important;
+    color: var(--theme) !important;
+    transform: scale(1) !important;
+}
+
+.PropertiesGH {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.PropertyItem {
+    margin: 32px 0;
+    width: 30%;
+    background: #0e0e0e;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: 300ms;
+    overflow: hidden;
+}
+
+.PropertyItemThumb {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    aspect-ratio: 1/0.5;
+    object-fit: cover;
+    object-position: center center;
+    transition: 550ms;
+    position: relative;
+    z-index: -1;
+}
+
+.PropertyItemDetails {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 20px;
+}
+
+.PropertyItemDetails h4 {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--theme);
+}
+
+.PropertyItemDetails label {
+    display: block;
+    margin: 6px auto;
+    width: 100%;
+    font-size: 15px;
+    pointer-events: none;
+}
+
+.PropertyItemDetails h5 {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+.PropertyItemDetails h5 u {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background: #000000;
+    margin: 0 0;
+    margin-right: 10px;
+    padding: 3px 7px;
+    font-size: 13px;
+}
+
+.PropertyItemDetails button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: white;
+    border: solid 2px;
+    text-transform: uppercase;
+    background: none;
+    padding: 6px 0px;
+    font-size: 17px;
+    margin: 25px 0 0;
+    position: relative;
+    font-weight: bold;
+    letter-spacing: 2px;
+    overflow: hidden;
+    transition: 350ms;
+}
+
+.PropertyItemDetails button .setbg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    filter: invert(1);
+    transition: 400ms;
+}
+
+.PropertyItemDetails label i {
+    margin-right: 5px;
+    color: #a84545;
+}
+
+.PropertyItem:hover button {
+    color: var(--theme);
+}
+
+.PropertyItem:hover button .setbg {
+    right: -100px;
+    transform: rotate(345deg);
+}
+
+.PropertyItem:hover .PropertyItemThumb {
+    transform: scale(1.05) rotate(-2deg);
+    filter: brightness(110%);
+}
+
+.PropertyItem:hover {
+    transform: scale(1.05);
+}
+
+.About {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 110px 0;
+    position: relative;
+    background: #0e0e0e;
+    z-index: 2;
+}
+
+.AboutInner {
+}
+
+.AboutDiv {
+    display: block;
+    margin: 0 0;
+    width: 60%;
+}
+
+.AboutDiv h1 {
+    display: block;
+    margin: 0 auto 0;
+    padding: 10px 0;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 56px;
+    font-weight: bold;
+    color: var(--theme);
+}
+
+.AboutDiv p {
+    display: block;
+    margin: 20px auto 25px;
+    width: 100%;
+    text-align: justify;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 1.8;
+}
+
+.AboutDiv button {
+    display: block;
+    margin: 21px 0 0;
+    width: max-content;
+    background: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 8px 18px;
+    border: solid 2px;
+    padding-right: 50px;
+    position: relative;
+    overflow: hidden;
+    transition: 300ms;
+}
+
+.AboutDiv button .setbg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    filter: invert(1);
+    transition: 400ms;
+}
+
+.AboutDiv button:hover {
+    transform: scale(1.1);
+    color: var(--theme);
+    padding: 8px 18px;
+}
+
+.AboutDiv button:hover .setbg {
+    right: -100px;
+}
+
+.AboutArt {
+    position: absolute;
+    right: 5%;
+    top: 0;
+    width: 35%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.AboutArt:hover {
+    background-color: #ffffff0f;
+}
+
+.AboutArt:hover i {
+    display: flex;
+}
+
+.AboutArt:hover img {
+    filter: contrast(80%) brightness(0.5);
+    transform: scale(1.1);
+}
+
+.AboutArt img {
+    display: block;
+    margin: 0 0 25px;
+    width: auto;
+    height: 101%;
+    z-index: 1;
+    transition: 550ms;
+}
+
+.AboutBGParent {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.AboutBGParent .setbg {
+    position: absolute;
+    right: 8%;
+    top: 0;
+    width: 30%;
+    height: 220%;
+    background-size: 100% auto;
+    background-position: center center;
+    z-index: -1;
+    opacity: 0.04;
+    -webkit-animation: 8s ease-in-out infinite ScaleAnimation;
+    animation: 8s ease-in-out infinite ScaleAnimation;
+}
+
+@keyframes ScaleAnimation {
+    0%, 100% {
+        transform: scale(1)
+    }
+
+    50% {
+        transform: scale(1.1)
+    }
+}
+
+.AboutArt i {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 222;
+    color: #ffffff;
+    font-size: 50px;
+    text-shadow: 1px -3px 22px #000000;
+}
+
+.FAQ {
+    padding: 40px 0 66px;
+    position: relative;
+}
+
+.FAQItem {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    border-bottom: solid 1px #252525;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.FAQItem:hover {
+    background: #252525;
+}
+
+.FAQItemInner {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 25px 18px;
+    padding-right: 60px;
+    position: relative;
+}
+
+.FAQItemInner h1 {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 23px;
+    font-weight: 100;
+    transition: 350ms;
+    color: #a6a6a6;
+}
+
+.FAQItemInner p {
+    display: none;
+    margin: 20px auto 0;
+    width: 100%;
+    text-align: justify;
+    font-weight: 200;
+    font-size: 19px;
+    font-style: italic;
+}
+
+.FAQItemInner i {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 30px;
+    transition: 400ms;
+    color: #969696;
+}
+
+.OpenedFAQItem {
+}
+
+.OpenedFAQItem .FAQItemInner p {
+    display: block;
+}
+
+.OpenedFAQItem .FAQItemInner i {
+    transform: rotateX(180deg);
+    color: var(--theme);
+}
+
+.OpenedFAQItem h1 {
+    color: var(--theme);
+}
+
+.FAQHeader {
+    display: block;
+    margin: 20px auto 60px;
+    width: 600px;
+    max-width: 90%;
+    text-align: center;
+}
+
+.FAQHeader h1 {
+    display: block;
+    margin: 6px auto;
+    width: 100%;
+    font-size: 29px;
+    color: var(--theme);
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+.FAQHeader p {
+    display: block;
+    margin: 5px auto;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.MorePropertiesBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    margin: 50px auto 0;
+    color: var(--theme);
+    text-transform: uppercase;
+    background: none;
+    border: solid 2px;
+    padding: 17px 15px;
+    padding-right: 50px;
+    position: relative;
+    font-weight: bold;
+    transition: 300ms;
+    min-width: 29%;
+    max-width: 90%;
+}
+
+.MorePropertiesBtn i {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: unset;
+}
+
+.MorePropertiesBtn:hover {
+    transform: scale(1.03);
+    background: var(--theme);
+    border-color: var(--theme);
+    color: #313131;
+}
+
+.AboutDiv h1 u {
+    text-decoration: none;
+    background: var(--theme);
+    padding: 0px 10px;
+    border-radius: 15px;
+    margin: 0 10px;
+    color: #1c1c1c;
+    box-shadow: inset 170px 0px 135px -86px #ffffff85;
+    position: relative;
+    padding-left: 60px;
+}
+
+.FAQItem:last-child {
+    border: 0
+}
+
+.ScrollIndicatorAmount {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 5px;
+    background: var(--theme);
+    z-index: 99999999999;
+    pointer-events: none;
+}
+
+.FixedHeader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 10px 0 5px;
+    background: #060606;
+    z-index: 999999999;
+}
+
+.FixedHeader .HeaderLogo {
+    width: 95px;
+}
+
+.FixedHeader .HeaderTabs ul li {
+    font-size: 14px;
+    padding: 5px 12px;
+}
+
+.FixedHeader .HeaderBtns button {
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 13px;
+}
+
+.ScrollerBtn {
+    display: none;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: fit-content;
+    z-index: 99999999;
+}
+
+.ScrollerBtn button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    aspect-ratio: 1/1;
+    background: var(--theme);
+    border: none;
+    margin: 30px;
+    border-radius: 5px;
+    transition: 300ms;
+}
+
+.ScrollerBtn button .setbg {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transform: rotate(-90deg);
+    opacity: 0.8;
+    transition: 400ms;
+}
+
+.ScrollerBtn button:hover {
+    transform: scale(1.1);
+    background: #000000;
+}
+
+.ScrollerBtn button:hover .setbg {
+    filter: invert(1);
+    opacity: 1;
+}
+
+.Gallery {
+}
+
+.GalleryItem {
+    border: solid 2px #181818;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.GalleryItem .setbg {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: 300ms;
+    filter: grayscale(1);
+}
+
+
+.GalleryItem:hover .setbg {
+    transform: scale(1.1);
+    filter: grayscale(0);
+}
+
+.PropertyItem h6 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #000000bf;
+    padding: 5px 15px;
+    padding-left: 30px;
+    border-radius: 5px;
+    margin: 10px;
+    z-index: 2;
+}
+
+.PropertyItem h6 .setbg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-size: auto 15px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    filter: invert(1);
+}
+
+footer {
+}
+
+.SubFooter {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 65px 0;
+    background: #0f0f0f;
+}
+
+.SubFooterInner {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.SubFooterInner form {
+    display: block;
+    margin: 0 0;
+    width: 35%;
+}
+
+.SubFooterInner iframe {
+    display: block;
+    margin: 0 0;
+    width: 64%;
+}
+
+.SubFooterInner form h2 {
+    display: block;
+    margin: 0 auto 17px;
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: var(--theme);
+}
+
+.SubFooterInner form label {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 15px;
+}
+
+.SubFooterInner form input {
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    border: none;
+    font-size: 14px;
+    color: #000000;
+}
+
+.SubFooterInner form textarea {
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    padding: 10px 10px;
+    border: none;
+    font-size: 14px;
+    min-height: 80px;
+    color: #000000;
+}
+
+.SubFooterInner form button[type=submit] {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 6px 5px;
+    text-transform: uppercase;
+    background: var(--theme);
+    border: none;
+}
+
+.AboutDiv label {
+    display: block;
+    margin: 0 0;
+    width: max-content;
+    letter-spacing: 39px;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.AboutDiv h1 u .setbg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    background-size: 37px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    filter: grayscale(1) brightness(0);
+    /* opacity: 0.8; */
+}
+
+.PopUp {
+    display: none;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 480px;
+    height: max-content;
+    background: #080808;
+    padding: 14px 20px;
+    overflow: hidden;
+    margin: 20px;
+    box-shadow: 0px 0px 39px -10px #000000;
+    padding-left: 95px;
+    padding-bottom: 65px;
+    z-index: 99999999999;
+    border: solid 1px #2e2e2e;
+    border-radius: 0;
+}
+
+.PopUpArt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    aspect-ratio: 1/1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 20px;
+    border-radius: 1000px;
+}
+
+.PopUp h4 {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 24px;
+    color: var(--theme);
+    font-weight: bold;
+}
+
+.PopUp label {
+    display: block;
+    margin: 4px auto;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.PopUp p {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 200;
+    color: #e5e5e5;
+}
+
+.PopUp button {
+    display: block;
+    width: max-content;
+    background: none;
+    color: var(--theme);
+    border: solid 2px;
+    padding: 7px 12px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 15px;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding-left: 33px;
+    transition: 350ms;
+}
+
+.PopUp button i {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: unset;
+    font-size: 16px;
+}
+
+.PopUp button:hover {
+    transform: scale(1.1);
+    background: var(--theme);
+    border-color: var(--theme);
+    color: #161616;
+}
+
+.PopUp u i {
+    color: unset;
+}
+
+.PopUp u {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #3f3f3f;
+    cursor: pointer;
+    transition: 350ms;
+}
+
+.PopUp u:hover {
+    transform: scale(1.1);
+    color: #dadada;
+}
+
+.FooterSection {
+    display: block;
+    margin: 40px auto;
+    width: 95%;
+}
+
+.FooterSection h3 {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--theme);
+}
+
+.FooterSection p {
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    font-size: 14px;
+    text-align: justify;
+}
+
+.FooterSection ul {
+    display: block;
+    margin: 8px auto;
+    width: 100%;
+    padding: 0 0;
+}
+
+.FooterSection ul li {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 8px 0;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 340ms;
+}
+
+.FooterSection ul li:hover {
+    text-decoration: underline;
+    color: var(--theme);
+}
+
+.FooterSection label {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    margin: 23px auto;
+}
+
+.FooterSection label i {
+    width: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.FeedsGH {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    margin: 4px auto;
+    width: 100%;
+}
+
+.FeedsItem {
+    display: block;
+    margin: 4px 1%;
+    width: 23%;
+    aspect-ratio: 1/1;
+    position: relative;
+    overflow: hidden;
+    background: #292929;
+    z-index: 2;
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.FeedsItem .setbg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    z-index: -1;
+    opacity: 0.5;
+    transition: 350ms;
+}
+
+.FeedsItem i {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff9e;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    color: #1c1c1c;
+}
+
+.FeedsItem:hover {
+    transform: scale(1.1);
+}
+
+.FeedsItem:hover i {
+    display: flex;
+}
+
+.FeedsItem:hover .setbg {
+    opacity: 1;
+}
+
+.CopyRights {
+}
+
+.CopyRights p {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border-top: solid 1px #3b3b3b;
+}
+
+.CopyRights p img {
+    display: inline-block;
+    width: auto;
+    height: 17px;
+    position: relative;
+    top: -1px;
+    filter: grayscale(1) brightness(4.5);
+    margin: 0 4px;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.CopyRights p img:hover {
+    transform: scale(1.1);
+    filter: none;
+}
+
+.VideoPlayer {
+    display: none;
+}
+
+.VideoPlayerInner {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.VideoPlayerDiv {
+    display: flex;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    max-height: 90%;
+    background: #000000;
+    z-index: 22;
+    position: relative;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.VideoPlayerFade {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: #000000;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.VideoPlayer video {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+.Preloader {
+}
+
+.PreloaderInner {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999999999999;
+    background: #191919;
+}
+
+.PreloaderDiv {
+    display: flex;
+    margin: 0 auto;
+    width: 200px;
+    height: auto;
+    aspect-ratio: 1/1;
+    position: relative;
+    overflow: visible;
+    justify-content: center;
+    align-items: center;
+}
+
+.PreloaderDiv img {
+    display: block;
+    margin: 0 auto;
+    width: 120px;
+}
+
+.PreloaderLoader {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #121212;
+    z-index: -1;
+    border-radius: 10000000px;
+    -webkit-animation: 2s ease-in-out infinite PreloaderLoadere;
+    animation: 2s ease-in-out infinite PreloaderLoadere;
+}
+
+@keyframes PreloaderLoadere {
+    0%, 100% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+}
