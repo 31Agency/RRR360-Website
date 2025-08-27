@@ -41,6 +41,6 @@ class Category extends Model
 
     public function properties()
     {
-        return $this->hasMany(property::class, 'category_id', 'id');
+        return $this->hasMany(Property::class, 'category_id', 'id');
     }
 }
