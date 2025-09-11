@@ -108,9 +108,9 @@
                     </button>
                 </div>
                 <div class="AboutArt" onclick="PlayVid($(this))">
-                    <a href="#" class="d-none VidSrc"></a>
+                    <a href="{{ $GlobalInfo->about_video->url ?? '' }}" class="d-none VidSrc"></a>
                     <i class="fa fa-play animate__animated animate__zoomIn"></i>
-                    <img class="setsrc" rel="{{ asset('') }}RRR360/Requirements/IMG/AboutCEO.png">
+                    <img class="setsrc" rel="{{ $GlobalInfo->about_photo->url ?? '' }}">
                 </div>
                 <div class="AboutBGParent">
                     <div class="setbg AboutBG" rel="{{ asset('') }}RRR360/Requirements/IMG/AboutBG.png"></div>
