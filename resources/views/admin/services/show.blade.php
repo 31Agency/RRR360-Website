@@ -28,26 +28,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.service.fields.title_ar') }}
-                        </th>
-                        <td>
-                            {{ $service->title_ar }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.service.fields.description_en') }}
                         </th>
                         <td>
                             {{ $service->description_en }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.service.fields.description_ar') }}
-                        </th>
-                        <td>
-                            {{ $service->description_ar }}
                         </td>
                     </tr>
                     <tr>

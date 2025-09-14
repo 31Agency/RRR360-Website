@@ -39,6 +39,10 @@ class InfoController extends Controller
             $info->addMedia(storage_path('tmp/uploads/' . $request->input('logo')))->toMediaCollection('logo');
         }
 
+        if ($request->input('support', false)) {
+            $info->addMedia(storage_path('tmp/uploads/' . $request->input('support')))->toMediaCollection('support');
+        }
+
         if ($request->input('footer', false)) {
             $info->addMedia(storage_path('tmp/uploads/' . $request->input('footer')))->toMediaCollection('footer');
         }
@@ -75,6 +79,14 @@ class InfoController extends Controller
             }
         } elseif ($info->logo) {
             $info->logo->delete();
+        }
+
+        if ($request->input('support', false)) {
+            if (!$info->support || $request->input('support') !== $info->support->file_name) {
+                $info->addMedia(storage_path('tmp/uploads/' . $request->input('support')))->toMediaCollection('support');
+            }
+        } elseif ($info->support) {
+            $info->support->delete();
         }
 
         if ($request->input('footer', false)) {

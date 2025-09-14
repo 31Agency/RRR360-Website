@@ -10,6 +10,8 @@ Route::get('/', 'Client\HomePageController@index')->name('home');
 
 Route::get('about', 'Client\AboutController@index')->name('about.index');
 
+Route::get('visitors', 'Client\VisitorsController@store')->name('visitors.store');
+
 Route::post('subscribers', 'Client\SubscribersController@store')->name('subscribers.store');
 
 Route::get('contact', 'Client\ContactController@index')->name('contact.index');
@@ -19,6 +21,7 @@ Route::get('orders/{order}', 'Client\OrderController@show')->name('orders.show')
 Route::post('orders', 'Client\OrderController@store')->name('orders.store');
 
 Route::get('properties', 'Client\PropertiesController@index')->name('properties.index');
+Route::get('properties/json', 'Client\PropertiesController@json')->name('properties.json');
 Route::get('properties/{property}', 'Client\PropertiesController@show')->name('properties.show');
 
 Route::get('services', 'Client\ServicesController@index')->name('services.index');
@@ -167,5 +170,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Subscribers
     Route::delete('subscribers/destroy', 'SubscribersController@massDestroy')->name('subscribers.massDestroy');
     Route::resource('subscribers', 'SubscribersController');
+
+    // Visitors
+    Route::delete('visitors/destroy', 'VisitorsController@massDestroy')->name('visitors.massDestroy');
+    Route::resource('visitors', 'VisitorsController');
 
 });

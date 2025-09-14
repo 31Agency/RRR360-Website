@@ -28,26 +28,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.gallery.fields.title_ar') }}
-                        </th>
-                        <td>
-                            {{ $gallery->title_ar }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.gallery.fields.description_en') }}
                         </th>
                         <td>
                             {{ $gallery->description_en }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.gallery.fields.description_ar') }}
-                        </th>
-                        <td>
-                            {{ $gallery->description_ar }}
                         </td>
                     </tr>
                     <tr>

@@ -11,7 +11,7 @@ class PropertiesController extends Controller
 {
     public function index(Request $request)
     {
-        $categories = Category::all();
+        $categories = Category::whereHas('properties')->get();
         $properties = Property::search($request)->orderBy('id', 'DESC')->paginate(9);
 
         return view('client.properties.index', compact('properties', 'categories'));
@@ -22,5 +22,16 @@ class PropertiesController extends Controller
         $related_properties = Property::whereNot('id', $property->id)->inRandomOrder()->get();
 
         return view('client.properties.show', compact('property', 'related_properties'));
+    }
+
+    public function json(Request $request)
+    {
+        $take = $request['take'] ?? 8;
+
+        $properties = Property::search($request)->orderBy('id', 'DESC')->take($take)->get();
+
+        $properties->load('specifications');
+
+        return response()->json($properties);
     }
 }

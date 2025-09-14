@@ -23,6 +23,20 @@
                         {{ trans('cruds.info.fields.logo_helper') }}
                     </p>
                 </div>
+                <div class="form-group {{ $errors->has('support') ? 'has-error' : '' }}">
+                    <label for="support">{{ trans('cruds.info.fields.support') }}</label>
+                    <div class="needsclick dropzone" id="support-dropzone">
+
+                    </div>
+                    @if($errors->has('support'))
+                        <em class="invalid-feedback">
+                            {{ $errors->first('support') }}
+                        </em>
+                    @endif
+                    <p class="helper-block">
+                        {{ trans('cruds.info.fields.support_helper') }}
+                    </p>
+                </div>
                 <div class="form-group {{ $errors->has('favicon') ? 'has-error' : '' }}">
                     <label for="favicon">{{ trans('cruds.info.fields.favicon') }}</label>
                     <div class="needsclick dropzone" id="favicon-dropzone">
@@ -78,19 +92,6 @@
                         {{ trans('cruds.info.fields.title_en_helper') }}
                     </p>
                 </div>
-                <div class="form-group {{ $errors->has('title_ar') ? 'has-error' : '' }}">
-                    <label for="title_ar">{{ trans('cruds.info.fields.title_ar') }}*</label>
-                    <input type="text" id="title_ar" name="title_ar" class="form-control"
-                           value="{{ old('title_ar', isset($info) ? $info->title_ar : '') }}" required>
-                    @if($errors->has('title_ar'))
-                        <em class="invalid-feedback">
-                            {{ $errors->first('title_ar') }}
-                        </em>
-                    @endif
-                    <p class="helper-block">
-                        {{ trans('cruds.info.fields.title_ar_helper') }}
-                    </p>
-                </div>
                 <div class="form-group {{ $errors->has('keywords_en') ? 'has-error' : '' }}">
                     <label for="keywords_en">{{ trans('cruds.info.fields.keywords_en') }}*</label>
                     <input type="text" id="keywords_en" name="keywords_en" class="form-control"
@@ -102,19 +103,6 @@
                     @endif
                     <p class="helper-block">
                         {{ trans('cruds.info.fields.keywords_en_helper') }}
-                    </p>
-                </div>
-                <div class="form-group {{ $errors->has('keywords_ar') ? 'has-error' : '' }}">
-                    <label for="keywords_ar">{{ trans('cruds.info.fields.keywords_ar') }}*</label>
-                    <input type="text" id="keywords_ar" name="keywords_ar" class="form-control"
-                           value="{{ old('keywords_ar', isset($info) ? $info->keywords_ar : '') }}" required>
-                    @if($errors->has('keywords_ar'))
-                        <em class="invalid-feedback">
-                            {{ $errors->first('keywords_ar') }}
-                        </em>
-                    @endif
-                    <p class="helper-block">
-                        {{ trans('cruds.info.fields.keywords_ar_helper') }}
                     </p>
                 </div>
                 <div class="form-group {{ $errors->has('description_en') ? 'has-error' : '' }}">
@@ -130,19 +118,6 @@
                         {{ trans('cruds.info.fields.description_en_helper') }}
                     </p>
                 </div>
-                <div class="form-group {{ $errors->has('description_ar') ? 'has-error' : '' }}">
-                    <label for="description_ar">{{ trans('cruds.info.fields.description_ar') }}*</label>
-                    <input type="text" id="description_ar" name="description_ar" class="form-control"
-                           value="{{ old('description_ar', isset($info) ? $info->description_ar : '') }}" required>
-                    @if($errors->has('description_ar'))
-                        <em class="invalid-feedback">
-                            {{ $errors->first('description_ar') }}
-                        </em>
-                    @endif
-                    <p class="helper-block">
-                        {{ trans('cruds.info.fields.description_ar_helper') }}
-                    </p>
-                </div>
                 <div class="form-group {{ $errors->has('vision_en') ? 'has-error' : '' }}">
                     <label for="vision_en">{{ trans('cruds.info.fields.vision_en') }}*</label>
                     <input type="text" id="vision_en" name="vision_en" class="form-control"
@@ -154,19 +129,6 @@
                     @endif
                     <p class="helper-block">
                         {{ trans('cruds.info.fields.vision_en_helper') }}
-                    </p>
-                </div>
-                <div class="form-group {{ $errors->has('vision_ar') ? 'has-error' : '' }}">
-                    <label for="vision_ar">{{ trans('cruds.info.fields.vision_ar') }}*</label>
-                    <input type="text" id="vision_ar" name="vision_ar" class="form-control"
-                           value="{{ old('vision_ar', isset($info) ? $info->vision_ar : '') }}" required>
-                    @if($errors->has('vision_ar'))
-                        <em class="invalid-feedback">
-                            {{ $errors->first('vision_ar') }}
-                        </em>
-                    @endif
-                    <p class="helper-block">
-                        {{ trans('cruds.info.fields.vision_ar_helper') }}
                     </p>
                 </div>
                 <div class="form-group {{ $errors->has('faq_en') ? 'has-error' : '' }}">
@@ -182,19 +144,6 @@
                         {{ trans('cruds.info.fields.faq_en_helper') }}
                     </p>
                 </div>
-                <div class="form-group {{ $errors->has('faq_ar') ? 'has-error' : '' }}">
-                    <label for="faq_ar">{{ trans('cruds.info.fields.faq_ar') }}*</label>
-                    <input type="text" id="faq_ar" name="faq_ar" class="form-control"
-                           value="{{ old('faq_ar', isset($info) ? $info->faq_ar : '') }}" required>
-                    @if($errors->has('faq_ar'))
-                        <em class="invalid-feedback">
-                            {{ $errors->first('faq_ar') }}
-                        </em>
-                    @endif
-                    <p class="helper-block">
-                        {{ trans('cruds.info.fields.faq_ar_helper') }}
-                    </p>
-                </div>
                 <div class="form-group {{ $errors->has('about_title_en') ? 'has-error' : '' }}">
                     <label for="about_title_en">{{ trans('cruds.info.fields.about_title_en') }}*</label>
                     <input type="text" id="about_title_en" name="about_title_en" class="form-control"
@@ -206,19 +155,6 @@
                     @endif
                     <p class="helper-block">
                         {{ trans('cruds.info.fields.about_title_en_helper') }}
-                    </p>
-                </div>
-                <div class="form-group {{ $errors->has('about_title_ar') ? 'has-error' : '' }}">
-                    <label for="about_title_ar">{{ trans('cruds.info.fields.about_title_ar') }}*</label>
-                    <input type="text" id="about_title_ar" name="about_title_ar" class="form-control"
-                           value="{{ old('about_title_ar', isset($info) ? $info->about_title_ar : '') }}" required>
-                    @if($errors->has('about_title_ar'))
-                        <em class="invalid-feedback">
-                            {{ $errors->first('about_title_ar') }}
-                        </em>
-                    @endif
-                    <p class="helper-block">
-                        {{ trans('cruds.info.fields.about_title_ar_helper') }}
                     </p>
                 </div>
                 <div class="form-group {{ $errors->has('about_description_en') ? 'has-error' : '' }}">
@@ -234,19 +170,6 @@
                         {{ trans('cruds.info.fields.about_description_en_helper') }}
                     </p>
                 </div>
-                <div class="form-group {{ $errors->has('about_description_ar') ? 'has-error' : '' }}">
-                    <label for="about_description_ar">{{ trans('cruds.info.fields.about_description_ar') }}*</label>
-                    <textarea id="about_description_ar" name="about_description_ar" class="form-control"
-                              required>{{ old('about_description_ar', isset($info) ? $info->about_description_ar : '') }}</textarea>
-                    @if($errors->has('about_description_ar'))
-                        <em class="invalid-feedback">
-                            {{ $errors->first('about_description_ar') }}
-                        </em>
-                    @endif
-                    <p class="helper-block">
-                        {{ trans('cruds.info.fields.about_description_ar_helper') }}
-                    </p>
-                </div>
                 <div class="form-group {{ $errors->has('about_full_description_en') ? 'has-error' : '' }}">
                     <label for="about_full_description_en">{{ trans('cruds.info.fields.about_full_description_en') }}*</label>
                     <textarea id="about_full_description_en" name="about_full_description_en" class="form-control summernote"
@@ -260,17 +183,56 @@
                         {{ trans('cruds.info.fields.about_full_description_en_helper') }}
                     </p>
                 </div>
-                <div class="form-group {{ $errors->has('about_full_description_ar') ? 'has-error' : '' }}">
-                    <label for="about_full_description_ar">{{ trans('cruds.info.fields.about_full_description_ar') }}*</label>
-                    <textarea id="about_full_description_ar" name="about_full_description_ar" class="form-control summernote"
-                              required>{{ old('about_full_description_ar', isset($info) ? $info->about_full_description_ar : '') }}</textarea>
-                    @if($errors->has('about_full_description_ar'))
+                <div class="form-group {{ $errors->has('important_pop_up_title_en') ? 'has-error' : '' }}">
+                    <label for="important_pop_up_title_en">{{ trans('cruds.info.fields.important_pop_up_title_en') }}*</label>
+                    <input type="text" id="important_pop_up_title_en" name="important_pop_up_title_en" class="form-control"
+                           value="{{ old('important_pop_up_title_en', isset($info) ? $info->important_pop_up_title_en : '') }}" required>
+                    @if($errors->has('important_pop_up_title_en'))
                         <em class="invalid-feedback">
-                            {{ $errors->first('about_full_description_ar') }}
+                            {{ $errors->first('important_pop_up_title_en') }}
                         </em>
                     @endif
                     <p class="helper-block">
-                        {{ trans('cruds.info.fields.about_full_description_ar_helper') }}
+                        {{ trans('cruds.info.fields.important_pop_up_title_en_helper') }}
+                    </p>
+                </div>
+                <div class="form-group {{ $errors->has('important_pop_up_description_en') ? 'has-error' : '' }}">
+                    <label for="important_pop_up_description_en">{{ trans('cruds.info.fields.important_pop_up_description_en') }}*</label>
+                    <textarea id="important_pop_up_description_en" name="important_pop_up_description_en" class="form-control"
+                              required>{{ old('important_pop_up_description_en', isset($info) ? $info->important_pop_up_description_en : '') }}</textarea>
+                    @if($errors->has('important_pop_up_description_en'))
+                        <em class="invalid-feedback">
+                            {{ $errors->first('important_pop_up_description_en') }}
+                        </em>
+                    @endif
+                    <p class="helper-block">
+                        {{ trans('cruds.info.fields.important_pop_up_description_en_helper') }}
+                    </p>
+                </div>
+                <div class="form-group {{ $errors->has('support_title_en') ? 'has-error' : '' }}">
+                    <label for="support_title_en">{{ trans('cruds.info.fields.support_title_en') }}*</label>
+                    <input type="text" id="support_title_en" name="support_title_en" class="form-control"
+                           value="{{ old('support_title_en', isset($info) ? $info->support_title_en : '') }}" required>
+                    @if($errors->has('support_title_en'))
+                        <em class="invalid-feedback">
+                            {{ $errors->first('support_title_en') }}
+                        </em>
+                    @endif
+                    <p class="helper-block">
+                        {{ trans('cruds.info.fields.support_title_en_helper') }}
+                    </p>
+                </div>
+                <div class="form-group {{ $errors->has('support_description_en') ? 'has-error' : '' }}">
+                    <label for="support_description_en">{{ trans('cruds.info.fields.support_description_en') }}*</label>
+                    <textarea id="support_description_en" name="support_description_en" class="form-control"
+                              required>{{ old('support_description_en', isset($info) ? $info->support_description_en : '') }}</textarea>
+                    @if($errors->has('support_description_en'))
+                        <em class="invalid-feedback">
+                            {{ $errors->first('support_description_en') }}
+                        </em>
+                    @endif
+                    <p class="helper-block">
+                        {{ trans('cruds.info.fields.support_description_en_helper') }}
                     </p>
                 </div>
                 <div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
@@ -361,6 +323,52 @@
                 this.options.thumbnail.call(this, file, '{{ $_SERVER['REMOTE_ADDR'] != "127.0.0.1" ? str_replace('localhost/storage', $_SERVER['SERVER_NAME'].'/system/storage/app/public' , $info->logo->getUrl('thumb')) : str_replace('localhost', 'localhost:8000', $info->logo->getUrl('thumb')) }}')
                 file.previewElement.classList.add('dz-complete')
                 $('form').append('<input type="hidden" name="logo" value="' + file.file_name + '">')
+                this.options.maxFiles = this.options.maxFiles - 1
+                @endif
+            },
+            error: function (file, response) {
+                if ($.type(response) === 'string') {
+                    var message = response //dropzone sends it's own error messages in string
+                } else {
+                    var message = response.errors.file
+                }
+                file.previewElement.classList.add('dz-error')
+                _ref = file.previewElement.querySelectorAll('[data-dz-errormessage]')
+                _results = []
+                for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                    node = _ref[_i]
+                    _results.push(node.textContent = message)
+                }
+                return _results
+            }
+        }
+
+        Dropzone.options.supportDropzone = {
+            url: '{{ route('admin.info.storeMedia') }}',
+            acceptedFiles: '.jpeg,.jpg,.png,.gif,.webp',
+            maxFiles: 1,
+            addRemoveLinks: true,
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            },
+            success: function (file, response) {
+                $('form').find('input[name="support"]').remove()
+                $('form').append('<input type="hidden" name="support" value="' + response.name + '">')
+            },
+            removedfile: function (file) {
+                file.previewElement.remove()
+                if (file.status !== 'error') {
+                    $('form').find('input[name="support"]').remove()
+                    this.options.maxFiles = this.options.maxFiles + 1
+                }
+            },
+            init: function () {
+                @if(isset($info) && $info->support)
+                var file = {!! json_encode($info->support) !!}
+                this.options.addedfile.call(this, file)
+                this.options.thumbnail.call(this, file, '{{ $_SERVER['REMOTE_ADDR'] != "127.0.0.1" ? str_replace('localhost/storage', $_SERVER['SERVER_NAME'].'/system/storage/app/public' , $info->support->getUrl('thumb')) : str_replace('localhost', 'localhost:8000', $info->support->getUrl('thumb')) }}')
+                file.previewElement.classList.add('dz-complete')
+                $('form').append('<input type="hidden" name="support" value="' + file.file_name + '">')
                 this.options.maxFiles = this.options.maxFiles - 1
                 @endif
             },

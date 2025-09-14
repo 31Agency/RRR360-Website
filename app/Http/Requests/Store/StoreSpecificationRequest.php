@@ -23,11 +23,11 @@ class StoreSpecificationRequest extends FormRequest
                 'exists:properties,id',
             ],
             'title_en' => [
-                'required',
+                'nullable',
                 'string',
             ],
             'title_ar' => [
-                'required',
+                'nullable',
                 'string',
             ],
         ];

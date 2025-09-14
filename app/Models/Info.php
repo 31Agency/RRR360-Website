@@ -20,6 +20,7 @@ class Info extends Model implements HasMedia
         'get_quote_photo',
         'about_photo',
         'about_video',
+        'support',
     ];
 
     public $table = 'info';
@@ -65,6 +66,14 @@ class Info extends Model implements HasMedia
         'about_description_ar',
         'about_full_description_en',
         'about_full_description_ar',
+        'important_pop_up_title_en',
+        'important_pop_up_title_ar',
+        'important_pop_up_description_en',
+        'important_pop_up_description_ar',
+        'support_title_en',
+        'support_title_ar',
+        'support_description_en',
+        'support_description_ar',
         'mobile',
         'contact_email',
         'daily_work',
@@ -79,6 +88,7 @@ class Info extends Model implements HasMedia
     {
         $this->addMediaConversion('thumb')->width(50)->keepOriginalImageFormat();
         $this->addMediaConversion('thumb_logo')->width(167)->height(50)->keepOriginalImageFormat();
+        $this->addMediaConversion('thumb_support')->width(266)->format('webp');
         $this->addMediaConversion('thumb_footer')->width(165)->height(50)->keepOriginalImageFormat();
         $this->addMediaConversion('thumb_favicon')->width(20)->height(20)->keepOriginalImageFormat();
         $this->addMediaConversion('thumb_get_quote')->width(1296)->height(460)->keepOriginalImageFormat();
@@ -97,6 +107,23 @@ class Info extends Model implements HasMedia
             } else {
                 $file->url = str_replace('localhost', 'localhost:8000', $file->getUrl());
                 $file->thumbnail = str_replace('localhost', 'localhost:8000', $file->getUrl('thumb_logo'));
+            }
+        }
+
+        return $file;
+    }
+
+    public function getSupportAttribute()
+    {
+        $file = $this->getMedia('support')->last();
+
+        if ($file) {
+            if ($_SERVER['REMOTE_ADDR'] != "127.0.0.1") {
+                $file->url       = str_replace('http://localhost/storage', asset('/system/storage/app/public') , $file->getUrl(''));
+                $file->thumbnail = str_replace('http://localhost/storage', asset('/system/storage/app/public') , $file->getUrl('thumb_support'));
+            } else {
+                $file->url = str_replace('localhost', 'localhost:8000', $file->getUrl());
+                $file->thumbnail = str_replace('localhost', 'localhost:8000', $file->getUrl('thumb_support'));
             }
         }
 
@@ -230,6 +257,62 @@ class Info extends Model implements HasMedia
         else
         {
             $value = $this->getAttribute('keywords_ar');
+        }
+
+        return $value;
+    }
+
+    public function getImportantPopUpTitleAttribute()
+    {
+        if (app()->getLocale() == "en")
+        {
+            $value = $this->getAttribute('important_pop_up_title_en');
+        }
+        else
+        {
+            $value = $this->getAttribute('important_pop_up_title_ar');
+        }
+
+        return $value;
+    }
+
+    public function getImportantPopUpDescriptionAttribute()
+    {
+        if (app()->getLocale() == "en")
+        {
+            $value = $this->getAttribute('important_pop_up_description_en');
+        }
+        else
+        {
+            $value = $this->getAttribute('important_pop_up_description_ar');
+        }
+
+        return $value;
+    }
+
+    public function getSupportTitleAttribute()
+    {
+        if (app()->getLocale() == "en")
+        {
+            $value = $this->getAttribute('support_title_en');
+        }
+        else
+        {
+            $value = $this->getAttribute('support_title_ar');
+        }
+
+        return $value;
+    }
+
+    public function getSupportDescriptionAttribute()
+    {
+        if (app()->getLocale() == "en")
+        {
+            $value = $this->getAttribute('support_description_en');
+        }
+        else
+        {
+            $value = $this->getAttribute('support_description_ar');
         }
 
         return $value;

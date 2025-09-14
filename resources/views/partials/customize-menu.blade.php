@@ -10,6 +10,15 @@
                 </a>
             </li>
         @endcan
+        @can('visitor_access')
+            <li class="nav-item">
+                <a href="{{ route("admin.visitors.index") }}"
+                   class="nav-link {{ request()->is('admin/visitors') || request()->is('admin/visitors/*') ? 'active' : 'collapsed' }}">
+                    <i class="fas fa-globe fa-fw"></i>
+                    {{ trans('cruds.visitor.title') }}
+                </a>
+            </li>
+        @endcan
         @can('slider_access')
             <li class="nav-item">
                 <a href="{{ route("admin.sliders.index") }}"

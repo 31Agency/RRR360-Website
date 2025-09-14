@@ -35,7 +35,7 @@ class SpecificationController extends Controller
     {
         $specification = Specification::create($request->all());
 
-        return redirect()->route('admin.specifications.index');
+        return redirect()->route('admin.properties.show', [$specification->property_id])->with('message', 'The specification has been created.');
     }
 
     public function edit(Specification $specification)
@@ -51,7 +51,7 @@ class SpecificationController extends Controller
     {
         $specification->update($request->all());
 
-        return redirect()->route('admin.specifications.index');
+        return redirect()->route('admin.properties.show', [$specification->property_id])->with('message', 'The specification has been updated.');
     }
 
     public function show(Specification $specification)

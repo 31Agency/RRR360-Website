@@ -2,7 +2,6 @@ $(document).ready(function () {
     if($('.FAQItem').length != 0){
         $('.FAQItem').first().addClass('OpenedFAQItem')
     }
-
     ScrollEvent()
     $('.ScrollerBtn').on('click', ScrollBackUp);
     Sliders()
@@ -12,8 +11,13 @@ $(window).on('load',function (){
     SetSrc()
     SetBg()
 
+    if($('.Properties .PropertiesFilter button').length != 0){
+        $('.Properties .PropertiesFilter button').first().click()
+    }
+
     if($('.PopUp').length != 0){
         setTimeout(function (){
+            $('.ImportantPopUp').show()
             $('.PopUp').show()
 
             setTimeout(function (){
@@ -22,10 +26,9 @@ $(window).on('load',function (){
         },3000)
     }
 
-    setTimeout(function (){
-        $('.PreloaderInner').addClass('animate__fadeOutDown')
-    },2500)
+    $('.PreloaderInner').addClass('animate__fadeOutDown')
 
+    PreventBrowsing()
 });
 
 $(window).on('resize',function (){
@@ -142,4 +145,12 @@ function PlayVid(el){
     var Src = el.find('.VidSrc').attr('href');
     $('.VideoPlayer video').attr('src',Src);
     $('.VideoPlayer').show()
+}
+
+
+function PreventBrowsing(){
+    if($('.ImportantPopUp').length != 0){
+        lenis.stop()
+        $('body,html').css('overflow','hidden')
+    }
 }

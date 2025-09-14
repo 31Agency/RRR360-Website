@@ -36,14 +36,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.article.fields.title_ar') }}
-                        </th>
-                        <td>
-                            {{ $article->title_ar ?? '' }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.article.fields.description_en') }}
                         </th>
                         <td>
@@ -52,26 +44,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.article.fields.description_ar') }}
-                        </th>
-                        <td>
-                            {{ $article->description_ar ?? '' }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.article.fields.full_description_en') }}
                         </th>
                         <td>
                             {{ $article->full_description_en ?? '' }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.article.fields.full_description_ar') }}
-                        </th>
-                        <td>
-                            {{ $article->full_description_ar ?? '' }}
                         </td>
                     </tr>
                     <tr>

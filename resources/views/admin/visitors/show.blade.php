@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.specification.title') }}
+        {{ trans('global.show') }} {{ trans('cruds.visitor.title') }}
     </div>
 
     <div class="card-body">
@@ -12,26 +12,18 @@
                 <tbody>
                     <tr>
                         <th>
-                            {{ trans('cruds.specification.fields.id') }}
+                            {{ trans('cruds.visitor.fields.id') }}
                         </th>
                         <td>
-                            {{ $specification->id }}
+                            {{ $visitor->id }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.specification.fields.property_id') }}
+                            {{ trans('cruds.visitor.fields.title') }}
                         </th>
                         <td>
-                            {{ $specification->property->title_en }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.specification.fields.title_en') }}
-                        </th>
-                        <td>
-                            {{ $specification->title_en }}
+                            {{ $visitor->ip }}
                         </td>
                     </tr>
                 </tbody>

@@ -107,18 +107,6 @@
                                                 {{ trans('cruds.specification.fields.title_en_helper') }}
                                             </p>
                                         </div>
-                                        <div class="form-group {{ $errors->has('title_ar') ? 'has-error' : '' }}">
-                                            <label for="title_ar">{{ trans('cruds.specification.fields.title_ar') }}*</label>
-                                            <input type="text" id="title_ar" name="title_ar" class="form-control" value="{{ old('title_ar') }}" required>
-                                            @if($errors->has('title_ar'))
-                                                <em class="invalid-feedback">
-                                                    {{ $errors->first('title_ar') }}
-                                                </em>
-                                            @endif
-                                            <p class="helper-block">
-                                                {{ trans('cruds.specification.fields.title_ar_helper') }}
-                                            </p>
-                                        </div>
                                         <div>
                                             <input class="btn btn-success" type="submit" value="{{ trans('global.save') }}">
                                         </div>
@@ -147,26 +135,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.property.fields.title_ar') }}
-                        </th>
-                        <td>
-                            {{ $property->title_ar }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.property.fields.description_en') }}
                         </th>
                         <td>
                             {!! $property->description_en !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.property.fields.description_ar') }}
-                        </th>
-                        <td>
-                            {!! $property->description_ar !!}
                         </td>
                     </tr>
                     <tr>

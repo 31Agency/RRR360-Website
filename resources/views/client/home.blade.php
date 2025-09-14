@@ -39,44 +39,19 @@
     <section class="Properties">
         <div class="container">
             <div class="PropertiesFilter">
-                <button class="ActivePropertiesFilter" type="button" onclick="ChooseThisFiltration($(this))" rel=".ddd">
+                <button type="button" onclick="GetProperties($(this))"   >
                     Random
                 </button>
                 @foreach($categories as $key => $category)
-                    <button type="button" onclick="ChooseThisFiltration($(this))" rel=".id{{ $category->id ?? '' }}">
+                    <button type="button" rel="{{$category->id ?? ''}}" onclick="GetProperties($(this))"
+                            rel="{{ $category->id ?? '' }}">
                         {{ $category->title ?? '' }}
                     </button>
                 @endforeach
             </div>
 
 
-            <div class="PropertiesGH">
-                @foreach($properties as $key => $property)
-                    <!-- Card 1 -->
-                    <div class="PropertyItem" onclick="$(this).find('a')[0].click()">
-                        <h6>
-                            <div class="setbg" rel="{{ asset('') }}RRR360/Requirements/IMG/IMGs.png"></div>
-                            {{ $property->photos->count() ?? 0 }}
-                        </h6>
-                        <a href="{{ route('properties.show', [$property->id]) }}" class="d-none"></a>
-                        <img class="setsrc PropertyItemThumb"
-                             src="{{ $property->photo->thumbnail ?? '' }}">
-                        <div class="PropertyItemDetails">
-                            <h4>{{ $property->title ?? '' }}</h4>
-                            <label><i class="fa fa-map-marker-alt"></i> {{ $property->location ?? '' }}</label>
-                            <h5>
-                                @foreach($property->specifications as $sub_key => $specification)
-                                    <u>{{ $specification->title ?? '' }}</u>
-                                @endforeach
-                            </h5>
-                            <button type="button">
-                                Explore
-                                <div class="setbg" rel="{{ asset('') }}RRR360/Requirements/IMG/Discover.png"></div>
-                            </button>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+            <div class="PropertiesGH"></div>
 
             <button type="button" class="MorePropertiesBtn" onclick="$(this).find('a')[0].click()">
                 <a class="d-none" href="{{ route('properties.index') }}"></a>
@@ -151,9 +126,67 @@
             </div>
         @endforeach
     </section>
-
 @endsection
 @section('scripts')
     @parent
+    <script>
+        const Asset = "{{asset("")}}";
 
+        function GetProperties(el) {
+            var SelectedCategoryID = '';
+            if (el.attr('rel') && el.attr('rel').length !== 0) {
+                SelectedCategoryID = el.attr('rel');
+            }
+
+            var TakeAmount = 8;
+            var URL = "{{asset('')}}properties/json?take=" + TakeAmount + '&category=' + SelectedCategoryID;
+
+            $('.PropertiesFilter button').removeClass('ActivePropertiesFilter')
+            el.addClass('ActivePropertiesFilter')
+
+            $.ajax({
+                url: URL,
+                type: "GET",
+                dataType: "json",
+                success: function (response) {
+                    console.log(response);
+                    $('.PropertiesGH').html('')
+                    $.each(response, function (index, property) {
+                        var PropertyImage = (property.media && property.media[0] && property.media[0].thumbnail)
+                            ? property.media[0].thumbnail
+                            : Asset + 'RRR360/Requirements/IMG/IMGRF.jpg';
+
+                        var ItemHTML = '<div class="PropertyItem PropertyItem' + property.id + '" onclick="$(this).find(\'a\')[0].click()">' +
+                            '<h6>' +
+                            '<div class="setbg" style="background-image: url(' + Asset + 'RRR360/Requirements/IMG/IMGs.png)"></div>' +
+                             property.photos.length +' </h6>' +
+                            '<a href="'+Asset+'properties/'+property.id+'" class="d-none"></a>' +
+                            '<img class="PropertyItemThumb" src="'+ property.media[0].thumbnail +'">' +
+                            '<div class="PropertyItemDetails">' +
+                            '<h4>'+property.title_en+'</h4>' +
+                            '<label><i class="fa fa-map-marker-alt"></i>'+property.location_en+'</label>' +
+                            '<h5></h5>' +
+                            '<button type="button">' +
+                            'Explore' +
+                            '<div class="setbg" style="background-image: url(' + Asset + 'RRR360/Requirements/IMG/Discover.png)"></div>' +
+                            ' </button>' +
+                            '</div>' +
+                            '</div>';
+
+                        $('.PropertiesGH').append(ItemHTML)
+
+                        $.each(property.specifications, function (pr, specification) {
+                            console.log(specification)
+                            $('.PropertyItem' + property.id + ' h5').append('<u>'+specification.title_en+'</u>')
+                        })
+
+
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error fetching properties:", error);
+                }
+            });
+        }
+    </script>
 @endsection

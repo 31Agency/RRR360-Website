@@ -28,26 +28,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.faq.fields.title_ar') }}
-                        </th>
-                        <td>
-                            {{ $faq->title_ar }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.faq.fields.description_en') }}
                         </th>
                         <td>
                             {{ $faq->description_en }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.faq.fields.description_ar') }}
-                        </th>
-                        <td>
-                            {{ $faq->description_ar }}
                         </td>
                     </tr>
                 </tbody>

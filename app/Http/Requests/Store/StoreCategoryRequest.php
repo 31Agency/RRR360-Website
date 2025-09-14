@@ -18,8 +18,8 @@ class StoreCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'title_ar' => [
-                'required',
+            'title_en' => [
+                'nullable',
                 'string',
             ],
         ];

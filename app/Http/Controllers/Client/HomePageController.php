@@ -24,11 +24,10 @@ class HomePageController extends Controller
     {
         $sliders    = Slider::all();
         $categories = Category::whereHas('properties')->get();
-        $properties = Property::search($request)->orderBy('id', 'DESC')->take(6)->get();
         $faqs       = Faq::all();
         $galleries  = Gallery::orderBy('id', 'DESC')->get();
 
-        return view('client.home', compact('sliders', 'categories', 'properties', 'faqs', 'galleries'));
+        return view('client.home', compact('sliders', 'categories', 'faqs', 'galleries'));
     }
 
 }

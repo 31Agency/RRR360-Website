@@ -19,11 +19,11 @@ class UpdateFaqRequest extends FormRequest
     {
         return [
             'title_ar' => [
-                'required',
+                'nullable',
                 'string',
             ],
             'description_ar' => [
-                'required',
+                'nullable',
                 'string',
             ],
         ];

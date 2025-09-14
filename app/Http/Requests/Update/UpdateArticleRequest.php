@@ -19,27 +19,27 @@ class UpdateArticleRequest extends FormRequest
     {
         return [
             'title_en' => [
-                'required',
+                'nullable',
                 'string',
             ],
             'title_ar' => [
-                'required',
+                'nullable',
                 'string',
             ],
             'description_en' => [
-                'required',
+                'nullable',
                 'string',
             ],
             'description_ar' => [
-                'required',
+                'nullable',
                 'string',
             ],
             'full_description_en' => [
-                'required',
+                'nullable',
                 'string',
             ],
             'full_description_ar' => [
-                'required',
+                'nullable',
                 'string',
             ],
         ];

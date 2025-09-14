@@ -26,14 +26,6 @@
                             {{ $category->title_en ?? '' }}
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.category.fields.title_ar') }}
-                        </th>
-                        <td>
-                            {{ $category->title_ar ?? '' }}
-                        </td>
-                    </tr>
                 </tbody>
             </table>
             <a style="margin-top:20px;" class="btn btn-default" href="{{ url()->previous() }}">

@@ -6,11 +6,11 @@ use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
-class UpdateSpecificationRequest extends FormRequest
+class UpdateVisitorRequest extends FormRequest
 {
     public function authorize()
     {
-        abort_if(Gate::denies('specification_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('visitor_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
     }
@@ -18,12 +18,8 @@ class UpdateSpecificationRequest extends FormRequest
     public function rules()
     {
         return [
-            'title_en' => [
-                'nullable',
-                'string',
-            ],
-            'title_ar' => [
-                'nullable',
+            'ip' => [
+                'required',
                 'string',
             ],
         ];

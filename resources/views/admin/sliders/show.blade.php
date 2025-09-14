@@ -28,44 +28,12 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.slider.fields.title_ar') }}
-                        </th>
-                        <td>
-                            {{ $slider->title_ar }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.slider.fields.sub_title_en') }}
                         </th>
                         <td>
                             {{ $slider->sub_title_en }}
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.slider.fields.sub_title_ar') }}
-                        </th>
-                        <td>
-                            {{ $slider->sub_title_ar }}
-                        </td>
-                    </tr>
-{{--                    <tr>--}}
-{{--                        <th>--}}
-{{--                            {{ trans('cruds.slider.fields.description_en') }}--}}
-{{--                        </th>--}}
-{{--                        <td>--}}
-{{--                            {{ $slider->description_en }}--}}
-{{--                        </td>--}}
-{{--                    </tr>--}}
-{{--                    <tr>--}}
-{{--                        <th>--}}
-{{--                            {{ trans('cruds.slider.fields.description_ar') }}--}}
-{{--                        </th>--}}
-{{--                        <td>--}}
-{{--                            {{ $slider->description_ar }}--}}
-{{--                        </td>--}}
-{{--                    </tr>--}}
                     <tr>
                         <th>
                             {{ trans('cruds.slider.fields.picture') }}
@@ -78,18 +46,6 @@
                             @endif
                         </td>
                     </tr>
-{{--                    <tr>--}}
-{{--                        <th>--}}
-{{--                            {{ trans('cruds.slider.fields.video') }}--}}
-{{--                        </th>--}}
-{{--                        <td>--}}
-{{--                            @if($slider->video)--}}
-{{--                                <a href="{{ $_SERVER['REMOTE_ADDR'] != "127.0.0.1" ? str_replace('localhost/storage', $_SERVER['SERVER_NAME'].'/system/storage/app/public' , $slider->video->getUrl('')) : str_replace('localhost', 'localhost:8000', $slider->video->getUrl('')) }}">--}}
-{{--                                    Click here--}}
-{{--                                </a>--}}
-{{--                            @endif--}}
-{{--                        </td>--}}
-{{--                    </tr>--}}
                 </tbody>
             </table>
             <a style="margin-top:20px;" class="btn btn-default" href="{{ url()->previous() }}">

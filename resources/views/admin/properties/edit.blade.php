@@ -52,18 +52,6 @@
                     {{ trans('cruds.property.fields.title_en_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('title_ar') ? 'has-error' : '' }}">
-                <label for="title_ar">{{ trans('cruds.property.fields.title_ar') }}*</label>
-                <input type="text" id="title_ar" name="title_ar" class="form-control" value="{{ old('title_ar', isset($property) ? $property->title_ar : '') }}" required>
-                @if($errors->has('title_ar'))
-                    <em class="invalid-feedback">
-                        {{ $errors->first('title_ar') }}
-                    </em>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.property.fields.title_ar_helper') }}
-                </p>
-            </div>
             <div class="form-group {{ $errors->has('location_en') ? 'has-error' : '' }}">
                 <label for="location_en">{{ trans('cruds.property.fields.location_en') }}*</label>
                 <input type="text" id="location_en" name="location_en" class="form-control" value="{{ old('location_en', isset($property) ? $property->location_en : '') }}" required>
@@ -74,18 +62,6 @@
                 @endif
                 <p class="helper-block">
                     {{ trans('cruds.property.fields.location_en_helper') }}
-                </p>
-            </div>
-            <div class="form-group {{ $errors->has('location_ar') ? 'has-error' : '' }}">
-                <label for="location_ar">{{ trans('cruds.property.fields.location_ar') }}*</label>
-                <input type="text" id="location_ar" name="location_ar" class="form-control" value="{{ old('location_ar', isset($property) ? $property->location_ar : '') }}" required>
-                @if($errors->has('location_ar'))
-                    <em class="invalid-feedback">
-                        {{ $errors->first('location_ar') }}
-                    </em>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.property.fields.location_ar_helper') }}
                 </p>
             </div>
             <div class="form-group {{ $errors->has('description_en') ? 'has-error' : '' }}">
@@ -99,19 +75,6 @@
                 @endif
                 <p class="helper-block">
                     {{ trans('cruds.property.fields.description_en_helper') }}
-                </p>
-            </div>
-            <div class="form-group {{ $errors->has('description_ar') ? 'has-error' : '' }}">
-                <label for="description_ar">{{ trans('cruds.property.fields.description_ar') }}*</label>
-                <textarea id="description_ar" name="description_ar" class="form-control summernote"
-                          required>{{ old('description_ar', isset($property) ? $property->description_ar : '') }}</textarea>
-                @if($errors->has('description_ar'))
-                    <em class="invalid-feedback">
-                        {{ $errors->first('description_ar') }}
-                    </em>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.property.fields.description_ar_helper') }}
                 </p>
             </div>
             <div>

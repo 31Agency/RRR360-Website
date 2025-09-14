@@ -23,22 +23,6 @@
                     {{ trans('cruds.article.fields.photo_helper') }}
                 </p>
             </div>
-{{--            <div class="form-group {{ $errors->has('category_id') ? 'has-error' : '' }}">--}}
-{{--                <label for="category_id">{{ trans('cruds.article.fields.category_id') }}*</label>--}}
-{{--                <select id="category_id" name="category_id" class="form-control select2" required>--}}
-{{--                    @foreach($categories as $id => $category)--}}
-{{--                        <option value="{{ $id }}" {{ old('category_id', isset($article) && $article->category_id == $id ? 'selected' : '') }}>{{ $category }}</option>--}}
-{{--                    @endforeach--}}
-{{--                </select>--}}
-{{--                @if($errors->has('category_id'))--}}
-{{--                    <em class="invalid-feedback">--}}
-{{--                        {{ $errors->first('category_id') }}--}}
-{{--                    </em>--}}
-{{--                @endif--}}
-{{--                <p class="helper-block">--}}
-{{--                    {{ trans('cruds.article.fields.category_id_helper') }}--}}
-{{--                </p>--}}
-{{--            </div>--}}
             <div class="form-group {{ $errors->has('title_en') ? 'has-error' : '' }}">
                 <label for="title_en">{{ trans('cruds.article.fields.title_en') }}*</label>
                 <input type="text" id="title_en" name="title_en" class="form-control" value="{{ old('title_en', isset($article) ? $article->title_en : '') }}" required>
@@ -49,18 +33,6 @@
                 @endif
                 <p class="helper-block">
                     {{ trans('cruds.article.fields.title_en_helper') }}
-                </p>
-            </div>
-            <div class="form-group {{ $errors->has('title_ar') ? 'has-error' : '' }}">
-                <label for="title_ar">{{ trans('cruds.article.fields.title_ar') }}*</label>
-                <input type="text" id="title_ar" name="title_ar" class="form-control" value="{{ old('title_ar', isset($article) ? $article->title_ar : '') }}" required>
-                @if($errors->has('title_ar'))
-                    <em class="invalid-feedback">
-                        {{ $errors->first('title_ar') }}
-                    </em>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.article.fields.title_ar_helper') }}
                 </p>
             </div>
             <div class="form-group {{ $errors->has('description_en') ? 'has-error' : '' }}">
@@ -75,18 +47,6 @@
                     {{ trans('cruds.article.fields.description_en_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('description_ar') ? 'has-error' : '' }}">
-                <label for="description_ar">{{ trans('cruds.article.fields.description_ar') }}*</label>
-                <input type="text" id="description_ar" name="description_ar" class="form-control" value="{{ old('description_ar', isset($article) ? $article->description_ar : '') }}" required>
-                @if($errors->has('description_ar'))
-                    <em class="invalid-feedback">
-                        {{ $errors->first('description_ar') }}
-                    </em>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.article.fields.description_ar_helper') }}
-                </p>
-            </div>
             <div class="form-group {{ $errors->has('full_description_en') ? 'has-error' : '' }}">
                 <label for="full_description_en">{{ trans('cruds.article.fields.full_description_en') }}*</label>
                 <textarea id="full_description_en" name="full_description_en" class="form-control summernote" required>{{ old('full_description_en', isset($article) ? $article->full_description_en : '') }}</textarea>
@@ -97,18 +57,6 @@
                 @endif
                 <p class="helper-block">
                     {{ trans('cruds.article.fields.full_description_en_helper') }}
-                </p>
-            </div>
-            <div class="form-group {{ $errors->has('full_description_ar') ? 'has-error' : '' }}">
-                <label for="full_description_ar">{{ trans('cruds.article.fields.full_description_ar') }}*</label>
-                <textarea id="full_description_ar" name="full_description_ar" class="form-control summernote" required>{{ old('full_description_ar', isset($article) ? $article->full_description_ar : '') }}</textarea>
-                @if($errors->has('full_description_ar'))
-                    <em class="invalid-feedback">
-                        {{ $errors->first('full_description_ar') }}
-                    </em>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.article.fields.full_description_ar_helper') }}
                 </p>
             </div>
             <div>

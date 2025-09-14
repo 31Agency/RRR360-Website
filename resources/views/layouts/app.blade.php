@@ -44,8 +44,7 @@
                         <a class="d-none" href="{{ route('home') }}"></a>
                         Home
                     </li>
-                    <li onclick="$(this).find('a')[0].click()">
-{{--                        <a class="d-none" href="{{ route('properties.index') }}"></a>--}}
+                    <li>
                         Properties
                         <i class="fa fa-angle-down"></i>
                         <ul class="SubTaB animate__animated animate__fadeInDown">
@@ -205,12 +204,11 @@
     <u onclick="$('.PopUp').attr('class','PopUp animate__animated animate__fadeOutDown')">
         <i class="fa fa-times-circle"></i>
     </u>
-    <div class="PopUpArt setbg" rel="{{ asset('') }}RRR360/Requirements/IMG/Support.jpg"></div>
+    <div class="PopUpArt setbg" rel="{{ $GlobalInfo->support->thumbnail ?? '' }}"></div>
     <h4 class="animate__animated animate__fadeInDown animate__delay-1s"> Hello 👋</h4>
-    <label> This is Sausan </label>
+    <label> {{ $GlobalInfo->support_title ?? '' }} </label>
     <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-        standard dummy text ever since the 1500s.
+        {{ $GlobalInfo->support_description ?? '' }}
     </p>
     <button type="button">
         <i class="fab fa-whatsapp"></i>
@@ -235,6 +233,25 @@
 
 <div class="ScrollIndicatorAmount"></div>
 
+@if(!$CheckOldVisitor)
+    <div class="ImportantPopUp">
+        <div class="ImportantPopUpInner">
+            <div class="ImportantPopUpFade"></div>
+            <div class="ImportantPopUpDiv animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="setbg" rel="{{ $GlobalInfo->support->thumbnail ?? '' }}"></div>
+                <h4> {{ $GlobalInfo->important_pop_up_title ?? '' }} </h4>
+                <p>
+                    {{ $GlobalInfo->important_pop_up_description ?? '' }}
+                </p>
+                <button type="button" onclick="SaveClientID()">
+                    Understood
+                    <i class="fa fa-thumbs-up"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+@endif
+
 <div class="Preloader">
     <div class="PreloaderInner animate__animated">
         <div class="PreloaderDiv">
@@ -251,5 +268,30 @@
 <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
 <script src="{{ asset('') }}RRR360/Requirements/JS/javascript.js"></script>
 @yield('scripts')
+<script>
+    function SaveClientID(){
+
+        $.ajax({
+            type: 'GET',
+            cache: false,
+            dataType: 'json',
+            url: '{{ route('visitors.store') }}',
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                console.log(response)
+                lenis.start()
+                $('body,html').css('overflow','auto')
+                $('.ImportantPopUp').fadeOut(600)
+            },
+            error: function (xhr, ajaxOptions, thrownError, data) {
+                console.log(xhr);
+                console.log(ajaxOptions);
+                console.log(thrownError);
+                console.log(data);
+            }
+        });
+    }
+</script>
 </body>
 </html>
