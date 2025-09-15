@@ -235,6 +235,18 @@
                         {{ trans('cruds.info.fields.support_description_en_helper') }}
                     </p>
                 </div>
+                <div class="form-group {{ $errors->has('support_brief_en') ? 'has-error' : '' }}">
+                    <label for="support_brief_en">{{ trans('cruds.info.fields.support_brief_en') }}*</label>
+                    <input type="text" id="support_brief_en" name="support_brief_en" class="form-control" value="{{ old('support_brief_en', isset($info) ? $info->support_brief_en : '') }}" required>
+                    @if($errors->has('support_brief_en'))
+                        <em class="invalid-feedback">
+                            {{ $errors->first('support_brief_en') }}
+                        </em>
+                    @endif
+                    <p class="helper-block">
+                        {{ trans('cruds.info.fields.support_brief_en_helper') }}
+                    </p>
+                </div>
                 <div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
                     <label for="phone">{{ trans('cruds.info.fields.phone') }}*</label>
                     <input type="tel" id="phone" name="phone" class="form-control"

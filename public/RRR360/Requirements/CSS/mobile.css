@@ -1,0 +1,211 @@
+@media only screen and (max-width: 800px) {
+    .PopUp {
+        margin: 0;
+        width: 100%;
+        padding-bottom: 110px;
+    }
+
+    .PopUp button {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 90%;
+        margin: 5%;
+        padding: 15px 0;
+        font-size: 14px;
+    }
+
+    .SideMenuDiv {
+        max-width: 70%;
+    }
+
+    .PropertyItem {
+        display: block;
+        margin: 11px auto;
+        width: 100%;
+    }
+
+    .AboutDiv h1 {
+        display: block;
+        margin: 0 auto;
+        width: 95%;
+        padding: 0;
+        text-align: center;
+        letter-spacing: 21px;
+    }
+
+    .AboutDiv h1 u {
+        display: block;
+        margin: 14px auto;
+        width: 100%;
+        letter-spacing: 0;
+        padding: 10px 0;
+        padding-left: 60px;
+    }
+
+    .AboutDiv label {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        letter-spacing: 18px;
+        text-align: center;
+    }
+
+    .AboutDiv p {
+        margin: 10px auto 10px;
+        width: 95%;
+        font-size: 16px;
+    }
+
+    .AboutDiv button {
+        display: block;
+        margin: 35px auto;
+    }
+
+    .VideoPlayerDiv {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        max-width: unset;
+        max-height: unset;
+        z-index: 9999999999;
+    }
+
+    .VideoPlayerDiv video {
+        padding-bottom: 60px;
+    }
+
+    .VideoPlayerOnConsoles {
+        display: flex;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        z-index: 222;
+        background: #2f2f2f;
+        width: 100%;
+        height: fit-content;
+        padding: 10px;
+    }
+
+    .VideoPlayerOnConsoles button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: none;
+        color: #d33636;
+        text-transform: uppercase;
+        border: solid 2px;
+        padding: 7px 14px;
+        font-size: 14px;
+        padding-left: 40px;
+        position: relative;
+    }
+
+    .VideoPlayerOnConsoles button i {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: auto;
+        height: 100%;
+        aspect-ratio: 1/1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #d33636;
+    }
+
+    .FAQItemInner h1 {
+        font-size: 20px;
+    }
+
+    .FAQItemInner p {
+        margin: 11px auto 0;
+        font-size: 14px;
+    }
+
+    .ImgPevInner img {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        max-width: unset;
+        max-height: 60%;
+        object-fit: contain;
+        background-color: #000000;
+    }
+
+    .SubFooterInner {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .SubFooterInner form {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .SubFooterInner iframe {
+        display: block;
+        margin: 20px auto;
+        width: 100%;
+        aspect-ratio: 1/1;
+    }
+
+    .ScrollerBtn button {
+        width: 37px;
+        margin: 16px;
+    }
+    .ScrollerBtn button .setbg {}
+
+    .CopyRights p {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        padding: 10px 60px;
+        border-top: solid 1px #3b3b3b;
+    }
+
+    .BannerSliderItemDiv h1 {
+        font-size: 30px;
+    }
+
+    .BannerSliderItemDiv p {
+        font-size: 15px;
+    }
+
+    .PropertyFullDescription {
+        padding: 16px;
+    }
+
+    .PropertyShowPageRightDetails h1 {
+        font-size: 28px;
+    }
+
+    .PreloaderDiv img {
+        width: 75px;
+    }
+
+    .PreloaderDiv {
+        width: 140px;
+    }
+
+    .ImportantPopUpDiv {
+        padding: 25px;
+        padding-bottom: 105px;
+    }
+    .ImportantPopUpDiv .setbg {
+        display: none;
+    }
+
+    .ImportantPopUpDiv p {
+        font-size: 15px;
+    }
+
+    .ImportantPopUpDiv h4 {
+        font-size: 25px;
+    }
+}

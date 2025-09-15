@@ -74,6 +74,8 @@ class Info extends Model implements HasMedia
         'support_title_ar',
         'support_description_en',
         'support_description_ar',
+        'support_brief_en',
+        'support_brief_ar',
         'mobile',
         'contact_email',
         'daily_work',
@@ -86,14 +88,14 @@ class Info extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null): void
     {
-        $this->addMediaConversion('thumb')->width(50)->keepOriginalImageFormat();
-        $this->addMediaConversion('thumb_logo')->width(167)->height(50)->keepOriginalImageFormat();
+        $this->addMediaConversion('thumb')->width(50)->format('webp');
+        $this->addMediaConversion('thumb_logo')->width(140)->format('webp');
         $this->addMediaConversion('thumb_support')->width(266)->format('webp');
-        $this->addMediaConversion('thumb_footer')->width(165)->height(50)->keepOriginalImageFormat();
-        $this->addMediaConversion('thumb_favicon')->width(20)->height(20)->keepOriginalImageFormat();
-        $this->addMediaConversion('thumb_get_quote')->width(1296)->height(460)->keepOriginalImageFormat();
-        $this->addMediaConversion('thumb_how_photo')->width(750)->keepOriginalImageFormat();
-        $this->addMediaConversion('thumb_about_photo')->width(340)->height(616)->keepOriginalImageFormat();
+        $this->addMediaConversion('thumb_footer')->width(165)->format('webp');
+        $this->addMediaConversion('thumb_favicon')->width(20)->format('webp');
+        $this->addMediaConversion('thumb_get_quote')->width(1296)->format('webp');
+        $this->addMediaConversion('thumb_how_photo')->width(750)->format('webp');
+        $this->addMediaConversion('thumb_about_photo')->width(340)->format('webp');
     }
 
     public function getLogoAttribute()
@@ -299,6 +301,20 @@ class Info extends Model implements HasMedia
         else
         {
             $value = $this->getAttribute('support_title_ar');
+        }
+
+        return $value;
+    }
+
+    public function getSupportBriefAttribute()
+    {
+        if (app()->getLocale() == "en")
+        {
+            $value = $this->getAttribute('support_brief_en');
+        }
+        else
+        {
+            $value = $this->getAttribute('support_brief_ar');
         }
 
         return $value;

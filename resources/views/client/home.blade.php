@@ -156,7 +156,7 @@
                             ? property.media[0].thumbnail
                             : Asset + 'RRR360/Requirements/IMG/IMGRF.jpg';
 
-                        var ItemHTML = '<div class="PropertyItem PropertyItem' + property.id + '" onclick="$(this).find(\'a\')[0].click()">' +
+                        var ItemHTML = '<div class="PropertyItem PropertyItem' + property.id + ' animate__animated animate__zoomIn" onclick="$(this).find(\'a\')[0].click()">' +
                             '<h6>' +
                             '<div class="setbg" style="background-image: url(' + Asset + 'RRR360/Requirements/IMG/IMGs.png)"></div>' +
                              property.photos.length +' </h6>' +

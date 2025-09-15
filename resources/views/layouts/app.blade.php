@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('') }}RRR360/Requirements/CSS/style.css">
+    <link rel="stylesheet" href="{{ asset('') }}RRR360/Requirements/CSS/ipad.css">
+    <link rel="stylesheet" href="{{ asset('') }}RRR360/Requirements/CSS/mobile.css">
     @yield('styles')
 </head>
 <body>
@@ -35,7 +37,7 @@
         <div class="HeaderInner">
             <div class="HeaderLogo" onclick="$(this).find('a')[0].click()">
                 <a class="d-none" href="{{ route('home') }}"></a>
-                <img src="{{ asset('') }}RRR360/Requirements/IMG/Logo.png">
+                <img src="{{ $GlobalInfo->logo->thumbnail ?? '' }}">
             </div>
 
             <div class="HeaderTabs">
@@ -44,7 +46,7 @@
                         <a class="d-none" href="{{ route('home') }}"></a>
                         Home
                     </li>
-                    <li>
+                    <li class="PCHeaderTab">
                         Properties
                         <i class="fa fa-angle-down"></i>
                         <ul class="SubTaB animate__animated animate__fadeInDown">
@@ -55,6 +57,10 @@
                                 </li>
                             @endforeach
                         </ul>
+                    </li>
+                    <li class="SMTab" onclick="$(this).find('a')[0].click()">
+                        <a class="d-none" href="{{ route('properties.index') }}"></a>
+                        Properties
                     </li>
                     <li onclick="$(this).find('a')[0].click()">
                         <a class="d-none" href="{{ route('about.index') }}"></a>
@@ -73,6 +79,10 @@
                     </button>
                 </div>
             </div>
+
+            <button type="button" class="SideMenuBtn" onclick="$('.SideMenu').show()">
+                <div class="setbg" rel="{{ asset('') }}RRR360/Requirements/IMG/Menu.png"></div>
+            </button>
         </div>
     </div>
 </header>
@@ -200,38 +210,47 @@
     </div>
 </footer>
 
-<div class="PopUp animate__animated animate__fadeInUp">
-    <u onclick="$('.PopUp').attr('class','PopUp animate__animated animate__fadeOutDown')">
-        <i class="fa fa-times-circle"></i>
-    </u>
-    <div class="PopUpArt setbg" rel="{{ $GlobalInfo->support->thumbnail ?? '' }}"></div>
-    <h4 class="animate__animated animate__fadeInDown animate__delay-1s"> Hello 👋</h4>
-    <label> {{ $GlobalInfo->support_title ?? '' }} </label>
-    <p>
-        {{ $GlobalInfo->support_description ?? '' }}
-    </p>
-    <button type="button">
-        <i class="fab fa-whatsapp"></i>
-        Chat With Sausan
-    </button>
-</div>
-
 <div class="ScrollerBtn animate__animated animate__flipInX">
     <button type="button" onclick="ScrollBackUp()">
         <div class="setbg" rel="{{ asset('') }}RRR360/Requirements/IMG/Arrow.png"></div>
     </button>
 </div>
 
+<div class="SideMenu">
+    <div class="SideMenuInner">
+        <div class="SideMenuFade" onclick="$('.SideMenu').fadeOut(600)"></div>
+        <div class="SideMenuDiv animate__animated animate__fadeInRight">
+            <div class="setbg SideMenuLogo" rel="{{ $GlobalInfo->logo->thumbnail ?? '' }}"></div>
+            <ul></ul>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="ScrollIndicatorAmount"></div>
+
 <div class="VideoPlayer">
     <div class="VideoPlayerInner">
         <div class="VideoPlayerFade" onclick="$('.VideoPlayer').fadeOut(600)"></div>
         <div class="VideoPlayerDiv animate__animated animate__zoomIn">
             <video controls loop playsinline autoplay></video>
+            <div class="VideoPlayerOnConsoles">
+                <button type="button" onclick="$('.VideoPlayerFade')[0].click()">
+                    <i class="fa fa-times-circle"></i>
+                    Close Player
+                </button>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="ScrollIndicatorAmount"></div>
+<div class="ImgPev">
+    <div class="ImgPevInner">
+        <div class="ImgPevFade" onclick="$('.ImgPev').fadeOut(600)"></div>
+        <img src="#" class="animate__animated animate__zoomIn">
+    </div>
+</div>
 
 @if(!$CheckOldVisitor)
     <div class="ImportantPopUp">
@@ -249,6 +268,22 @@
                 </button>
             </div>
         </div>
+    </div>
+@else
+    <div class="PopUp animate__animated animate__fadeInUp">
+        <u onclick="$('.PopUp').attr('class','PopUp animate__animated animate__fadeOutDown')">
+            <i class="fa fa-times-circle"></i>
+        </u>
+        <div class="PopUpArt setbg" rel="{{ $GlobalInfo->support->thumbnail ?? '' }}"></div>
+        <h4 class="animate__animated animate__fadeInDown animate__delay-1s"> Hello 👋</h4>
+        <label> {{ $GlobalInfo->support_title ?? '' }} </label>
+        <p>
+            {{ $GlobalInfo->support_description ?? '' }}
+        </p>
+        <button type="button">
+            <i class="fab fa-whatsapp"></i>
+            {{ $GlobalInfo->support_brief ?? '' }}
+        </button>
     </div>
 @endif
 

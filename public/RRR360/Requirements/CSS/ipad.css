@@ -1,0 +1,171 @@
+@media only screen and (max-width: 1200px) {
+    .HeaderTabs {
+        display: none;
+    }
+
+    .BannerSliderItemDiv {
+        width: 100%;
+    }
+
+    .BannerArrows {
+        display: none;
+    }
+
+    .BannerSliderItemDiv h1 {
+        font-size: 40px;
+    }
+
+    .PropertiesFilter button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .PropertyItem {
+        margin: 15px 0;
+        width: 48%;
+    }
+
+    .AboutInner {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .AboutDiv {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        position: relative;
+    }
+
+    .AboutArt {
+        display: flex;
+        margin: 67px auto 0;
+        width: 100%;
+        position: relative;
+        right: unset;
+        top: unset;
+        left: unset;
+        bottom: unset;
+        aspect-ratio: 1/1;
+        background: #ffffff1f;
+        border-radius: 20px;
+    }
+
+    .AboutBGParent {
+    }
+
+    .AboutArt i {
+        display: flex;
+    }
+
+    .SideMenuBtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        height: 45px;
+        aspect-ratio: 1/1;
+        border: none;
+        background: var(--theme);
+        border-radius: 5px;
+        padding: 8px;
+    }
+
+    .SideMenuBtn .setbg {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        aspect-ratio: 1/1;
+        background-size: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        opacity: 0.9;
+    }
+
+    .SideMenuInner {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999999999999999;
+    }
+
+    .SideMenuDiv {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 345px;
+        height: 100%;
+        z-index: 22;
+        background: #0e0e0e;
+        max-width: 80%;
+        padding: 20px;
+    }
+
+    .SideMenuFade {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: #ffffff;
+        opacity: 0.3;
+    }
+
+    .SideMenuLogo {
+        display: block;
+        margin: 15px auto;
+        width: 100%;
+        aspect-ratio: 1/0.4;
+        background-size: 50%;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .SideMenuDiv ul {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        padding: 0;
+    }
+    .SideMenuDiv ul li {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        padding: 14px 5px;
+        border-bottom: solid 1px #ffffff21;
+        user-select: none;
+    }
+
+    .PropertyShowPageInner {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        padding: 0;
+    }
+
+    .PropertyShowPageLeft {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        padding: 0;
+    }
+
+    .PropertyShowPageRight {
+        display: block;
+        margin: 30px auto;
+        width: 100%;
+        padding: 0;
+    }
+
+    .ImportantPopUpDiv {
+        padding: 30px;
+        padding-bottom: 105px;
+    }
+    .ImportantPopUpDiv .setbg {
+        display: none;
+    }
+}
