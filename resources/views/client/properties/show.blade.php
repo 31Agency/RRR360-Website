@@ -7,15 +7,17 @@
                     <div class="ImageSlider">
                         <!-- Preview Image -->
                         <div class="PreviewWrapper">
-                            <img id="PreviewImage" src="{{asset("RRR360/Requirements/IMG/IMGRF.jpg")}}" alt="Preview"
-                                 class="PreviewImage">
+                            <img id="PreviewImage" src="{{asset("RRR360/Requirements/IMG/IMGRF.jpg")}}"
+                                 class="PreviewImage"
+                                 alt="{{ $property->title ?? '' }} - {{ $property->description ?? '' }}">
                         </div>
 
                         <!-- Thumbnails -->
                         <div class="ThumbnailWrapper">
                             @foreach($property->photos as $photo)
                                 <img src="{{ $photo->thumbnail ?? asset('RRR360/Requirements/IMG/IMGRF.jpg') }}"
-                                     class="Thumbnail" rel="{{$photo->url}}" onclick="changeImage($(this))">
+                                     class="Thumbnail" rel="{{$photo->url}}" onclick="changeImage($(this))"
+                                     alt="{{ $property->title ?? '' }} - {{ $property->description ?? '' }}">
                             @endforeach
                         </div>
                     </div>
@@ -41,8 +43,6 @@
                 </div>
             </div>
 
-
-
             @if($related_properties->count() > 0)
                 <div class="RelatedProperties">
                     <div class="RelatedPropertiesHeader">
@@ -64,10 +64,14 @@
                             </h6>
                             <a href="{{ route('properties.show', [$related->id]) }}" class="d-none"></a>
                             <img class="setsrc PropertyItemThumb"
-                                 src="{{ $related->photo->thumbnail ?? '' }}">
+                                 src="{{ $related->photo->thumbnail ?? '' }}"
+                                 alt="{{ $related->title ?? '' }} - {{ $related->description ?? '' }}">
                             <div class="PropertyItemDetails">
                                 <h4>{{ $related->title ?? '' }}</h4>
-                                <label><i class="fa fa-map-marker-alt"></i> {{ $related->location ?? '' }}</label>
+                                <label>
+                                    <i class="fa fa-map-marker-alt"></i>
+                                    {{ $related->location ?? '' }}
+                                </label>
                                 <h5>
                                     @foreach($related->specifications as $sub_key => $specification)
                                         <u>{{ $specification->title ?? '' }}</u>
@@ -84,8 +88,6 @@
             @endif
         </div>
     </section>
-
-
 @endsection
 @section('scripts')
     @parent

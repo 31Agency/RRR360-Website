@@ -26,7 +26,8 @@
                         </h6>
                         <a href="{{ route('properties.show', [$property->id]) }}" class="d-none"></a>
                         <img class="setsrc PropertyItemThumb"
-                             src="{{ $property->photo->thumbnail ?? '' }}">
+                             src="{{ $property->photo->thumbnail ?? '' }}"
+                        alt="{{ $property->title ?? '' }} - {{ $property->description ?? '' }}">
                         <div class="PropertyItemDetails">
                             <h4>{{ $property->title ?? '' }}</h4>
                             <label><i class="fa fa-map-marker-alt"></i> {{ $property->location ?? '' }}</label>

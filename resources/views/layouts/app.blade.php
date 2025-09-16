@@ -3,23 +3,60 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="{{ $GlobalInfo->title ?? '' }}">
+
     {{-- Favicon --}}
     <link rel="icon" type="image/x-icon" href="{{ $GlobalInfo->favicon->thumbnail ?? '' }}">
     <link href="{{ $GlobalInfo->favicon->thumbnail ?? '' }}" rel="icon">
     <link href="{{ $GlobalInfo->favicon->thumbnail ?? '' }}" rel="apple-touch-icon">
-    <title> {{ $GlobalInfo->title ?? '' }} </title>
-    <meta content="{{ $GlobalInfo->title ?? '' }}" property="og:title"/>
-    <meta name="keywords"
-          content="{{ $GlobalInfo->keywords ?? '' }} - {{ $info->about ?? '' }} - {{ $GlobalInfo->vison ?? '' }}">
-    <meta name="description" content="{{ $GlobalInfo->about ?? '' }} - {{ $GlobalInfo->vision ?? '' }}">
-    <meta name="google" content="notranslate">
 
+
+    @if (request()->routeIs('properties.index'))
+        {{-- Title --}}
+        <title>Properties - {{ $GlobalInfo->title ?? '' }}</title>
+        <meta content="Properties - {{ $GlobalInfo->title ?? '' }}" property="og:title"/>
+        {{-- Thumb --}}
+        <meta property=’og:image’ content="{{ asset('') }}RRR360/Requirements/IMG/Thumb.jpg"/>
+        {{-- Description --}}
+        <meta name="keywords"
+              content="{{ $GlobalInfo->keywords ?? '' }} - {{ $info->about ?? '' }} - {{ $GlobalInfo->vison ?? '' }}">
+        <meta name="description" content="{{ $GlobalInfo->about ?? '' }} - {{ $GlobalInfo->vision ?? '' }}">
+    @elseif (request()->routeIs('properties.show'))
+        {{-- Title --}}
+        <title>{{ $property->title ?? '' }}  - {{ $GlobalInfo->title ?? '' }}</title>
+        <meta content="{{ $property->title ?? '' }}  - {{ $GlobalInfo->title ?? '' }}" property="og:title"/>
+        {{-- Thumb --}}
+        <meta property=’og:image’ content="{{ $property->photo->thumbnail ?? '' }}"/>
+        {{-- Description --}}
+        <meta name="keywords" content="{{ $property->description_en ?? '' }} - {{ $GlobalInfo->keywords ?? '' }}">
+        <meta name="description" content="{{ $property->description_en ?? '' }} - {{ $GlobalInfo->keywords ?? '' }}">
+    @elseif (request()->routeIs('about.index'))
+        {{-- Title --}}
+        <title> About - {{ $GlobalInfo->title ?? '' }} </title>
+        <meta content="About - {{ $GlobalInfo->title ?? '' }}" property="og:title"/>
+        {{-- Thumb --}}
+        <meta property=’og:image’ content="{{ asset('') }}RRR360/Requirements/IMG/Thumb.jpg"/>
+        {{-- Description --}}
+        <meta name="keywords"
+              content="{{ $GlobalInfo->keywords ?? '' }} - {{ $info->about ?? '' }} - {{ $GlobalInfo->vison ?? '' }}">
+        <meta name="description" content="{{ $GlobalInfo->about ?? '' }} - {{ $GlobalInfo->vision ?? '' }}">
+    @else
+        {{-- Title --}}
+        <title> {{ $GlobalInfo->title ?? '' }} </title>
+        <meta content="{{ $GlobalInfo->title ?? '' }}" property="og:title"/>
+        {{-- Thumb --}}
+        <meta property=’og:image’ content="{{ asset('') }}RRR360/Requirements/IMG/Thumb.jpg"/>
+        {{-- Description --}}
+        <meta name="keywords"
+              content="{{ $GlobalInfo->keywords ?? '' }} - {{ $info->about ?? '' }} - {{ $GlobalInfo->vison ?? '' }}">
+        <meta name="description" content="{{ $GlobalInfo->about ?? '' }} - {{ $GlobalInfo->vision ?? '' }}">
+    @endif
+
+    <meta name="google" content="notranslate">
+    {{-- Links --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet">
-
     <link rel="stylesheet" href="{{ asset('') }}RRR360/Requirements/CSS/bootstrap.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('') }}RRR360/Requirements/CSS/slick.css">
@@ -37,7 +74,8 @@
         <div class="HeaderInner">
             <div class="HeaderLogo" onclick="$(this).find('a')[0].click()">
                 <a class="d-none" href="{{ route('home') }}"></a>
-                <img src="{{ $GlobalInfo->logo->thumbnail ?? '' }}">
+                <img src="{{ $GlobalInfo->logo->thumbnail ?? '' }}"
+                     alt="{{ $GlobalInfo->title ?? '' }} - {{ $GlobalInfo->description ?? '' }}">
             </div>
 
             <div class="HeaderTabs">
@@ -201,7 +239,8 @@
                         <a href="#" target="_blank" class="d-none"></a>
                         All copyrights reserved
                         <img class="setsrc" rel="{{ asset('') }}RRR360/Requirements/IMG/TECH.png"
-                             onclick="$(this).parent().find('a')[0].click()">
+                             onclick="$(this).parent().find('a')[0].click()"
+                             alt="31 TECH - {{ $GlobalInfo->title ?? '' }} - {{ $GlobalInfo->description ?? '' }}">
                         {{ date('Y') }}©
                     </p>
                 </div>
@@ -248,7 +287,7 @@
 <div class="ImgPev">
     <div class="ImgPevInner">
         <div class="ImgPevFade" onclick="$('.ImgPev').fadeOut(600)"></div>
-        <img src="#" class="animate__animated animate__zoomIn">
+        <img src="#" class="animate__animated animate__zoomIn" alt="{{ $GlobalInfo->title ?? '' }} - {{ $GlobalInfo->description ?? '' }}">
     </div>
 </div>
 
@@ -291,7 +330,8 @@
     <div class="PreloaderInner animate__animated">
         <div class="PreloaderDiv">
             <div class="PreloaderLoader"></div>
-            <img src="{{ asset('') }}RRR360/Requirements/IMG/AboutBG.png">
+            <img src="{{ asset('') }}RRR360/Requirements/IMG/AboutBG.png"
+                 alt="{{ $GlobalInfo->title ?? '' }} - {{ $GlobalInfo->description ?? '' }}">
         </div>
     </div>
 </div>

@@ -7,7 +7,8 @@
             @foreach($sliders as $key => $slider)
                 <div class="BannerSliderItem">
                     <img class="setsrc"
-                         rel="{{ $slider->picture->thumbnail ?? '' }}">
+                         rel="{{ $slider->picture->thumbnail ?? '' }}"
+                         alt="{{ $GlobalInfo->title ?? '' }} - {{ $GlobalInfo->description ?? '' }}">
                     <div class="container">
                         <div class="BannerSliderItemDiv animate__animated animate__fadeInUp">
                             <h1 class="animate__animated animate__fadeInDown animate__delay-1s"> {{ $slider->title ?? '' }} </h1>
@@ -23,7 +24,6 @@
                     </div>
                 </div>
             @endforeach
-
         </div>
 
         <div class="BannerArrows">
@@ -85,7 +85,8 @@
                 <div class="AboutArt" onclick="PlayVid($(this))">
                     <a href="{{ $GlobalInfo->about_video->url ?? '' }}" class="d-none VidSrc"></a>
                     <i class="fa fa-play animate__animated animate__zoomIn"></i>
-                    <img class="setsrc" rel="{{ $GlobalInfo->about_photo->url ?? '' }}">
+                    <img class="setsrc" rel="{{ $GlobalInfo->about_photo->url ?? '' }}"
+                         alt="{{ $GlobalInfo->title ?? '' }} - {{ $GlobalInfo->description ?? '' }}">
                 </div>
                 <div class="AboutBGParent">
                     <div class="setbg AboutBG" rel="{{ asset('') }}RRR360/Requirements/IMG/AboutBG.png"></div>
@@ -131,62 +132,5 @@
     @parent
     <script>
         const Asset = "{{asset("")}}";
-
-        function GetProperties(el) {
-            var SelectedCategoryID = '';
-            if (el.attr('rel') && el.attr('rel').length !== 0) {
-                SelectedCategoryID = el.attr('rel');
-            }
-
-            var TakeAmount = 8;
-            var URL = "{{asset('')}}properties/json?take=" + TakeAmount + '&category=' + SelectedCategoryID;
-
-            $('.PropertiesFilter button').removeClass('ActivePropertiesFilter')
-            el.addClass('ActivePropertiesFilter')
-
-            $.ajax({
-                url: URL,
-                type: "GET",
-                dataType: "json",
-                success: function (response) {
-                    console.log(response);
-                    $('.PropertiesGH').html('')
-                    $.each(response, function (index, property) {
-                        var PropertyImage = (property.media && property.media[0] && property.media[0].thumbnail)
-                            ? property.media[0].thumbnail
-                            : Asset + 'RRR360/Requirements/IMG/IMGRF.jpg';
-
-                        var ItemHTML = '<div class="PropertyItem PropertyItem' + property.id + ' animate__animated animate__zoomIn" onclick="$(this).find(\'a\')[0].click()">' +
-                            '<h6>' +
-                            '<div class="setbg" style="background-image: url(' + Asset + 'RRR360/Requirements/IMG/IMGs.png)"></div>' +
-                             property.photos.length +' </h6>' +
-                            '<a href="'+Asset+'properties/'+property.id+'" class="d-none"></a>' +
-                            '<img class="PropertyItemThumb" src="'+ property.media[0].thumbnail +'">' +
-                            '<div class="PropertyItemDetails">' +
-                            '<h4>'+property.title_en+'</h4>' +
-                            '<label><i class="fa fa-map-marker-alt"></i>'+property.location_en+'</label>' +
-                            '<h5></h5>' +
-                            '<button type="button">' +
-                            'Explore' +
-                            '<div class="setbg" style="background-image: url(' + Asset + 'RRR360/Requirements/IMG/Discover.png)"></div>' +
-                            ' </button>' +
-                            '</div>' +
-                            '</div>';
-
-                        $('.PropertiesGH').append(ItemHTML)
-
-                        $.each(property.specifications, function (pr, specification) {
-                            console.log(specification)
-                            $('.PropertyItem' + property.id + ' h5').append('<u>'+specification.title_en+'</u>')
-                        })
-
-
-                    });
-                },
-                error: function (xhr, status, error) {
-                    console.error("Error fetching properties:", error);
-                }
-            });
-        }
     </script>
 @endsection

@@ -194,7 +194,7 @@ header {
     object-position: center center;
     z-index: -1;
     filter: grayscale(1);
-    opacity: 0.3;
+    opacity: 0.2;
 }
 
 .BannerSliderItemDiv {
@@ -270,7 +270,7 @@ header {
     display: none;
     position: absolute;
     left: 0;
-    top: 45px;
+    top: 40px;
     background: #111111;
     width: 230px;
     margin: 0 0;
@@ -566,9 +566,10 @@ header {
     filter: brightness(110%);
 }
 
-.PropertyItem:hover {
-    transform: scale(1.05);
-}
+/*.PropertyItem:hover {*/
+/*    transition: 400ms!important;*/
+/*    transform: scale(1.05);*/
+/*}*/
 
 .About {
     display: block;
