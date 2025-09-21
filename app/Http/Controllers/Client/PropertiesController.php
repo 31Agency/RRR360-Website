@@ -12,7 +12,7 @@ class PropertiesController extends Controller
     public function index(Request $request)
     {
         $categories = Category::whereHas('properties')->get();
-        $properties = Property::search($request)->orderBy('id', 'DESC')->paginate(9);
+        $properties = Property::search($request)->orderBy('id', 'DESC')->paginate(6);
 
         return view('client.properties.index', compact('properties', 'categories'));
     }
