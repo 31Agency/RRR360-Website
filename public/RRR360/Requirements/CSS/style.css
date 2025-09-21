@@ -1749,6 +1749,8 @@ footer {
     filter: grayscale(1);
     border: solid 2px transparent;
     transition: 300ms;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 
 .ThumbnailWrapper .ActiveThumbnail {
@@ -1838,6 +1840,9 @@ footer {
 }
 
 .RelatedPropertiesHeader {
+    display: block;
+    margin: 60px auto 0;
+    width: 100%;
 }
 
 .RelatedPropertiesHeader h3 {

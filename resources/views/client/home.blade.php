@@ -16,7 +16,7 @@
                                 {{ $slider->sub_title ?? '' }}
                             </p>
                             <button type="button" onclick="$(this).find('a')[0].click()">
-                                <a class="d-none" href="{{ $slider->url ?? '' }}"></a>
+                                <a class="d-none" href="{{ $slider->url ?? '' }}" target="_blank"></a>
                                 Discover
                                 <div class="setbg" rel="{{ asset('') }}RRR360/Requirements/IMG/Discover.png"></div>
                             </button>
