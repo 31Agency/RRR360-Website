@@ -182,7 +182,7 @@ function GetProperties(el) {
     if (el.attr('rel') && el.attr('rel').length !== 0) {
         SelectedCategoryID = el.attr('rel');
     }
-    var TakeAmount = 8;
+    var TakeAmount = 6;
     var URL = Asset+"properties/json?take=" + TakeAmount + '&category=' + SelectedCategoryID;
     $('.PropertiesFilter button').removeClass('ActivePropertiesFilter')
     el.addClass('ActivePropertiesFilter')
