@@ -18,7 +18,7 @@ class Specification extends Model
     ];
 
     protected $fillable = [
-        'property_id',
+        'section_id',
         'title_en',
         'title_ar',
         'created_at',
@@ -40,8 +40,13 @@ class Specification extends Model
         return $value;
     }
 
-    public function property()
+    public function section()
     {
-        return $this->belongsTo(Property::class, 'property_id');
+        return $this->belongsTo(Section::class, 'section_id');
+    }
+
+    public function properties()
+    {
+        return $this->belongsToMany(Property::class, 'property_specification');
     }
 }

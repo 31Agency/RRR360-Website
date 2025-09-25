@@ -8,7 +8,14 @@ use App\Http\Requests\Destroy\MassDestroyPropertiesRequest;
 use App\Http\Requests\Store\StorePropertiesRequest;
 use App\Http\Requests\Update\UpdatePropertiesRequest;
 use App\Models\Category;
+use App\Models\Floor;
+use App\Models\Furnishing;
+use App\Models\Owner;
 use App\Models\Property;
+use App\Models\Section;
+use App\Models\Specification;
+use App\Models\Status;
+use App\Models\System;
 use Gate;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -29,9 +36,15 @@ class PropertiesController extends Controller
     {
         abort_if(Gate::denies('property_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $categories = Category::all()->pluck('title_en', 'id');
+        $categories     = Category::all()->pluck('title_en', 'id');
+        $floors         = Floor::all()->pluck('title_en', 'id');
+        $sections       = Section::all();
+        $statuses       = Status::all()->pluck('title_en', 'id');
+        $furnishings    = Furnishing::all()->pluck('title_en', 'id');
+        $systems        = System::all()->pluck('title_en', 'id');
+        $owners         = Owner::all()->pluck('name', 'id');
 
-        return view('admin.properties.create', compact('categories'));
+        return view('admin.properties.create', compact('categories', 'sections', 'floors', 'statuses', 'furnishings', 'systems', 'owners'));
     }
 
     public function store(StorePropertiesRequest $request)
@@ -42,6 +55,8 @@ class PropertiesController extends Controller
             $property->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('photos');
         }
 
+        $property->specifications()->sync($request->input('specifications', []));
+
         return redirect()->route('admin.properties.show', [$property->id]);
     }
 
@@ -49,9 +64,15 @@ class PropertiesController extends Controller
     {
         abort_if(Gate::denies('property_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $categories = Category::all()->pluck('title_en', 'id');
+        $categories     = Category::all()->pluck('title_en', 'id');
+        $floors         = Floor::all()->pluck('title_en', 'id');
+        $sections       = Section::all();
+        $statuses       = Status::all()->pluck('title_en', 'id');
+        $furnishings    = Furnishing::all()->pluck('title_en', 'id');
+        $systems        = System::all()->pluck('title_en', 'id');
+        $owners         = Owner::all()->pluck('name', 'id');
 
-        return view('admin.properties.edit', compact('property', 'categories'));
+        return view('admin.properties.edit', compact('property', 'categories', 'sections', 'floors', 'statuses', 'furnishings', 'systems', 'owners'));
     }
 
     public function update(UpdatePropertiesRequest $request, Property $property)
@@ -73,6 +94,8 @@ class PropertiesController extends Controller
                 $property->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('photos');
             }
         }
+
+        $property->specifications()->sync($request->input('specifications', []));
 
         return redirect()->route('admin.properties.show', [$property->id]);
     }

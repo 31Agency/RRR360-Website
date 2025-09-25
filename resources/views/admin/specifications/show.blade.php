@@ -20,10 +20,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.specification.fields.property_id') }}
+                            {{ trans('cruds.specification.fields.section_id') }}
                         </th>
                         <td>
-                            {{ $specification->property->title_en }}
+                            {{ $specification->section->title_en }}
                         </td>
                     </tr>
                     <tr>

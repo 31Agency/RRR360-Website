@@ -9,20 +9,20 @@
     <div class="card-body">
         <form action="{{ route("admin.specifications.store") }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="form-group {{ $errors->has('property_id') ? 'has-error' : '' }}">
-                <label for="property_id">{{ trans('cruds.specification.fields.property_id') }}*</label>
-                <select id="property_id" name="property_id" class="form-control select2" required>
-                    @foreach($properties as $id => $property)
-                        <option value="{{ $id }}" {{ old('property_id', isset($specification) && $specification->property_id == $id ? 'selected' : '') }}>{{ $property }}</option>
+            <div class="form-group {{ $errors->has('section_id') ? 'has-error' : '' }}">
+                <label for="section_id">{{ trans('cruds.specification.fields.section_id') }}*</label>
+                <select id="section_id" name="section_id" class="form-control select2" required>
+                    @foreach($sections as $id => $section)
+                        <option value="{{ $id }}" {{ old('section_id', isset($specification) && $specification->section_id == $id ? 'selected' : '') }}>{{ $section }}</option>
                     @endforeach
                 </select>
-                @if($errors->has('property_id'))
+                @if($errors->has('section_id'))
                     <em class="invalid-feedback">
-                        {{ $errors->first('property_id') }}
+                        {{ $errors->first('section_id') }}
                     </em>
                 @endif
                 <p class="helper-block">
-                    {{ trans('cruds.specification.fields.property_id_helper') }}
+                    {{ trans('cruds.specification.fields.section_id_helper') }}
                 </p>
             </div>
             <div class="form-group {{ $errors->has('title_en') ? 'has-error' : '' }}">

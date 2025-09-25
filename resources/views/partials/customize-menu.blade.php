@@ -28,15 +28,6 @@
                 </a>
             </li>
         @endcan
-        @can('article_access')
-            <li class="nav-item">
-                <a href="{{ route("admin.articles.index") }}"
-                   class="nav-link {{ request()->is('admin/articles') || request()->is('admin/articles/*') ? 'active' : 'collapsed' }}">
-                    <i class="fas fa-paperclip fa-fw"></i>
-                    {{ trans('cruds.article.title') }}
-                </a>
-            </li>
-        @endcan
         @can('category_access')
             <li class="nav-item">
                 <a href="{{ route("admin.categories.index") }}"
@@ -46,15 +37,69 @@
                 </a>
             </li>
         @endcan
-        {{--        @can('specification_access')--}}
-        {{--            <li class="nav-item">--}}
-        {{--                <a href="{{ route("admin.specifications.index") }}"--}}
-        {{--                   class="nav-link {{ request()->is('admin/specifications') || request()->is('admin/specifications/*') ? 'active' : 'collapsed' }}">--}}
-        {{--                    <i class="fas fa-list fa-fw"></i>--}}
-        {{--                    <span>{{ trans('cruds.specification.title') }}</span>--}}
-        {{--                </a>--}}
-        {{--            </li>--}}
-        {{--        @endcan--}}
+        @can('section_access')
+            <li class="nav-item">
+                <a href="{{ route("admin.sections.index") }}"
+                   class="nav-link {{ request()->is('admin/sections') || request()->is('admin/sections/*') ? 'active' : 'collapsed' }}">
+                    <i class="fas fa-list fa-fw"></i>
+                    <span>{{ trans('cruds.section.title') }}</span>
+                </a>
+            </li>
+        @endcan
+        @can('specification_access')
+            <li class="nav-item">
+                <a href="{{ route("admin.specifications.index") }}"
+                   class="nav-link {{ request()->is('admin/specifications') || request()->is('admin/specifications/*') ? 'active' : 'collapsed' }}">
+                    <i class="fas fa-list fa-fw"></i>
+                    <span>{{ trans('cruds.specification.title') }}</span>
+                </a>
+            </li>
+        @endcan
+        @can('floor_access')
+            <li class="nav-item">
+                <a href="{{ route("admin.floors.index") }}"
+                   class="nav-link {{ request()->is('admin/floors') || request()->is('admin/floors/*') ? 'active' : 'collapsed' }}">
+                    <i class="fas fa-list fa-fw"></i>
+                    <span>{{ trans('cruds.floor.title') }}</span>
+                </a>
+            </li>
+        @endcan
+        @can('furnishing_access')
+            <li class="nav-item">
+                <a href="{{ route("admin.furnishings.index") }}"
+                   class="nav-link {{ request()->is('admin/furnishings') || request()->is('admin/furnishings/*') ? 'active' : 'collapsed' }}">
+                    <i class="fas fa-list fa-fw"></i>
+                    <span>{{ trans('cruds.furnishing.title') }}</span>
+                </a>
+            </li>
+        @endcan
+        @can('owner_access')
+            <li class="nav-item">
+                <a href="{{ route("admin.owners.index") }}"
+                   class="nav-link {{ request()->is('admin/owners') || request()->is('admin/owners/*') ? 'active' : 'collapsed' }}">
+                    <i class="fas fa-list fa-fw"></i>
+                    <span>{{ trans('cruds.owner.title') }}</span>
+                </a>
+            </li>
+        @endcan
+        @can('status_access')
+            <li class="nav-item">
+                <a href="{{ route("admin.statuses.index") }}"
+                   class="nav-link {{ request()->is('admin/statuses') || request()->is('admin/statuses/*') ? 'active' : 'collapsed' }}">
+                    <i class="fas fa-list fa-fw"></i>
+                    <span>{{ trans('cruds.status.title') }}</span>
+                </a>
+            </li>
+        @endcan
+        @can('system_access')
+            <li class="nav-item">
+                <a href="{{ route("admin.systems.index") }}"
+                   class="nav-link {{ request()->is('admin/systems') || request()->is('admin/systems/*') ? 'active' : 'collapsed' }}">
+                    <i class="fas fa-list fa-fw"></i>
+                    <span>{{ trans('cruds.system.title') }}</span>
+                </a>
+            </li>
+        @endcan
         @can('property_access')
             <li class="nav-item">
                 <a href="{{ route("admin.properties.index") }}"
@@ -64,30 +109,12 @@
                 </a>
             </li>
         @endcan
-        @can('client_access')
-            <li class="nav-item">
-                <a href="{{ route("admin.clients.index") }}"
-                   class="nav-link {{ request()->is('admin/clients') || request()->is('admin/clients/*') ? 'active' : 'collapsed' }}">
-                    <i class="fa fa-ad fa-fw"></i>
-                    <span>{{ trans('cruds.client.title') }}</span>
-                </a>
-            </li>
-        @endcan
         @can('social_access')
             <li class="nav-item">
                 <a href="{{ route("admin.socials.index") }}"
                    class="nav-link {{ request()->is('admin/socials') || request()->is('admin/socials/*') ? 'active' : 'collapsed' }}">
                     <i class="fas fa-share-alt fa-fw"></i>
                     <span>{{ trans('cruds.social.title') }}</span>
-                </a>
-            </li>
-        @endcan
-        @can('service_access')
-            <li class="nav-item">
-                <a href="{{ route("admin.services.index") }}"
-                   class="nav-link {{ request()->is('admin/services') || request()->is('admin/services/*') ? 'active' : 'collapsed' }}">
-                    <i class="fas fa-cog fa-fw"></i>
-                    <span>{{ trans('cruds.service.title') }}</span>
                 </a>
             </li>
         @endcan
@@ -106,15 +133,6 @@
                    class="nav-link {{ request()->is('admin/faqs') || request()->is('admin/faqs/*') ? 'active' : 'collapsed' }}">
                     <i class="fas fa-question-circle fa-fw"></i>
                     <span>{{ trans('cruds.faq.title') }}</span>
-                </a>
-            </li>
-        @endcan
-        @can('subscriber_access')
-            <li class="nav-item">
-                <a href="{{ route("admin.subscribers.index") }}"
-                   class="nav-link {{ request()->is('admin/subscribers') || request()->is('admin/subscribers/*') ? 'active' : 'collapsed' }}">
-                    <i class="fa fa-subscript fa-fw"></i>
-                    <span>{{ trans('cruds.subscriber.title') }}</span>
                 </a>
             </li>
         @endcan

@@ -18,10 +18,6 @@ class StoreSpecificationRequest extends FormRequest
     public function rules()
     {
         return [
-            'property_id' => [
-                'required',
-                'exists:properties,id',
-            ],
             'title_en' => [
                 'nullable',
                 'string',

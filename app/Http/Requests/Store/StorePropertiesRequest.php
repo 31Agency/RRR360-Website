@@ -18,6 +18,26 @@ class StorePropertiesRequest extends FormRequest
     public function rules()
     {
         return [
+            'floor_id' => [
+                'required',
+                'exists:floors,id',
+            ],
+            'category_id' => [
+                'required',
+                'exists:categories,id',
+            ],
+            'status_id' => [
+                'required',
+                'exists:statuses,id',
+            ],
+            'furnishing_id' => [
+                'required',
+                'exists:furnishings,id',
+            ],
+            'system_id' => [
+                'required',
+                'exists:systems,id',
+            ],
             'title_en' => [
                 'nullable',
                 'string',
@@ -41,6 +61,36 @@ class StorePropertiesRequest extends FormRequest
             'description_ar' => [
                 'nullable',
                 'string',
+            ],
+            'map' => [
+                'required',
+                'string',
+            ],
+            'bedrooms' => [
+                'required',
+                'numeric',
+            ],
+            'bathrooms' => [
+                'required',
+                'numeric',
+            ],
+            'area' => [
+                'required',
+                'numeric',
+            ],
+            'specifications.*' => [
+                'exists:specifications,id',
+            ],
+            'specifications'   => [
+                'required',
+                'array',
+            ],
+            'owners.*' => [
+                'exists:specifications,id',
+            ],
+            'owners'   => [
+                'required',
+                'array',
             ],
         ];
     }

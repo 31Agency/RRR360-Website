@@ -175,4 +175,28 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('visitors/destroy', 'VisitorsController@massDestroy')->name('visitors.massDestroy');
     Route::resource('visitors', 'VisitorsController');
 
+    // Floors
+    Route::delete('floors/destroy', 'FloorController@massDestroy')->name('floors.massDestroy');
+    Route::resource('floors', 'FloorController');
+
+    // Furnishings
+    Route::delete('furnishings/destroy', 'FurnishingController@massDestroy')->name('furnishings.massDestroy');
+    Route::resource('furnishings', 'FurnishingController');
+
+    // Statuses
+    Route::delete('statuses/destroy', 'StatusController@massDestroy')->name('statuses.massDestroy');
+    Route::resource('statuses', 'StatusController');
+
+    // Systems
+    Route::delete('systems/destroy', 'SystemController@massDestroy')->name('systems.massDestroy');
+    Route::resource('systems', 'SystemController');
+
+    // Owners
+    Route::delete('owners/destroy', 'OwnerController@massDestroy')->name('owners.massDestroy');
+    Route::resource('owners', 'OwnerController');
+
+    // Sections
+    Route::delete('sections/destroy', 'SectionController@massDestroy')->name('sections.massDestroy');
+    Route::resource('sections', 'SectionController');
+
 });

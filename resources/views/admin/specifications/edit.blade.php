@@ -10,6 +10,22 @@
         <form action="{{ route("admin.specifications.update", [$specification->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
+            <div class="form-group {{ $errors->has('section_id') ? 'has-error' : '' }}">
+                <label for="section_id">{{ trans('cruds.specification.fields.section_id') }}*</label>
+                <select id="section_id" name="section_id" class="form-control select2" required>
+                    @foreach($sections as $id => $section)
+                        <option value="{{ $id }}" {{ old('section_id', isset($specification) && $specification->section_id == $id ? 'selected' : '') }}>{{ $section }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('section_id'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('section_id') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.specification.fields.section_id_helper') }}
+                </p>
+            </div>
             <div class="form-group {{ $errors->has('title_en') ? 'has-error' : '' }}">
                 <label for="title_en">{{ trans('cruds.specification.fields.title_en') }}*</label>
                 <input type="text" id="title_en" name="title_en" class="form-control" value="{{ old('title_en', isset($specification) ? $specification->title_en : '') }}" required>

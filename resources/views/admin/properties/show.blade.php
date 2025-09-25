@@ -20,105 +20,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.specification.title_singular') }} {{ trans('global.list') }}
-                        </th>
-                        <td>
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class=" table table-bordered table-striped table-hover datatable datatable-specification" style="background: #353535!important;">
-                                            <thead>
-                                            <tr>
-                                                <th width="10">
-                                                    Select
-                                                </th>
-                                                <th>
-                                                    {{ trans('cruds.specification.fields.id') }}
-                                                </th>
-                                                <th>
-                                                    {{ trans('cruds.specification.fields.title_en') }}
-                                                </th>
-                                                <th>
-                                                    Action
-                                                </th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            @foreach($property->specifications as $key => $specification)
-                                                <tr data-entry-id="{{ $specification->id }}">
-                                                    <td>
-
-                                                    </td>
-                                                    <td>
-                                                        {{ $specification->id ?? '' }}
-                                                    </td>
-                                                    <td>
-                                                        {{ $specification->title_en ?? '' }}
-                                                    </td>
-                                                    <td>
-                                                        @can('specification_show')
-                                                            <a class="btn btn-xs btn-primary" href="{{ route('admin.specifications.show', $specification->id) }}">
-                                                                {{ trans('global.view') }}
-                                                            </a>
-                                                        @endcan
-
-                                                        @can('specification_edit')
-                                                            <a class="btn btn-xs btn-info" href="{{ route('admin.specifications.edit', $specification->id) }}">
-                                                                {{ trans('global.edit') }}
-                                                            </a>
-                                                        @endcan
-
-                                                        @can('specification_delete')
-                                                            <form action="{{ route('admin.specifications.destroy', $specification->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
-                                                                <input type="hidden" name="_method" value="DELETE">
-                                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                                <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
-                                                            </form>
-                                                        @endcan
-
-                                                    </td>
-
-                                                </tr>
-                                            @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="card-header">
-                                    {{ trans('global.create') }} {{ trans('cruds.specification.title_singular') }}
-                                </div>
-
-                                <div class="card-body">
-                                    <form action="{{ route("admin.specifications.store") }}" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <input type="hidden" value="{{ $property->id ?? '' }}" name="property_id">
-                                        <div class="form-group {{ $errors->has('title_en') ? 'has-error' : '' }}">
-                                            <label for="title_en">{{ trans('cruds.specification.fields.title_en') }}*</label>
-                                            <input type="text" id="title_en" name="title_en" class="form-control" value="{{ old('title_en') }}" required>
-                                            @if($errors->has('title_en'))
-                                                <em class="invalid-feedback">
-                                                    {{ $errors->first('title_en') }}
-                                                </em>
-                                            @endif
-                                            <p class="helper-block">
-                                                {{ trans('cruds.specification.fields.title_en_helper') }}
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <input class="btn btn-success" type="submit" value="{{ trans('global.save') }}">
-                                        </div>
-                                    </form>
-
-
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.property.fields.category_id') }}
                         </th>
                         <td>
@@ -127,10 +28,114 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.property.fields.floor_id') }}
+                        </th>
+                        <td>
+                            {{ $property->floor->title_en ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.status_id') }}
+                        </th>
+                        <td>
+                            {{ $property->status->title_en ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.furnishing_id') }}
+                        </th>
+                        <td>
+                            {{ $property->furnishing->title_en ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.system_id') }}
+                        </th>
+                        <td>
+                            {{ $property->system->title_en ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.property.fields.title_en') }}
                         </th>
                         <td>
                             {{ $property->title_en }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.sub_title_en') }}
+                        </th>
+                        <td>
+                            {{ $property->sub_title_en }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.location_en') }}
+                        </th>
+                        <td>
+                            {{ $property->location_en }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.map') }}
+                        </th>
+                        <td>
+                            {{ $property->map }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.bedrooms') }}
+                        </th>
+                        <td>
+                            {{ $property->bedrooms }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.bathrooms') }}
+                        </th>
+                        <td>
+                            {{ $property->bathrooms }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.area') }}
+                        </th>
+                        <td>
+                            {{ $property->area }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.building_age') }}
+                        </th>
+                        <td>
+                            {{ $property->building_age }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.price') }}
+                        </th>
+                        <td>
+                            {{ $property->price }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.price_per') }}
+                        </th>
+                        <td>
+                            {{ $property->price_per }}
                         </td>
                     </tr>
                     <tr>

@@ -7,6 +7,7 @@ use App\Http\Requests\Destroy\MassDestroySpecificationRequest;
 use App\Http\Requests\Store\StoreSpecificationRequest;
 use App\Http\Requests\Update\UpdateSpecificationRequest;
 use App\Models\Property;
+use App\Models\Section;
 use App\Models\Specification;
 use Gate;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,32 +27,32 @@ class SpecificationController extends Controller
     {
         abort_if(Gate::denies('specification_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $properties = Property::all()->pluck('title_en', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $sections = Section::all()->pluck('title_en', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.specifications.create', compact('properties'));
+        return view('admin.specifications.create', compact('sections'));
     }
 
     public function store(StoreSpecificationRequest $request)
     {
         $specification = Specification::create($request->all());
 
-        return redirect()->route('admin.properties.show', [$specification->property_id])->with('message', 'The specification has been created.');
+        return redirect()->route('admin.specifications.index')->with('message', 'The specification has been created.');
     }
 
     public function edit(Specification $specification)
     {
         abort_if(Gate::denies('specification_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $properties = Property::all()->pluck('title_en', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $sections = Section::all()->pluck('title_en', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.specifications.edit', compact('specification', 'properties'));
+        return view('admin.specifications.edit', compact('specification', 'sections'));
     }
 
     public function update(UpdateSpecificationRequest $request, Specification $specification)
     {
         $specification->update($request->all());
 
-        return redirect()->route('admin.properties.show', [$specification->property_id])->with('message', 'The specification has been updated.');
+        return redirect()->route('admin.specifications.index')->with('message', 'The specification has been updated.');
     }
 
     public function show(Specification $specification)

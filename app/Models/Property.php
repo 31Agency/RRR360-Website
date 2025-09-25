@@ -27,6 +27,10 @@ class Property extends Model implements HasMedia
 
     protected $fillable = [
         'category_id',
+        'floor_id',
+        'status_id',
+        'furnishing_id',
+        'system_id',
         'title_en',
         'title_ar',
         'sub_title_en',
@@ -35,9 +39,13 @@ class Property extends Model implements HasMedia
         'location_ar',
         'description_en',
         'description_ar',
-        'client_name',
-        'project_date',
-        'project_url',
+        'map',
+        'bedrooms',
+        'bathrooms',
+        'area',
+        'building_age',
+        'price',
+        'price_per',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -104,9 +112,34 @@ class Property extends Model implements HasMedia
         return $this->belongsTo(Category::class, 'category_id');
     }
 
+    public function status()
+    {
+        return $this->belongsTo(Status::class, 'status_id');
+    }
+
+    public function furnishing()
+    {
+        return $this->belongsTo(Furnishing::class, 'furnishing_id');
+    }
+
+    public function system()
+    {
+        return $this->belongsTo(System::class, 'system_id');
+    }
+
+    public function floor()
+    {
+        return $this->belongsTo(Floor::class, 'floor_id');
+    }
+
     public function specifications()
     {
-        return $this->hasMany(Specification::class, 'property_id', 'id');
+        return $this->belongsToMany(Specification::class, 'property_specification');
+    }
+
+    public function owners()
+    {
+        return $this->belongsToMany(Owner::class, 'property_owner');
     }
 
     public function registerMediaConversions(Media $media = null): void
