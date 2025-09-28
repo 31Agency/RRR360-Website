@@ -10,6 +10,24 @@
         <form action="{{ route("admin.properties.update", [$property->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
+            <div class="form-group {{ $errors->has('owners') ? 'has-error' : '' }}">
+                <label for="owners">{{ trans('cruds.property.fields.owners') }}*
+                    <span class="btn btn-info btn-xs select-all">{{ trans('global.select_all') }}</span>
+                    <span class="btn btn-info btn-xs deselect-all">{{ trans('global.deselect_all') }}</span></label>
+                <select name="owners[]" id="owners" class="form-control select2" multiple="multiple" required>
+                    @foreach($owners as $id => $owners)
+                        <option value="{{ $id }}" {{ (in_array($id, old('owners', [])) || isset($property) && $property->owners->contains($id)) ? 'selected' : '' }}>{{ $owners }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('owners'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('owners') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.property.fields.owners_helper') }}
+                </p>
+            </div>
             <div class="form-group {{ $errors->has('category_id') ? 'has-error' : '' }}">
                 <label for="category_id">{{ trans('cruds.property.fields.category_id') }}*</label>
                 <select id="category_id" name="category_id" class="form-control select2" required>

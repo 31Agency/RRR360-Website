@@ -9,7 +9,7 @@ class Owner extends Model
 {
     use SoftDeletes;
 
-    public $table = 'floors';
+    public $table = 'owners';
 
     protected $dates = [
         'created_at',
