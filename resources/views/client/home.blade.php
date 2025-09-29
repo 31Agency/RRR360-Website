@@ -95,6 +95,7 @@
         </div>
     </section>
 
+
     <section class="FAQ">
         <div class="FAQHeader">
             <h1>Frequently Asked Questions</h1>
@@ -104,7 +105,6 @@
         </div>
 
         @foreach($faqs as $key => $faq)
-            <!-- FAQ {{ $faq->id ?? '' }} -->
             <div class="FAQItem" onclick="ExpandFAQ($(this))">
                 <div class="container">
                     <div class="FAQItemInner">
@@ -119,6 +119,8 @@
         @endforeach
     </section>
 
+
+
     <section class="Gallery">
         @foreach($galleries as $key => $gallery)
             <div class="GalleryItem" onclick="PreviewThisImage($(this))">
@@ -132,5 +134,9 @@
     @parent
     <script>
         const Asset = "{{asset("")}}";
+
+        if($('.FAQItem').length != 0){
+            $('.FAQItem').first().addClass('OpenedFAQItem')
+        }
     </script>
 @endsection

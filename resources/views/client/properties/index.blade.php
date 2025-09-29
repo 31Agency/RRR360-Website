@@ -4,12 +4,14 @@
     <section class="AllPropertiesPage">
         <div class="container">
             <div class="PropertiesFilter">
-                <button type="button" onclick="$(this).find('a')[0].click()" class="{{ !isset($_GET['category']) ? 'ActivePropertiesFilter' : '' }}">
+                <button type="button" onclick="$(this).find('a')[0].click()"
+                        class="{{ !isset($_GET['category']) ? 'ActivePropertiesFilter' : '' }}">
                     <a href="{{ route('properties.index') }}" class="d-none"></a>
                     Random
                 </button>
                 @foreach($categories as $key => $category)
-                    <button type="button" onclick="$(this).find('a')[0].click()" class="{{ isset($_GET['category']) && $_GET['category'] == $category->id ? 'ActivePropertiesFilter' : '' }}">
+                    <button type="button" onclick="$(this).find('a')[0].click()"
+                            class="{{ isset($_GET['category']) && $_GET['category'] == $category->id ? 'ActivePropertiesFilter' : '' }}">
                         <a href="{{ route('properties.index', ['category' => $category->id]) }}" class="d-none"></a>
                         {{ $category->title ?? '' }}
                     </button>
@@ -27,14 +29,20 @@
                         <a href="{{ route('properties.show', [$property->id]) }}" class="d-none"></a>
                         <img class="setsrc PropertyItemThumb"
                              src="{{ $property->photo->thumbnail ?? '' }}"
-                        alt="{{ $property->title ?? '' }} - {{ $property->description ?? '' }}">
+                             alt="{{ $property->title ?? '' }} - {{ $property->description ?? '' }}">
                         <div class="PropertyItemDetails">
                             <h4>{{ $property->title ?? '' }}</h4>
                             <label><i class="fa fa-map-marker-alt"></i> {{ $property->location ?? '' }}</label>
                             <h5>
-                                @foreach($property->specifications as $sub_key => $specification)
-                                    <u>{{ $specification->title ?? '' }}</u>
-                                @endforeach
+                                @if($property->building_age)
+                                    <u>{{ $property->building_age ?? '' }}</u>
+                                @endif
+                                @if($property->price_per)
+                                    <u>{{ $property->price_per ?? '' }}</u>
+                                @endif
+                                @if($property->ref_no)
+                                    <u>{{ $property->ref_no ?? '' }}</u>
+                                @endif
                             </h5>
                             <button type="button">
                                 Explore

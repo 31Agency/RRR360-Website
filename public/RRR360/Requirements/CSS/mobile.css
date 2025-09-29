@@ -209,4 +209,9 @@
     .ImportantPopUpDiv h4 {
         font-size: 25px;
     }
+
+    .PropertyShowPageRightDetails h5 u {
+        width: 48%;
+        margin: 5px 1%;
+    }
 }

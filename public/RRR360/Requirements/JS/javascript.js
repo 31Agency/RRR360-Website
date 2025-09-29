@@ -1,7 +1,4 @@
 $(document).ready(function () {
-    if($('.FAQItem').length != 0){
-        $('.FAQItem').first().addClass('OpenedFAQItem')
-    }
     ScrollEvent()
     $('.ScrollerBtn').on('click', ScrollBackUp);
     Sliders()
@@ -218,10 +215,17 @@ function GetProperties(el) {
 
                 $('.PropertiesGH').append(ItemHTML)
 
-                $.each(property.specifications, function (pr, specification) {
-                    console.log(specification)
-                    $('.PropertyItem' + property.id + ' h5').append('<u>'+specification.title_en+'</u>')
-                })
+                if (property.building_age) {
+                    $('.PropertyItem' + property.id +' h5').append('<u>'+property.building_age+'</u>')
+                }
+
+                if (property.price_per) {
+                    $('.PropertyItem' + property.id + ' h5').append('<u>'+property.price_per+'</u>')
+                }
+
+                if (property.ref_no) {
+                    $('.PropertyItem' + property.id + ' h5').append('<u>'+property.ref_no+'</u>')
+                }
             });
         },
         error: function (xhr, status, error) {

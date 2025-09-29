@@ -271,7 +271,7 @@
 
 <div class="VideoPlayer">
     <div class="VideoPlayerInner">
-        <div class="VideoPlayerFade" onclick="$('.VideoPlayer').fadeOut(600)"></div>
+        <div class="VideoPlayerFade" onclick="$('.VideoPlayer').fadeOut(600);$('.VideoPlayer video').attr('src','')"></div>
         <div class="VideoPlayerDiv animate__animated animate__zoomIn">
             <video controls loop playsinline autoplay></video>
             <div class="VideoPlayerOnConsoles">

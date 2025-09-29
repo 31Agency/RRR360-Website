@@ -9,7 +9,7 @@
                         <div class="PreviewWrapper">
                             <img id="PreviewImage" src="{{asset("RRR360/Requirements/IMG/IMGRF.jpg")}}"
                                  class="PreviewImage"
-                                 alt="{{ $property->title ?? '' }} - {{ $property->description ?? '' }}">
+                                 alt="{{ $property->title ?? '' }} - {{ $property->location ?? '' }} - {{ $property->description ?? '' }}">
                         </div>
 
                         <!-- Thumbnails -->
@@ -26,17 +26,114 @@
                 <div class="PropertyShowPageRight">
                     <div class="PropertyShowPageRightDetails">
                         <h1>{{ $property->title ?? '' }}</h1>
-                        <h5>
-                            @foreach($property->specifications as $sub_key => $specification)
-                                <u>{{ $specification->title ?? '' }}</u>
-                            @endforeach
-                        </h5>
                         <label>
                             <i class="fa fa-map-marker-alt"></i>
                             {{ $property->location ?? '' }}
                         </label>
+                        <h5>
+                            <u>
+                                <div class="setbg" rel="{{ asset('RRR360/Requirements/IMG/status.png') }}"></div>
+                                Status :
+                                <strong>{{ $property->status->title ?? '' }}</strong>
+                            </u>
+
+                            <u>
+                                <div class="setbg" rel="{{ asset('RRR360/Requirements/IMG/furnishing.png') }}"></div>
+                                Furnishing :
+                                <strong>{{ $property->furnishing->title ?? '' }}</strong>
+                            </u>
+
+                            <u>
+                                <div class="setbg" rel="{{ asset('RRR360/Requirements/IMG/floor.png') }}"></div>
+                                Floor :
+                                <strong>{{ $property->floor->title ?? '' }}</strong>
+                            </u>
+
+                            <u>
+                                <div class="setbg" rel="{{ asset('RRR360/Requirements/IMG/bedrooms.png') }}"></div>
+                                Bedrooms :
+                                <strong>{{ $property->bedrooms ?? '' }}</strong>
+                            </u>
+
+                            <u>
+                                <div class="setbg" rel="{{ asset('RRR360/Requirements/IMG/bathrooms.png') }}"></div>
+                                Bathrooms :
+                                <strong>{{ $property->bathrooms ?? '' }}</strong>
+                            </u>
+
+                            <u>
+                                <div class="setbg" rel="{{ asset('RRR360/Requirements/IMG/master_bedrooms.png') }}"></div>
+                                Master Bedrooms :
+                                <strong>{{ $property->master_bedrooms ?? '' }}</strong>
+                            </u>
+
+                            <u>
+                                <div class="setbg" rel="{{ asset('RRR360/Requirements/IMG/area.png') }}"></div>
+                                Area :
+                                <strong>{{ $property->area ?? '' }} m²</strong>
+                            </u>
+
+                            <u>
+                                <div class="setbg" rel="{{ asset('RRR360/Requirements/IMG/building_age.png') }}"></div>
+                                Building Age :
+                                <strong>{{ $property->building_age ?? '' }}</strong>
+                            </u>
+
+                            <u>
+                                <div class="setbg" rel="{{ asset('RRR360/Requirements/IMG/ref_no.png') }}"></div>
+                                Ref No :
+                                <strong>{{ $property->ref_no ?? '' }}</strong>
+                            </u>
+
+                            <u>
+                                <div class="setbg" rel="{{ asset('RRR360/Requirements/IMG/outdoor_area.png') }}"></div>
+                                Outdoor Area :
+                                <strong>{{ $property->outdoor_area ?? '' }}</strong>
+                            </u>
+
+                            <u>
+                                <div class="setbg" rel="{{ asset('RRR360/Requirements/IMG/tags.png') }}"></div>
+                                Tags :
+                                <strong>{{ $property->tags ?? '' }}</strong>
+                            </u>
+
+                            <u>
+                                <div class="setbg" rel="{{ asset('RRR360/Requirements/IMG/availability_date.png') }}"></div>
+                                Availability Date :
+                                <strong>{{ $property->availability_date ?? '' }}</strong>
+                            </u>
+                        </h5>
+
                     </div>
 
+                    {{-- Sections with 1 specification --}}
+                    @if(count($sectionsGrouped['single']) > 0)
+                        <div class="SingleSpecifications">
+                            @foreach($sectionsGrouped['single'] ?? [] as $section)
+                                <label>
+                                    {{ $section->title ?? '' }}:
+                                    @foreach($section->specifications as $specification)
+                                        <strong>{{ $specification->title ?? '' }}</strong>
+                                    @endforeach
+                                </label>
+                            @endforeach
+                        </div>
+                    @endif
+
+                    {{-- Sections with multiple specifications --}}
+                    @if(count($sectionsGrouped['multiple']) > 0)
+                        @foreach($sectionsGrouped['multiple'] ?? [] as $section)
+                            <div class="FAQItem" onclick="ExpandFAQ($(this))">
+                                <div class="FAQItemInner">
+                                    <h1>{{ $section->title ?? '' }}</h1>
+                                    @foreach($section->specifications as $specification)
+                                        <p class="animate__animated animate__fadeInDown">{{ $specification->title ?? '' }}</p>
+                                    @endforeach
+                                    <i class="fa fa-angle-down"></i>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
                     <div class="PropertyFullDescription">
                         {!! $property->description_en ?? '' !!}
                     </div>
@@ -73,9 +170,15 @@
                                     {{ $related->location ?? '' }}
                                 </label>
                                 <h5>
-                                    @foreach($related->specifications as $sub_key => $specification)
-                                        <u>{{ $specification->title ?? '' }}</u>
-                                    @endforeach
+                                    @if($property->building_age)
+                                        <u>{{ $property->building_age ?? '' }}</u>
+                                    @endif
+                                    @if($property->price_per)
+                                        <u>{{ $property->price_per ?? '' }}</u>
+                                    @endif
+                                    @if($property->ref_no)
+                                        <u>{{ $property->ref_no ?? '' }}</u>
+                                    @endif
                                 </h5>
                                 <button type="button">
                                     Explore

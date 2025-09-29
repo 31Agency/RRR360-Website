@@ -25,16 +25,22 @@ class PropertiesController extends Controller
                 $q->where('id', $property->id);
             });
         })
-            ->with('specifications', function ($q) use ($property) {
+            ->with(['specifications' => function ($q) use ($property) {
                 $q->whereHas('properties', function ($q) use ($property) {
                     $q->where('id', $property->id);
                 });
-            })
+            }])
             ->get();
 
-        $related_properties = Property::whereNot('id', $property->id)->inRandomOrder()->get();
+        // Group by count of specifications
+        $sectionsGrouped = $sections->groupBy(function($section) {
+            return $section->specifications->count() === 1 ? 'single' : 'multiple';
+        });
 
-        return view('client.properties.show', compact('property', 'related_properties', 'sections'));
+
+        $related_properties = Property::whereNot('id', $property->id)->inRandomOrder()->take(6)->get();
+
+        return view('client.properties.show', compact('property', 'related_properties', 'sections', 'sectionsGrouped'));
     }
 
     public function json(Request $request)
@@ -43,7 +49,7 @@ class PropertiesController extends Controller
 
         $properties = Property::search($request)->orderBy('id', 'DESC')->take($take)->get();
 
-        $properties->load('specifications');
+        $properties->load('specifications', 'floor');
 
         return response()->json($properties);
     }
