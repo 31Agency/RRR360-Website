@@ -26,10 +26,6 @@ class StorePropertiesRequest extends FormRequest
                 'required',
                 'exists:categories,id',
             ],
-            'status_id' => [
-                'required',
-                'exists:statuses,id',
-            ],
             'furnishing_id' => [
                 'required',
                 'exists:furnishings,id',
@@ -37,6 +33,10 @@ class StorePropertiesRequest extends FormRequest
             'system_id' => [
                 'required',
                 'exists:systems,id',
+            ],
+            'ref_no' => [
+                'required',
+                'unique:properties,ref_no',
             ],
             'title_en' => [
                 'nullable',

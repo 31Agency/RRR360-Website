@@ -91,15 +91,6 @@
                 </a>
             </li>
         @endcan
-        @can('system_access')
-            <li class="nav-item">
-                <a href="{{ route("admin.systems.index") }}"
-                   class="nav-link {{ request()->is('admin/systems') || request()->is('admin/systems/*') ? 'active' : 'collapsed' }}">
-                    <i class="fas fa-list fa-fw"></i>
-                    <span>{{ trans('cruds.system.title') }}</span>
-                </a>
-            </li>
-        @endcan
         @can('property_access')
             <li class="nav-item">
                 <a href="{{ route("admin.properties.index") }}"

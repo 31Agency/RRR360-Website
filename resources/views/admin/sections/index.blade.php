@@ -26,6 +26,9 @@
                             {{ trans('cruds.section.fields.id') }}
                         </th>
                         <th>
+                            {{ trans('cruds.section.fields.type') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.section.fields.title_en') }}
                         </th>
                         <th>
@@ -41,6 +44,9 @@
                             </td>
                             <td>
                                 {{ $section->id ?? '' }}
+                            </td>
+                            <td>
+                                {{ strtoupper($section->type) ?? '' }}
                             </td>
                             <td>
                                 {{ $section->title_en ?? '' }}

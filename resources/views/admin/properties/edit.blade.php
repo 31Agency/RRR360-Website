@@ -76,22 +76,6 @@
                     {{ trans('cruds.property.fields.furnishing_id_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('system_id') ? 'has-error' : '' }}">
-                <label for="system_id">{{ trans('cruds.property.fields.system_id') }}*</label>
-                <select id="system_id" name="system_id" class="form-control select2" required>
-                    @foreach($systems as $id => $system)
-                        <option value="{{ $id }}" {{ old('system_id', isset($property) && $property->system_id == $id ? 'selected' : '') }}>{{ $system }}</option>
-                    @endforeach
-                </select>
-                @if($errors->has('system_id'))
-                    <em class="invalid-feedback">
-                        {{ $errors->first('system_id') }}
-                    </em>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.property.fields.system_id_helper') }}
-                </p>
-            </div>
             <div class="form-group {{ $errors->has('floor_id') ? 'has-error' : '' }}">
                 <label for="floor_id">{{ trans('cruds.property.fields.floor_id') }}*</label>
                 <div>
@@ -125,36 +109,86 @@
             <div class="form-group {{ $errors->has('specifications') ? 'has-error' : '' }}">
                 <label for="specifications">
                     {{ trans('cruds.property.fields.specifications') }}*
-                    <span class="btn btn-info btn-xs select-all">{{ trans('global.select_all') }}</span>
-                    <span class="btn btn-info btn-xs deselect-all">{{ trans('global.deselect_all') }}</span>
                 </label>
 
-                <div>
-                    @foreach($sections as $key => $section)
-                        <h5>{{ $section->title_en ?? '' }}</h5>
-                        @foreach($section->specifications as $sub_key => $specification)
-                            <div class="form-check">
-                                <input
-                                    type="checkbox"
-                                    id="specification_{{ $specification->id }}"
+                <div id="specifications-wrapper">
+                    @php
+                        // مصفوفة القيم المحددة مسبقاً
+                        $selectedSpecs = old('specifications', isset($property) ? $property->specifications->pluck('id')->toArray() : []);
+                    @endphp
+
+                    @foreach($sections as $section)
+                        <div class="mb-3 section-block" data-section-type="{{ $section->type }}">
+                            <h5 class="mb-2">{{ $section->title_en ?? '' }}</h5>
+
+                            @if($section->type === 'checkbox')
+                                @foreach($section->specifications as $spec)
+                                    <div class="form-check">
+                                        @php $id = 'spec_'.$spec->id; @endphp
+                                        <input
+                                            type="checkbox"
+                                            id="{{ $id }}"
+                                            name="specifications[]"
+                                            value="{{ $spec->id }}"
+                                            class="form-check-input"
+                                            {{ in_array($spec->id, $selectedSpecs, true) ? 'checked' : '' }}
+                                        >
+                                        <label class="form-check-label" for="{{ $id }}">
+                                            {{ $spec->title_en ?? '' }}
+                                        </label>
+                                    </div>
+                                @endforeach
+
+                            @elseif($section->type === 'dropdown_plural')
+                                @php
+                                    $sectionSelected = array_values(array_intersect(
+                                        $selectedSpecs,
+                                        $section->specifications->pluck('id')->toArray()
+                                    ));
+                                @endphp
+
+                                <select
                                     name="specifications[]"
-                                    value="{{ $specification->id }}"
-                                    class="form-check-input"
-                                    {{ (in_array($specification->id, old('specifications', [])) || (isset($property) && $property->specifications->contains($specification->id))) ? 'checked' : '' }}
+                                    class="form-control select2 section-select"
+                                    multiple="multiple"
+                                    data-placeholder="Please select"
                                 >
-                                <label class="form-check-label" for="specification_{{ $specification->id }}">
-                                    {{ $specification->title_en ?? '' }}
-                                </label>
-                            </div>
-                        @endforeach
+                                    @foreach($section->specifications as $spec)
+                                        <option value="{{ $spec->id }}" {{ in_array($spec->id, $sectionSelected, true) ? 'selected' : '' }}>
+                                            {{ $spec->title_en ?? '' }}
+                                        </option>
+                                    @endforeach
+                                </select>
+
+                            @elseif($section->type === 'dropdown_singular')
+                                @php
+                                    // اختَر أول قيمة من المحدد ضمن مواصفات هذا السيكشن (إن وجدت)
+                                    $firstSelected = collect($section->specifications)->pluck('id')->intersect($selectedSpecs)->first();
+                                @endphp
+
+                                <select
+                                    name="specifications[]"
+                                    class="form-control select2 section-select"
+                                    data-placeholder="Please select"
+                                >
+                                    <option value="">Please select</option>
+                                    @foreach($section->specifications as $spec)
+                                        <option value="{{ $spec->id }}" {{ (int)$firstSelected === (int)$spec->id ? 'selected' : '' }}>
+                                            {{ $spec->title_en ?? '' }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            @endif
+                        </div>
                     @endforeach
                 </div>
 
                 @if($errors->has('specifications'))
-                    <em class="invalid-feedback">
+                    <em class="invalid-feedback d-block">
                         {{ $errors->first('specifications') }}
                     </em>
                 @endif
+
                 <p class="helper-block">
                     {{ trans('cruds.property.fields.specifications_helper') }}
                 </p>
@@ -257,6 +291,18 @@
                     {{ trans('cruds.property.fields.building_age_helper') }}
                 </p>
             </div>
+            <div class="form-group {{ $errors->has('building_number') ? 'has-error' : '' }}">
+                <label for="building_number">{{ trans('cruds.property.fields.building_number') }}*</label>
+                <input type="text" id="building_number" name="building_number" class="form-control" value="{{ old('building_number', isset($property) ? $property->building_number : '') }}" required>
+                @if($errors->has('building_number'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('building_number') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.property.fields.building_number_helper') }}
+                </p>
+            </div>
             <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
                 <label for="price">{{ trans('cruds.property.fields.price') }}*</label>
                 <input type="number" step="0.001" min="1" id="price" name="price" class="form-control" value="{{ old('price', isset($property) ? $property->price : '0') }}" required>
@@ -283,6 +329,174 @@
                 @endif
                 <p class="helper-block">
                     {{ trans('cruds.property.fields.price_per_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('ref_no') ? 'has-error' : '' }}">
+                <label for="ref_no">{{ trans('cruds.property.fields.ref_no') }}*</label>
+                <input type="text" id="ref_no" name="ref_no" class="form-control" value="{{ old('ref_no', isset($property) ? $property->ref_no : '') }}" required>
+                @if($errors->has('ref_no'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('ref_no') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.property.fields.ref_no_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('street_name') ? 'has-error' : '' }}">
+                <label for="street_name">{{ trans('cruds.property.fields.street_name') }}*</label>
+                <input type="text" id="street_name" name="street_name" class="form-control" value="{{ old('street_name', isset($property) ? $property->street_name : '') }}" required>
+                @if($errors->has('street_name'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('street_name') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.property.fields.street_name_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('latitude') ? 'has-error' : '' }}">
+                <label for="latitude">{{ trans('cruds.property.fields.latitude') }}*</label>
+                <input type="number" step="0.0000001" min="0" id="latitude" name="latitude" class="form-control" value="{{ old('latitude', isset($property) ? $property->latitude : '') }}" required>
+                @if($errors->has('latitude'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('latitude') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.property.fields.latitude_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('longitude') ? 'has-error' : '' }}">
+                <label for="longitude">{{ trans('cruds.property.fields.longitude') }}*</label>
+                <input type="number" step="0.0000001" min="0" id="longitude" name="longitude" class="form-control" value="{{ old('longitude', isset($property) ? $property->longitude : '') }}" required>
+                @if($errors->has('longitude'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('longitude') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.property.fields.longitude_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('outdoor_area') ? 'has-error' : '' }}">
+                <label for="outdoor_area">{{ trans('cruds.property.fields.outdoor_area') }}*</label>
+                <input type="text" id="outdoor_area" name="outdoor_area" class="form-control" value="{{ old('outdoor_area', isset($property) ? $property->outdoor_area : '') }}" required>
+                @if($errors->has('outdoor_area'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('outdoor_area') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.property.fields.outdoor_area_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('master_bedrooms') ? 'has-error' : '' }}">
+                <label for="master_bedrooms">{{ trans('cruds.property.fields.master_bedrooms') }}*</label>
+                <input type="number" step="1" min="0" id="master_bedrooms" name="master_bedrooms" class="form-control" value="{{ old('master_bedrooms', isset($property) ? $property->master_bedrooms : '') }}" required>
+                @if($errors->has('master_bedrooms'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('master_bedrooms') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.property.fields.master_bedrooms_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('parking_spaces') ? 'has-error' : '' }}">
+                <label for="parking_spaces">{{ trans('cruds.property.fields.parking_spaces') }}*</label>
+                <input type="number" step="1" min="0" id="parking_spaces" name="parking_spaces" class="form-control" value="{{ old('parking_spaces', isset($property) ? $property->parking_spaces : '') }}" required>
+                @if($errors->has('parking_spaces'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('parking_spaces') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.property.fields.parking_spaces_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('deposit') ? 'has-error' : '' }}">
+                <label for="deposit">{{ trans('cruds.property.fields.deposit') }}*</label>
+                <input type="number" step="1" min="0" id="deposit" name="deposit" class="form-control" value="{{ old('deposit', isset($property) ? $property->deposit : '') }}" required>
+                @if($errors->has('deposit'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('deposit') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.property.fields.deposit_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('maintenance_fee') ? 'has-error' : '' }}">
+                <label for="maintenance_fee">{{ trans('cruds.property.fields.maintenance_fee') }}*</label>
+                <input type="number" step="0.001" min="0" id="maintenance_fee" name="maintenance_fee" class="form-control" value="{{ old('maintenance_fee', isset($property) ? $property->maintenance_fee : '0') }}" required>
+                @if($errors->has('maintenance_fee'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('maintenance_fee') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.property.fields.maintenance_fee_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('landlord_name') ? 'has-error' : '' }}">
+                <label for="landlord_name">{{ trans('cruds.property.fields.landlord_name') }}*</label>
+                <input type="text" id="landlord_name" name="landlord_name" class="form-control" value="{{ old('landlord_name', isset($property) ? $property->landlord_name : '') }}" required>
+                @if($errors->has('landlord_name'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('landlord_name') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.property.fields.landlord_name_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('landlord_phone') ? 'has-error' : '' }}">
+                <label for="landlord_phone">{{ trans('cruds.property.fields.landlord_phone') }}*</label>
+                <input type="tel" id="landlord_phone" name="landlord_phone" class="form-control" value="{{ old('landlord_phone', isset($property) ? $property->landlord_phone : '') }}" required>
+                @if($errors->has('landlord_phone'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('landlord_phone') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.property.fields.landlord_phone_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('tags') ? 'has-error' : '' }}">
+                <label for="tags">{{ trans('cruds.property.fields.tags') }}*</label>
+                <textarea id="tags" name="tags" class="form-control" required>{{ old('tags', isset($property) ? $property->tags : '') }}</textarea>
+                @if($errors->has('tags'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('tags') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.property.fields.tags_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('availability_date') ? 'has-error' : '' }}">
+                <label for="availability_date">{{ trans('cruds.property.fields.availability_date') }}*</label>
+                <input type="date" id="availability_date" name="availability_date" class="form-control" value="{{ old('availability_date', isset($property) ? $property->availability_date : '') }}" required>
+                @if($errors->has('availability_date'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('availability_date') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.property.fields.availability_date_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('notes') ? 'has-error' : '' }}">
+                <label for="notes">{{ trans('cruds.property.fields.notes') }}*</label>
+                <textarea id="notes" name="notes" class="form-control">{{ old('notes', isset($property) ? $property->notes : '') }}</textarea>
+                @if($errors->has('notes'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('notes') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.property.fields.notes_helper') }}
                 </p>
             </div>
             <div class="form-group {{ $errors->has('description_en') ? 'has-error' : '' }}">

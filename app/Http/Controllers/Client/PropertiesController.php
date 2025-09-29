@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Property;
+use App\Models\Section;
 use Illuminate\Http\Request;
 
 class PropertiesController extends Controller
@@ -19,9 +20,21 @@ class PropertiesController extends Controller
 
     public function show(Property $property)
     {
+        $sections = Section::whereHas('specifications', function ($q) use ($property) {
+            $q->whereHas('properties', function ($q) use ($property) {
+                $q->where('id', $property->id);
+            });
+        })
+            ->with('specifications', function ($q) use ($property) {
+                $q->whereHas('properties', function ($q) use ($property) {
+                    $q->where('id', $property->id);
+                });
+            })
+            ->get();
+
         $related_properties = Property::whereNot('id', $property->id)->inRandomOrder()->get();
 
-        return view('client.properties.show', compact('property', 'related_properties'));
+        return view('client.properties.show', compact('property', 'related_properties', 'sections'));
     }
 
     public function json(Request $request)

@@ -26,6 +26,16 @@ class Specification extends Model
         'deleted_at',
     ];
 
+    public function section()
+    {
+        return $this->belongsTo(Section::class, 'section_id');
+    }
+
+    public function properties()
+    {
+        return $this->belongsToMany(Property::class, 'property_specification');
+    }
+
     public function getTitleAttribute()
     {
         if (app()->getLocale() == "en")
@@ -38,15 +48,5 @@ class Specification extends Model
         }
 
         return $value;
-    }
-
-    public function section()
-    {
-        return $this->belongsTo(Section::class, 'section_id');
-    }
-
-    public function properties()
-    {
-        return $this->belongsToMany(Property::class, 'property_specification');
     }
 }

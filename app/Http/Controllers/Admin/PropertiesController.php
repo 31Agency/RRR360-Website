@@ -56,6 +56,7 @@ class PropertiesController extends Controller
         }
 
         $property->specifications()->sync($request->input('specifications', []));
+        $property->owners()->sync($request->input('owners', []));
 
         return redirect()->route('admin.properties.show', [$property->id]);
     }
@@ -96,6 +97,7 @@ class PropertiesController extends Controller
         }
 
         $property->specifications()->sync($request->input('specifications', []));
+        $property->owners()->sync($request->input('owners', []));
 
         return redirect()->route('admin.properties.show', [$property->id]);
     }

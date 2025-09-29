@@ -18,6 +18,10 @@ class StoreSectionRequest extends FormRequest
     public function rules()
     {
         return [
+            'type' => [
+                'required',
+                'in:dropdown_singular,dropdown_plural,checkbox',
+            ],
             'title_en' => [
                 'nullable',
                 'string',

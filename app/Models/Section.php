@@ -18,6 +18,7 @@ class Section extends Model
     ];
 
     protected $fillable = [
+        'type',
         'title_en',
         'title_ar',
         'created_at',

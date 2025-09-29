@@ -34,9 +34,9 @@ class UpdatePropertiesRequest extends FormRequest
                 'required',
                 'exists:furnishings,id',
             ],
-            'system_id' => [
+            'ref_no' => [
                 'required',
-                'exists:systems,id',
+                'unique:properties,ref_no,'.$this->route('property')->id,
             ],
             'title_en' => [
                 'nullable',

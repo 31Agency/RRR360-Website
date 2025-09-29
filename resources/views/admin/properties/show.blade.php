@@ -68,14 +68,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.property.fields.sub_title_en') }}
-                        </th>
-                        <td>
-                            {{ $property->sub_title_en }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.property.fields.location_en') }}
                         </th>
                         <td>
@@ -124,6 +116,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.property.fields.building_number') }}
+                        </th>
+                        <td>
+                            {{ $property->building_number }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.property.fields.price') }}
                         </th>
                         <td>
@@ -136,6 +136,118 @@
                         </th>
                         <td>
                             {{ $property->price_per }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.ref_no') }}
+                        </th>
+                        <td>
+                            {{ $property->ref_no }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.street_name') }}
+                        </th>
+                        <td>
+                            {{ $property->street_name }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.latitude') }}
+                        </th>
+                        <td>
+                            {{ $property->latitude }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.longitude') }}
+                        </th>
+                        <td>
+                            {{ $property->longitude }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.outdoor_area') }}
+                        </th>
+                        <td>
+                            {{ $property->outdoor_area }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.master_bedrooms') }}
+                        </th>
+                        <td>
+                            {{ $property->master_bedrooms }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.parking_spaces') }}
+                        </th>
+                        <td>
+                            {{ $property->parking_spaces }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.deposit') }}
+                        </th>
+                        <td>
+                            {{ $property->deposit }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.maintenance_fee') }}
+                        </th>
+                        <td>
+                            {{ $property->maintenance_fee }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.landlord_name') }}
+                        </th>
+                        <td>
+                            {{ $property->landlord_name }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.landlord_phone') }}
+                        </th>
+                        <td>
+                            {{ $property->landlord_phone }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.tags') }}
+                        </th>
+                        <td>
+                            {{ $property->tags }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.availability_date') }}
+                        </th>
+                        <td>
+                            {{ $property->availability_date }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.notes') }}
+                        </th>
+                        <td>
+                            {{ $property->notes }}
                         </td>
                     </tr>
                     <tr>

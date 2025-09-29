@@ -26,6 +26,14 @@
                             {{ $section->title_en }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.section.fields.type') }}
+                        </th>
+                        <td>
+                            {{ strtoupper($section->type) ?? '' }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <a style="margin-top:20px;" class="btn btn-default" href="{{ url()->previous() }}">
