@@ -107,7 +107,7 @@
                     </div>
 
                     {{-- Sections with 1 specification --}}
-                    @if(count($sectionsGrouped['single']) > 0)
+                    @if(isset($sectionsGrouped['single']) && count($sectionsGrouped['single']) > 0)
                         <div class="SingleSpecifications">
                             @foreach($sectionsGrouped['single'] ?? [] as $section)
                                 <label>
@@ -121,7 +121,7 @@
                     @endif
 
                     {{-- Sections with multiple specifications --}}
-                    @if(count($sectionsGrouped['multiple']) > 0)
+                    @if(isset($sectionsGrouped['multiple']) && count($sectionsGrouped['multiple']) > 0)
                         @foreach($sectionsGrouped['multiple'] ?? [] as $section)
                             <div class="FAQItem" onclick="ExpandFAQ($(this))">
                                 <div class="FAQItemInner">
