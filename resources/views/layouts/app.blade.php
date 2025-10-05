@@ -309,21 +309,23 @@
         </div>
     </div>
 @else
-    <div class="PopUp animate__animated animate__fadeInUp">
-        <u onclick="$('.PopUp').attr('class','PopUp animate__animated animate__fadeOutDown')">
-            <i class="fa fa-times-circle"></i>
-        </u>
-        <div class="PopUpArt setbg" rel="{{ $GlobalInfo->support->thumbnail ?? '' }}"></div>
-        <h4 class="animate__animated animate__fadeInDown animate__delay-1s"> Hello 👋</h4>
-        <label> {{ $GlobalInfo->support_title ?? '' }} </label>
-        <p>
-            {{ $GlobalInfo->support_description ?? '' }}
-        </p>
-        <button type="button">
-            <i class="fab fa-whatsapp"></i>
-            {{ $GlobalInfo->support_brief ?? '' }}
-        </button>
-    </div>
+    @if (Route::is('home'))
+        <div class="PopUp animate__animated animate__fadeInUp">
+            <u onclick="$('.PopUp').attr('class','PopUp animate__animated animate__fadeOutDown')">
+                <i class="fa fa-times-circle"></i>
+            </u>
+            <div class="PopUpArt setbg" rel="{{ $GlobalInfo->support->thumbnail ?? '' }}"></div>
+            <h4 class="animate__animated animate__fadeInDown animate__delay-1s"> Hello 👋</h4>
+            <label> {{ $GlobalInfo->support_title ?? '' }} </label>
+            <p>
+                {{ $GlobalInfo->support_description ?? '' }}
+            </p>
+            <button type="button">
+                <i class="fab fa-whatsapp"></i>
+                {{ $GlobalInfo->support_brief ?? '' }}
+            </button>
+        </div>
+    @endif
 @endif
 
 <div class="Preloader">
@@ -344,8 +346,9 @@
 <script src="{{ asset('') }}RRR360/Requirements/JS/javascript.js"></script>
 @yield('scripts')
 <script>
-    function SaveClientID(){
+    const Asset = "{{asset("")}}";
 
+    function SaveClientID(){
         $.ajax({
             type: 'GET',
             cache: false,

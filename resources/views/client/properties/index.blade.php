@@ -3,69 +3,143 @@
 
     <section class="AllPropertiesPage">
         <div class="container">
-            <div class="PropertiesFilter">
-                <button type="button" onclick="$(this).find('a')[0].click()"
-                        class="{{ !isset($_GET['category']) ? 'ActivePropertiesFilter' : '' }}">
-                    <a href="{{ route('properties.index') }}" class="d-none"></a>
-                    Random
-                </button>
-                @foreach($categories as $key => $category)
-                    <button type="button" onclick="$(this).find('a')[0].click()"
-                            class="{{ isset($_GET['category']) && $_GET['category'] == $category->id ? 'ActivePropertiesFilter' : '' }}">
-                        <a href="{{ route('properties.index', ['category' => $category->id]) }}" class="d-none"></a>
-                        {{ $category->title ?? '' }}
-                    </button>
-                @endforeach
+            <div class="PropertiesFiltrationParent">
+                <video class="setsrc AllPropertiesCover" rel="{{asset("RRR360/Requirements/Videos/AllPropertiesCover.mp4")}}" loop muted playsinline autoplay></video>
+                <div class="PropertiesFiltrationDiv">
+                    <h5 class="PropertiesFiltrationHeader">
+                        Find Your Dream Home in Amman
+                        <u>Villas • Lands • Apartments • Buildings</u>
+                    </h5>
+                    <div class="PropertiesFiltration">
+                        <div class="PropertiesFiltrationField">
+                            <h4 onclick="ShowFiltrationOptions($(this))">
+                                Property Type
+                                <i class="fa fa-angle-down"></i>
+                            </h4>
+                            <div class="PropertiesFiltrationFieldOptions animate__animated animate__fadeInDown"
+                                 id="FltrPropertyType" type="multiple" data-lenis-prevent>
+                                @foreach($categories as $key => $category)
+                                    <div class="PropertiesFiltrationFieldOptionItem" rel="{{ $category->id ?? '' }}"
+                                         onclick="SelectThisFiltrationChoice($(this));GetAllProperties()">{{ $category->title ?? '' }}</div>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <div class="PropertiesFiltrationField">
+                            <h4 onclick="ShowFiltrationOptions($(this))">
+                                Area
+                                <i class="fa fa-angle-down"></i>
+                            </h4>
+                            <div class="PropertiesFiltrationFieldOptions animate__animated animate__fadeInDown" id="FltrArea"
+                                 type="multiple" data-lenis-prevent>
+                                @foreach($areas as $key => $area)
+                                    <div class="PropertiesFiltrationFieldOptionItem" rel="{{ $area->id ?? '' }}"
+                                         onclick="SelectThisFiltrationChoice($(this));GetAllProperties()">{{ $area->title ?? '' }}</div>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <div class="PropertiesFiltrationField">
+                            <h4 onclick="ShowFiltrationOptions($(this))">
+                                Furnishing
+                                <i class="fa fa-angle-down"></i>
+                            </h4>
+                            <div class="PropertiesFiltrationFieldOptions animate__animated animate__fadeInDown"
+                                 id="FltrFurnishing" type="multiple" data-lenis-prevent>
+                                @foreach($furnishings as $key => $furnishing)
+                                    <div class="PropertiesFiltrationFieldOptionItem" rel="{{ $furnishing->id ?? '' }}"
+                                         onclick="SelectThisFiltrationChoice($(this));GetAllProperties()">
+                                        {{ $furnishing->title ?? '' }}
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <div class="PropertiesFiltrationField">
+                            <h4 onclick="ShowFiltrationOptions($(this))">
+                                Bedrooms
+                                <i class="fa fa-angle-down"></i>
+                            </h4>
+                            <div class="PropertiesFiltrationFieldOptions animate__animated animate__fadeInDown"
+                                 id="FltrBeedrooms" type="singular" data-lenis-prevent>
+                                <div class="PropertiesFiltrationFieldOptionItem" rel="1"
+                                     onclick="SelectThisFiltrationChoice($(this));GetAllProperties()">1 Bedroom
+                                </div>
+                                <div class="PropertiesFiltrationFieldOptionItem" rel="2"
+                                     onclick="SelectThisFiltrationChoice($(this));GetAllProperties()">2 Bedroom
+                                </div>
+                                <div class="PropertiesFiltrationFieldOptionItem" rel="3"
+                                     onclick="SelectThisFiltrationChoice($(this));GetAllProperties()">3 Bedroom
+                                </div>
+                                <div class="PropertiesFiltrationFieldOptionItem" rel="4"
+                                     onclick="SelectThisFiltrationChoice($(this));GetAllProperties()">4 Bedroom
+                                </div>
+                                <div class="PropertiesFiltrationFieldOptionItem" rel="5"
+                                     onclick="SelectThisFiltrationChoice($(this));GetAllProperties()">5 Bedroom
+                                </div>
+                                <div class="PropertiesFiltrationFieldOptionItem" rel="6"
+                                     onclick="SelectThisFiltrationChoice($(this));GetAllProperties()">6 Bedroom
+                                </div>
+                                <div class="PropertiesFiltrationFieldOptionItem" rel="7"
+                                     onclick="SelectThisFiltrationChoice($(this));GetAllProperties()">7 Bedroom
+                                </div>
+                                <div class="PropertiesFiltrationFieldOptionItem" rel="8"
+                                     onclick="SelectThisFiltrationChoice($(this));GetAllProperties()">8 Bedroom
+                                </div>
+                                <div class="PropertiesFiltrationFieldOptionItem" rel="9"
+                                     onclick="SelectThisFiltrationChoice($(this));GetAllProperties()">9 Bedroom
+                                </div>
+                                <div class="PropertiesFiltrationFieldOptionItem" rel="9"
+                                     onclick="SelectThisFiltrationChoice($(this));GetAllProperties()">10 Bedroom
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="PropertiesFiltrationField">
+                            <input
+                                type="number"
+                                placeholder="Max Price (JOD)"
+                                min="0"
+                                id="PropertyMaxPrice"
+                                onkeyup="debouncedMaxPriceChange($(this))"></div>
+                    </div>
+                </div>
             </div>
+
+
+            <h4 class="FiltrationMap"></h4>
 
             <div class="PropertiesGH">
-                @foreach($properties as $key => $property)
-                    <!-- Card 1 -->
-                    <div class="PropertyItem" onclick="$(this).find('a')[0].click()">
-                        <h6>
-                            <div class="setbg" rel="{{ asset('') }}RRR360/Requirements/IMG/IMGs.png"></div>
-                            {{ $property->photos->count() ?? 0 }}
-                        </h6>
-                        <a href="{{ route('properties.show', [$property->id]) }}" class="d-none"></a>
-                        <img class="setsrc PropertyItemThumb"
-                             src="{{ $property->photo->thumbnail ?? '' }}"
-                             alt="{{ $property->title ?? '' }} - {{ $property->description ?? '' }}">
-                        <div class="PropertyItemDetails">
-                            <h4>{{ $property->title ?? '' }}</h4>
-                            <label><i class="fa fa-map-marker-alt"></i> {{ $property->location ?? '' }}</label>
-                            <h5>
-                                @if($property->building_age)
-                                    <u>{{ $property->building_age ?? '' }}</u>
-                                @endif
-                                @if($property->price_per)
-                                    <u>{{ $property->price_per ?? '' }}</u>
-                                @endif
-                                @if($property->ref_no)
-                                    <u>{{ $property->ref_no ?? '' }}</u>
-                                @endif
-                            </h5>
-                            <button type="button">
-                                Explore
-                                <div class="setbg" rel="{{ asset('') }}RRR360/Requirements/IMG/Discover.png"></div>
-                            </button>
-                        </div>
-                    </div>
-                @endforeach
+
             </div>
 
-            <div class="PropertiesPagination">
-                @for($page = 1; $page <= $properties->lastPage(); $page++)
-                    <a href="{{ $properties->url($page) }}"
-                       class="{{ $page == $properties->currentPage() ? 'ActivePage' : '' }}">
-                        {{ $page }}
-                    </a>
-                @endfor
-            </div>
+            <div class="PropertiesPagination"></div>
         </div>
     </section>
-
 @endsection
 @section('scripts')
     @parent
+    <script>
+        $(document).ready(function() {
+            // Get the 'category' parameter from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryParam = urlParams.get('category');
 
+            // If it exists, find the matching item and add the class
+            if (categoryParam) {
+                $('.PropertiesFiltrationFieldOptionItem').each(function() {
+                    if ($(this).attr('rel') == categoryParam) {
+                        $(this).addClass('Parametered');
+                    }
+                });
+            }
+        });
+
+        $(window).on('load',function (){
+            if($('.Parametered').length != 0){
+                $('.Parametered')[0].click()
+            }
+            GetAllProperties()
+        });
+    </script>
 @endsection

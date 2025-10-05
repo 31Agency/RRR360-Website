@@ -241,6 +241,34 @@ class Property extends Model implements HasMedia
                 });
         }
 
+        if ($request->input('specifications')) {
+            $query->whereHas('specifications',
+                function ($query) use ($request) {
+                    $query->whereIN('id', $request->input('specifications'));
+                });
+        }
+
+        if ($request->input('furnishing')) {
+            $query->whereHas('furnishing',
+                function ($query) use ($request) {
+                    $query->whereIN('id', $request->input('furnishing'));
+                });
+        }
+
+        if ($request->input('bedrooms')) {
+
+            $query
+                ->where('bedrooms', $request->input('bedrooms'))
+            ;
+        }
+
+        if ($request->input('max_price')) {
+
+            $query
+                ->where('price', '<=', $request->input('max_price'))
+            ;
+        }
+
         if ($request->input('search') && $request['search'] != null) {
 
             $query

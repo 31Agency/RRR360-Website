@@ -275,7 +275,7 @@ header {
     width: 230px;
     margin: 0 0;
     padding: 5px 15px;
-    z-index: 99;
+    z-index: 999999999999;
 }
 
 .HeaderTabs ul li:hover .SubTaB {
@@ -443,15 +443,15 @@ header {
 
 .PropertiesGH {
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     margin: 0 auto;
     width: 100%;
     flex-wrap: wrap;
 }
 
 .PropertyItem {
-    margin: 32px 0;
-    width: 30%;
+    margin: 32px 2%;
+    width: 29.3%;
     background: #0e0e0e;
     cursor: pointer;
     position: relative;
@@ -500,6 +500,9 @@ header {
     display: flex;
     justify-content: start;
     flex-wrap: wrap;
+    margin: 15px auto 0;
+    font-size: 16px;
+    font-weight: 200;
 }
 
 .PropertyItemDetails h5 u {
@@ -507,11 +510,8 @@ header {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    background: #000000;
     margin: 5px 0;
-    margin-right: 10px;
-    padding: 3px 7px;
-    font-size: 13px;
+    margin-right: 20px;
 }
 
 .PropertyItemDetails button {
@@ -1237,6 +1237,7 @@ footer {
     color: #3f3f3f;
     cursor: pointer;
     transition: 350ms;
+    z-index: 22;
 }
 
 .PopUp u:hover {
@@ -1667,7 +1668,7 @@ footer {
     width: fit-content;
 }
 
-.PropertiesPagination a {
+.PropertiesPagination button {
     min-width: 26px;
     aspect-ratio: 1/1;
     display: flex;
@@ -1680,14 +1681,17 @@ footer {
     border-radius: 5px;
     font-size: 15px;
     font-weight: 700;
+    border: none;
+    transition: 350ms;
 }
 
-.PropertiesPagination a:hover {
+.PropertiesPagination button:hover {
+    background: #343434;
 }
 
 .PropertiesPagination .ActivePage {
-    background: var(--theme);
-    color: #1e1e1e;
+    background: var(--theme) !important;
+    color: #1e1e1e !important;
 }
 
 .PropertyShowPage {
@@ -1938,11 +1942,17 @@ footer {
     list-style: square;
 }
 
+.SingleSpecificationsParent {
+    display: block;
+    margin: 0 0;
+    width: 42%;
+}
+
 .SingleSpecifications {
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 30px;
     width: 100%;
-    padding: 10px;
+    padding: 20px;
     background: #202020;
 }
 
@@ -1988,4 +1998,632 @@ footer {
     filter: invert(1);
     background-position: center center;
     background-repeat: no-repeat;
+}
+
+.PropertyItemDetails h7 {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 14px;
+}
+
+.PropertyItemDetails h8 {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.PropertyItemDetails h8 strong {
+    margin: 0 5px;
+    font-size: 15px;
+}
+
+.PropertyItemDetails h5 .HasIcon {
+    padding-left: 23px;
+    position: relative;
+}
+
+.PropertyItemDetails h5 .HasIcon img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    object-position: center center;
+    object-fit: contain;
+    filter: invert(1);
+}
+
+.PropertiesFiltration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 30px auto 0;
+    width: 100%;
+}
+
+.PropertiesFiltrationField {
+    min-width: 140px;
+    height: 40px;
+    background: #ffffff;
+    margin: 0 1%;
+    position: relative;
+    width: 18%;
+}
+
+
+.PropertiesFiltrationField h4 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: #181818;
+    font-size: 13px;
+    cursor: pointer;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* number of lines to show */
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    margin: 0;
+    padding: 12px 10px;
+    user-select: none;
+}
+
+.PropertiesFiltrationFieldOptions {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    width: 100%;
+    background: #f5f5f5;
+    z-index: 2222;
+    height: 160px;
+    overflow-y: auto;
+    padding: 5px;
+}
+
+.PropertiesFiltrationFieldOptionItem {
+    background: #e3e3e3;
+    color: #626262;
+    width: fit-content;
+    padding: 3px 9px;
+    display: inline-block;
+    margin: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 300ms;
+    user-select: none;
+}
+
+.PropertiesFiltrationField input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    padding: 0 10px;
+    font-size: 13px;
+    color: #232323;
+}
+
+.PropertiesFiltrationField h4 i {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #444444;
+    height: 100%;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.PropertiesFiltrationFieldOptionItem:hover {
+    transform: scale(1.1);
+    background: #d7d7d7;
+}
+
+.FiltrationSelectgedChoice {
+    background: var(--theme) !important;
+    transform: scale(1.0) !important;
+    color: #1b1b1b !important;
+}
+
+.PropertiesFiltrationParent {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    /* overflow: hidden; */
+    background: var(--theme);
+    z-index: 2;
+    padding: 76px 2%;
+    z-index: 22;
+}
+
+.PropertiesFiltrationDiv {
+}
+
+.PropertiesFiltrationHeader {
+    display: block;
+    margin: 17px auto;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 25px;
+    color: #181818;
+}
+
+.PropertiesFiltrationHeader u {
+    display: block;
+    margin: 5px auto;
+    width: 100%;
+    font-size: 15px;
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    word-spacing: 4px;
+}
+
+.AllPropertiesCover {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    object-position: center center;
+    mix-blend-mode: hard-light;
+    opacity: 0.6;
+    filter: contrast(0.5);
+}
+
+.FiltrationMap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.ActiveFilterTag {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: default;
+}
+
+.FiltrationRF {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 70vh;
+}
+
+.FiltrationRFDiv {
+    display: block;
+    margin: 0 auto;
+    width: 320px;
+    max-width: 90%;
+}
+
+.FiltrationRFDiv img {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    max-width: 100%;
+    filter: invert(1) hue-rotate(
+        32deg) brightness(3);
+}
+
+.FiltrationRFDiv h4 {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #b34545;
+}
+
+.FiltrationRFDiv p {
+    display: block;
+    margin: 15px auto;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 200;
+}
+
+.PropertyPageGallery {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
+
+.PropertyPageGalleryLeft {
+    display: block;
+    margin: 0 0;
+    width: 74%;
+}
+
+.PropertyPageGalleryLeft .setbg {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 470px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.PropertyPageGalleryRight {
+    display: block;
+    margin: 0 0;
+    width: 25%;
+}
+
+.PropertyPageGalleryRight .setbg {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 228px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+
+.PropertyPageGalleryRight .setbg:first-child {
+    margin-bottom: 14px;
+}
+
+.slider-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.slider-content {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    margin: 50px auto;
+    z-index: 10000;
+    text-align: center;
+}
+
+.slider-image {
+    width: 100%;
+    display: none;
+    border-radius: 8px;
+    object-fit: contain;
+    background: #2a2a2a;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 16px;
+    margin-top: -22px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.5);
+    left: 0;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+    left: unset;
+}
+
+#openGallery {
+    position: absolute;
+    right: 0;
+    bottom: 13px;
+    width: max-content;
+    background: #000000ad;
+    z-index: 222;
+    margin: 10px;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    padding-left: 45px;
+    cursor: pointer;
+    transition: 300ms;
+    font-size: 14px;
+}
+
+#openGallery .setbg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-size: 20px;
+    filter: invert(1);
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+#openGallery:hover {
+    transform: scale(1.1);
+    background: #121212;
+}
+
+.PropertyIntroduction {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    padding: 40px 0px 20px;
+}
+
+.PropertyIntroduction h1 {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 30px;
+    color: var(--theme);
+    font-weight: bold;
+}
+
+.PropertyIntroduction h1 u {
+    text-decoration: none;
+    color: unset;
+}
+
+.PropertyIntroduction h1 strong {
+    float: right;
+    font-weight: unset;
+}
+
+.PropertyIntroduction label {
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    font-size: 17px;
+    font-weight: 300;
+}
+
+.PropertyIntroduction label i {
+    margin-right: 4px;
+    color: #ab4141;
+}
+
+.MainSpecificationsGH {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    margin: 20px auto;
+    flex-wrap: wrap;
+}
+
+.MainSpecificationsItem {
+    display: block;
+    margin: 0 0;
+    width: auto;
+    min-width: 16.6%;
+    text-align: center;
+    border-left: solid 1px #363636;
+    padding: 10px 10px;
+}
+
+.MainSpecificationsItem label {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 14px;
+}
+
+.MainSpecificationsItem h5 {
+    display: flex;
+    margin: 10px auto;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.MainSpecificationsItem h5 .setbg {
+    display: block;
+    margin: 0 0;
+    width: 24px;
+    aspect-ratio: 1/1;
+    filter: invert(1);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 0;
+    margin-right: 10px;
+}
+
+
+.MainSpecificationsItem:last-child {
+    border-right: solid 1px #363636;
+}
+
+.PropertyPageDescription {
+    display: block;
+    margin: 0 0;
+    width: 55%;
+    padding: 20px;
+    background: #080808;
+}
+
+.PropertyPageDescription h4 {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: solid 1px #141414;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--theme);
+}
+
+.PropertyIntroduction h5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    background: #060606;
+    padding: 10px 13px;
+    font-size: 14px;
+}
+
+.PropertyPageDescriptionDiv {
+    display: block;
+    margin: 25px auto;
+    width: 100%;
+}
+
+.PropertyPageDescriptionDiv * {
+    max-width: 100% !important;
+}
+
+.SubSpecificationsGH {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px auto;
+    width: 100%;
+    align-items: start;
+    flex-wrap: wrap;
+    height: max-content;
+}
+
+.SingleSpecificationsParent .FAQItem {
+}
+
+.SingleSpecificationsParent .FAQItemInner {
+}
+
+.SingleSpecificationsParent .FAQItemInner h1 {
+    font-size: 19px;
+}
+
+.SingleSpecificationsParent .FAQItemInner p {
+    font-size: 17px;
+    margin: 8px auto;
+}
+
+.SingleSpecificationsParent .FAQItemInner i {
+}
+
+.SingleSpecificationsParent .OpenedFAQItem .FAQItemInner p {
+    display: list-item;
+    list-style: circle;
+}
+
+.Features {
+    display: block;
+    margin: 0 0;
+    width: 100%;
+    padding: 5px 15px;
+    background: #202020;
+}
+
+.FeaturesHeader {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: solid 1px #323232;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--theme);
+}
+
+.FeaturesGH {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.FeaturesItem {
+    display: block;
+    margin: 15px 0;
+    width: 48%;
+}
+
+.FeaturesItemHeader {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.FeaturesItem label {
+    display: block;
+    margin: 8px auto;
+    width: 100%;
+    position: relative;
+    padding: 5px 10px;
+    padding-left: 20px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.FeaturesItem label .setbg {
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 14px;
+    height: auto;
+    aspect-ratio: 1/1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    filter: invert(1);
 }

@@ -133,8 +133,6 @@
 @section('scripts')
     @parent
     <script>
-        const Asset = "{{asset("")}}";
-
         if($('.FAQItem').length != 0){
             $('.FAQItem').first().addClass('OpenedFAQItem')
         }

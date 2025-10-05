@@ -21,8 +21,8 @@
     }
 
     .PropertyItem {
-        margin: 15px 0;
-        width: 48%;
+        margin: 15px 2%;
+        width: 46%;
     }
 
     .AboutInner {
@@ -131,6 +131,7 @@
         width: 100%;
         padding: 0;
     }
+
     .SideMenuDiv ul li {
         display: block;
         margin: 0 auto;
@@ -165,7 +166,51 @@
         padding: 30px;
         padding-bottom: 105px;
     }
+
     .ImportantPopUpDiv .setbg {
         display: none;
+    }
+
+    .PropertiesFiltration {
+        justify-content: start;
+        align-items: start;
+    }
+
+    .PropertiesFiltrationField {
+        width: 46%;
+        margin: 10px 2%;
+    }
+
+    .PropertyIntroduction h1 strong {
+        float: unset;
+    }
+
+    .MainSpecificationsItem {
+        display: block;
+        margin: 13px 0;
+        width: auto;
+        min-width: 33.3%;
+        text-align: center;
+        padding: 10px 10px;
+        border: 0;
+    }
+
+
+    .SubSpecificationsGH {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .PropertyPageDescription {
+        display: block;
+        margin: 25px auto;
+        width: 100%;
+    }
+
+    .SingleSpecificationsParent {
+        display: block;
+        margin: 25px auto;
+        width: 100%;
     }
 }

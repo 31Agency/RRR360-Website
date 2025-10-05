@@ -158,7 +158,9 @@
         width: 37px;
         margin: 16px;
     }
-    .ScrollerBtn button .setbg {}
+
+    .ScrollerBtn button .setbg {
+    }
 
     .CopyRights p {
         display: block;
@@ -213,5 +215,59 @@
     .PropertyShowPageRightDetails h5 u {
         width: 48%;
         margin: 5px 1%;
+    }
+
+    .PropertiesFiltrationField {
+        margin: 10px auto;
+        width: 100%;
+    }
+
+    .PropertiesFiltrationParent {
+        padding: 45px 17px;
+    }
+
+    .PropertyPageGalleryLeft {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .PropertyPageGalleryRight {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .PropertyPageGalleryLeft .setbg {
+        height: unset;
+        aspect-ratio: 1/1;
+        margin: 7px auto;
+    }
+
+    .PropertyPageGalleryRight .setbg {
+        display: block;
+        margin: 0 0;
+        width: 49%;
+    }
+
+    .PropertyPageGallery {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .slider-content {
+        position: relative;
+        width: 95%;
+        max-width: 100%;
+        margin: 0 auto;
+        z-index: 10000;
+        text-align: center;
+    }
+
+    .MainSpecificationsItem {
+        margin: 18px 0;
+        width: 50%;
     }
 }
