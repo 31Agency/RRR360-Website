@@ -182,11 +182,13 @@
             <div class="col-lg-3 col-sm-12">
                 <div class="FooterSection">
                     <h3> Contact </h3>
-                    <label>
+                    <label onclick="$(this).find('a')[0].click()" style="cursor: pointer">
+                        <a href="tel:{{ $GlobalInfo->phone ?? '' }}" class="d-none"></a>
                         <i class="fa fa-phone"></i>
                         {{ $GlobalInfo->phone ?? '' }}
                     </label>
-                    <label>
+                    <label onclick="$(this).find('a')[0].click()" style="cursor: pointer">
+                        <a href="mailto:{{ $GlobalInfo->email ?? '' }}" class="d-none"></a>
                         <i class="fa fa-envelope"></i>
                         {{ $GlobalInfo->email ?? '' }}
                     </label>
