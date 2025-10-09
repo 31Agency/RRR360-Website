@@ -36,13 +36,13 @@ class PropertiesController extends Controller
     {
         abort_if(Gate::denies('property_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $categories     = Category::all()->pluck('title_en', 'id');
-        $floors         = Floor::all()->pluck('title_en', 'id');
-        $sections       = Section::all();
-        $statuses       = Status::all()->pluck('title_en', 'id');
-        $furnishings    = Furnishing::all()->pluck('title_en', 'id');
-        $systems        = System::all()->pluck('title_en', 'id');
-        $owners         = Owner::all()->pluck('name', 'id');
+        $categories  = Category::all()->pluck('title_en', 'id');
+        $floors      = Floor::all()->pluck('title_en', 'id');
+        $sections    = Section::all();
+        $statuses    = Status::all()->pluck('title_en', 'id');
+        $furnishings = Furnishing::all()->pluck('title_en', 'id');
+        $systems     = System::all()->pluck('title_en', 'id');
+        $owners      = Owner::all()->pluck('name', 'id');
 
         return view('admin.properties.create', compact('categories', 'sections', 'floors', 'statuses', 'furnishings', 'systems', 'owners'));
     }
@@ -65,13 +65,13 @@ class PropertiesController extends Controller
     {
         abort_if(Gate::denies('property_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $categories     = Category::all()->pluck('title_en', 'id');
-        $floors         = Floor::all()->pluck('title_en', 'id');
-        $sections       = Section::all();
-        $statuses       = Status::all()->pluck('title_en', 'id');
-        $furnishings    = Furnishing::all()->pluck('title_en', 'id');
-        $systems        = System::all()->pluck('title_en', 'id');
-        $owners         = Owner::all()->pluck('name', 'id');
+        $categories  = Category::all()->pluck('title_en', 'id');
+        $floors      = Floor::all()->pluck('title_en', 'id');
+        $sections    = Section::all();
+        $statuses    = Status::all()->pluck('title_en', 'id');
+        $furnishings = Furnishing::all()->pluck('title_en', 'id');
+        $systems     = System::all()->pluck('title_en', 'id');
+        $owners      = Owner::all()->pluck('name', 'id');
 
         return view('admin.properties.edit', compact('property', 'categories', 'sections', 'floors', 'statuses', 'furnishings', 'systems', 'owners'));
     }

@@ -228,6 +228,22 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.property.fields.guard_name') }}
+                        </th>
+                        <td>
+                            {{ $property->guard_name }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.guard_phone') }}
+                        </th>
+                        <td>
+                            {{ $property->guard_phone }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.property.fields.tags') }}
                         </th>
                         <td>
@@ -256,6 +272,22 @@
                         </th>
                         <td>
                             {!! $property->description_en !!}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.video') }}
+                        </th>
+                        <td>
+                            {!! $property->video !!}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.property.fields.virtual360') }}
+                        </th>
+                        <td>
+                            {!! $property->virtual360 !!}
                         </td>
                     </tr>
                     <tr>

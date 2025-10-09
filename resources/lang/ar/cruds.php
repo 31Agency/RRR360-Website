@@ -191,8 +191,12 @@ return [
         'fields'         => [
             'id'                          => 'ID',
             'id_helper'                   => '',
-            'photos'                      => 'Photos',
+            'photos'                      => 'Property Images',
             'photos_helper'               => '',
+            'video'                       => 'Property Video',
+            'video_helper'                => 'YouTube link',
+            'virtual360'                  => 'Virtual Tour (360)',
+            'virtual360_helper'           => 'Matter-port embed',
             'category_id'                 => 'Category',
             'category_id_helper'          => '',
             'floor_id'                    => 'Floor',

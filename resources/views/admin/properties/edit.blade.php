@@ -18,6 +18,7 @@
             @csrf
             @method('PUT')
             <div class="row">
+                {{--                Basic Info--}}
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
@@ -167,6 +168,7 @@
                         </div>
                     </div>
                 </div>
+                {{--                Location Details--}}
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
@@ -346,6 +348,7 @@
                         </div>
                     </div>
                 </div>
+                {{--                Property Specs--}}
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
@@ -540,6 +543,7 @@
                         </div>
                     </div>
                 </div>
+                {{--                Systems & Comfort--}}
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
@@ -635,6 +639,7 @@
                         </div>
                     </div>
                 </div>
+                {{--                Outdoor Features--}}
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
@@ -730,6 +735,7 @@
                         </div>
                     </div>
                 </div>
+                {{--                Parking & Building--}}
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
@@ -837,6 +843,7 @@
                         </div>
                     </div>
                 </div>
+                {{--                Financials--}}
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
@@ -984,6 +991,7 @@
                         </div>
                     </div>
                 </div>
+                {{--                Landlord/Contact--}}
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
@@ -1041,6 +1049,7 @@
                         </div>
                     </div>
                 </div>
+                {{--                Media--}}
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
@@ -1061,9 +1070,34 @@
                                     {{ trans('cruds.property.fields.photos_helper') }}
                                 </p>
                             </div>
+                            <div class="form-group {{ $errors->has('video') ? 'has-error' : '' }}">
+                                <label for="video">{{ trans('cruds.property.fields.video') }}</label>
+                                <textarea id="video" name="video" class="form-control summernote">{{ old('video', isset($property) ? $property->video : '') }}</textarea>
+                                @if($errors->has('video'))
+                                    <em class="invalid-feedback">
+                                        {{ $errors->first('video') }}
+                                    </em>
+                                @endif
+                                <p class="helper-block">
+                                    {{ trans('cruds.property.fields.video_helper') }}
+                                </p>
+                            </div>
+                            <div class="form-group {{ $errors->has('virtual360') ? 'has-error' : '' }}">
+                                <label for="virtual360">{{ trans('cruds.property.fields.virtual360') }}</label>
+                                <textarea id="virtual360" name="virtual360" class="form-control summernote">{{ old('virtual360', isset($property) ? $property->virtual360 : '') }}</textarea>
+                                @if($errors->has('virtual360'))
+                                    <em class="invalid-feedback">
+                                        {{ $errors->first('virtual360') }}
+                                    </em>
+                                @endif
+                                <p class="helper-block">
+                                    {{ trans('cruds.property.fields.virtual360_helper') }}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                {{--                Extra Info--}}
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">

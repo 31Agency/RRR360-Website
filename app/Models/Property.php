@@ -63,6 +63,8 @@ class Property extends Model implements HasMedia
         'tags',
         'availability_date',
         'notes',
+        'video',
+        'virtual360',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -192,24 +194,6 @@ class Property extends Model implements HasMedia
             } else {
                 $file->url = str_replace('localhost', 'localhost:8000', $file->getUrl());
                 $file->thumbnail = str_replace('localhost', 'localhost:8000', $file->getUrl('thumb'));
-            }
-        }
-
-        return $file;
-    }
-
-    public function getVideoAttribute()
-    {
-        $file = $this->getMedia('video')->last();
-
-        if ($file) {
-            if ($_SERVER['REMOTE_ADDR'] != "127.0.0.1")
-            {
-                $file->url = str_replace('localhost/storage', $_SERVER['SERVER_NAME'].'/system/storage/app/public' , $file->getUrl(''));
-             }
-            else
-            {
-                $file->url = str_replace('localhost', 'localhost:8000', $file->getUrl(''));
             }
         }
 
