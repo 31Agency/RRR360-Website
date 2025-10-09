@@ -58,6 +58,8 @@ class Property extends Model implements HasMedia
         'maintenance_fee',
         'landlord_name',
         'landlord_phone',
+        'guard_name',
+        'guard_phone',
         'tags',
         'availability_date',
         'notes',

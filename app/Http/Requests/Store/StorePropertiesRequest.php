@@ -85,13 +85,6 @@ class StorePropertiesRequest extends FormRequest
                 'required',
                 'array',
             ],
-            'owners.*' => [
-                'exists:specifications,id',
-            ],
-            'owners'   => [
-                'required',
-                'array',
-            ],
         ];
     }
 }
