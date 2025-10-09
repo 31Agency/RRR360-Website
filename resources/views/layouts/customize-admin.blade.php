@@ -106,7 +106,7 @@
         </div>
         <div class="credits">
 
-            Designed by <a href="https://Starlet-IT.com/">Starlet-IT</a>
+            Designed by <a href="https://31-Agency.com/">31-Agency</a>
         </div>
     </footer><!-- End Footer -->
 

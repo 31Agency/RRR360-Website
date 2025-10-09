@@ -98,6 +98,14 @@
                     <label>Building Age</label>
                     <h5>{{ $property->building_age ?? '' }}</h5>
                 </div>
+                <div class="MainSpecificationsItem">
+                    <label>Guard name</label>
+                    <h5>{{ $property->guard_name ?? '' }}</h5>
+                </div>
+                <div class="MainSpecificationsItem">
+                    <label>Guard phone</label>
+                    <h5>{{ $property->guard_phone ?? '' }}</h5>
+                </div>
             </div>
 
             <div class="SubSpecificationsGH">
@@ -149,8 +157,9 @@
                     @endif
                 </div>
             </div>
+            {!! $property->video !!}
 
-
+            {!! $property->virtual360 !!}
             @if($related_properties->count() > 0)
                 <div class="RelatedProperties">
                     <div class="RelatedPropertiesHeader">

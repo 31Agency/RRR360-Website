@@ -81,16 +81,6 @@
             </li>
         @endcan
 
-        @can('owner_access')
-            <li class="nav-item">
-                <a href="{{ route('admin.owners.index') }}"
-                   class="nav-link {{ request()->is('admin/owners') || request()->is('admin/owners/*') ? 'active' : 'collapsed' }}">
-                    <i class="fas fa-user-tie fa-fw"></i>
-                    <span>{{ trans('cruds.owner.title') }}</span>
-                </a>
-            </li>
-        @endcan
-
         @can('status_access')
             <li class="nav-item">
                 <a href="{{ route('admin.statuses.index') }}"
